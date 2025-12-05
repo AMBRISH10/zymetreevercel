@@ -1,0 +1,103 @@
+<!-- footer.component.html -->
+<footer class="footer-section">
+  <div class="container">
+    <div class="footer-content">
+      <div class="row">
+        <!-- Company Info Column -->
+        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+          <div class="footer-widget">
+            <h3 class="footer-logo">YourBrand</h3>
+            <p class="footer-description">
+              We are a team of talented developers making websites with modern technologies and creative designs.
+            </p>
+            <div class="social-links">
+              <a href="#" class="social-link" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="social-link" aria-label="Twitter">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="social-link" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#" class="social-link" aria-label="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Links Column -->
+        <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+          <div class="footer-widget">
+            <h4 class="widget-title">Quick Links</h4>
+            <ul class="footer-links">
+              <li><a href="#" (click)="navigate($event, 'about')">About Us</a></li>
+              <li><a href="#" (click)="navigate($event, 'services')">Services</a></li>
+              <li><a href="#" (click)="navigate($event, 'portfolio')">Portfolio</a></li>
+              <li><a href="#" (click)="navigate($event, 'contact')">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Support Column -->
+        <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+          <div class="footer-widget">
+            <h4 class="widget-title">Support</h4>
+            <ul class="footer-links">
+              <li><a href="#" (click)="navigate($event, 'faq')">FAQ</a></li>
+              <li><a href="#" (click)="navigate($event, 'privacy')">Privacy Policy</a></li>
+              <li><a href="#" (click)="navigate($event, 'terms')">Terms of Service</a></li>
+              <li><a href="#" (click)="navigate($event, 'help')">Help Center</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Newsletter Column -->
+        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+          <div class="footer-widget">
+            <h4 class="widget-title">Newsletter</h4>
+            <p class="newsletter-text">Subscribe to our newsletter for updates and news.</p>
+            <form [formGroup]="newsletterForm" (ngSubmit)="onSubscribe()" class="newsletter-form">
+              <div class="input-group">
+                <input type="email" formControlName="email" class="form-control" placeholder="Enter your email"
+                  [class.is-invalid]="email?.invalid && email?.touched">
+                <button type="submit" class="btn-subscribe" [disabled]="newsletterForm.invalid || isSubmitting">
+                  <span *ngIf="!isSubmitting">Subscribe</span>
+                  <span *ngIf="isSubmitting">
+                    <i class="fas fa-spinner fa-spin"></i>
+                  </span>
+                </button>
+              </div>
+              <div *ngIf="email?.invalid && email?.touched" class="error-message">
+                <small *ngIf="email?.errors?.['required']">Email is required</small>
+                <small *ngIf="email?.errors?.['email']">Please enter a valid email</small>
+              </div>
+              <div *ngIf="subscriptionMessage" class="subscription-message" [class.success]="subscriptionSuccess">
+                {{ subscriptionMessage }}
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <div class="row align-items-center">
+        <div class="col-md-6 text-center text-md-start">
+          <p class="copyright-text">
+            © {{ currentYear }} YourBrand. All rights reserved.
+          </p>
+        </div>
+        <div class="col-md-6 text-center text-md-end">
+          <ul class="footer-bottom-links">
+            <li><a href="#" (click)="navigate($event, 'privacy')">Privacy</a></li>
+            <li><a href="#" (click)="navigate($event, 'terms')">Terms</a></li>
+            <li><a href="#" (click)="navigate($event, 'sitemap')">Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

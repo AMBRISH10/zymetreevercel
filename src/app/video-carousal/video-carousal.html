@@ -1,0 +1,57 @@
+<div class="carousel-container">
+  <!-- <div class="carousel-header">
+    <h1>Video Showcase</h1>
+    <p>Watch our collection</p>
+  </div> -->
+
+  <div class="carousel-main">
+    <div class="carousel-viewport">
+      <div class="carousel-track" [style.transform]="'translateX(-' + (currentIndex * 100) + '%)'">
+        <div class="carousel-slide" *ngFor="let video of videos; let i = index">
+          <div class="video-wrapper">
+            <video 
+              #videoPlayer
+              [src]="video.url"
+              [muted]="true"
+              [poster]="video.thumbnail"
+              preload="auto"
+              playsinline>
+            </video>
+          </div>
+          <div class="video-info">
+            <h3>{{ video.title }}</h3>
+            <p>{{ video.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Progress Indicators -->
+    <div class="progress-indicators d-none">
+      <div 
+        *ngFor="let video of videos; let i = index" 
+        class="progress-bar-container">
+        <div 
+          class="progress-bar" 
+          [class.active]="i === currentIndex"
+          [class.completed]="i < currentIndex">
+        </div>
+      </div>
+    </div>
+
+    <!-- Thumbnails Navigation -->
+    <!-- <div class="thumbnail-nav">
+      <div 
+        *ngFor="let video of videos; let i = index" 
+        class="thumbnail-item" 
+        [class.active]="i === currentIndex"
+        [class.completed]="i < currentIndex">
+        <div class="thumbnail-image" [ngStyle]="getThumbnailStyle(video)"></div>
+        <div class="thumbnail-overlay">
+          <div class="thumbnail-number">{{ i + 1 }}</div>
+        </div>
+        <div class="thumbnail-title">{{ video.title }}</div>
+      </div>
+    </div> -->
+  </div>
+</div>
