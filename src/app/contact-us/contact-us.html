@@ -1,1 +1,154 @@
-<p>contact-us works!</p>
+<div class="zc-contact-page">
+    <!-- Contact block -->
+    <div class="zc-contact-card container">
+        <div class="row g-4">
+            <!-- Left: address info -->
+            <div class="col-12 col-lg-4">
+                <section class="zc-contact-info">
+                    <h2 class="zc-contact-title">Contact Us</h2>
+
+                    <div class="zc-info-section">
+                        <div class="zc-info-heading">
+                            <span class="zc-info-icon zc-info-icon--office"></span>
+                            <span class="zc-info-label">Registered office</span>
+                        </div>
+                        <p class="zc-info-text">
+                            Zymetree Tech &amp; Trade,<br>
+                            (A Registered MSME Unit),<br>
+                            No. B4/25, Pulamaipithan Salai<br>
+                            Industrial Estate, Martimalai Nagar,<br>
+                            Chengalpattu District,<br>
+                            Tamil Nadu - 603209, India
+                        </p>
+                    </div>
+
+                    <div class="zc-info-section">
+                        <div class="zc-info-item">
+                            <span class="zc-info-icon zc-info-icon--phone"></span>
+                            <a href="tel:+919445927940" class="zc-info-link">
+                                +91 94459 27940
+                            </a>
+                            <span class="zc-info-separator">/</span>
+                            <a href="tel:+916369776729" class="zc-info-link">
+                                +91 63697 76729
+                            </a>
+                        </div>
+                        <div class="zc-info-item">
+                            <span class="zc-info-icon zc-info-icon--whatsapp"></span>
+                            <a href="tel:+919445927940" class="zc-info-link">
+                                +91 94459 27940
+                            </a>
+                        </div>
+                        <div class="zc-info-item">
+                            <span class="zc-info-icon zc-info-icon--mail"></span>
+                            <a href="mailto:marketing.zymetree@gmail.com" class="zc-info-link">
+                                marketing.zymetree@gmail.com
+                            </a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right: form -->
+            <div class="col-12 col-lg-8">
+                <section class="zc-contact-form-wrapper">
+                    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="zc-contact-form">
+
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="zc-field-label">Name *</label>
+                                <input class="zc-text-input" type="text" formControlName="name">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="zc-field-label">Email Address *</label>
+                                <input class="zc-text-input" type="email" formControlName="email">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="zc-field-label">Phone Number *</label>
+                                <input class="zc-text-input" type="tel" formControlName="phone">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="zc-field-label">City</label>
+                                <input class="zc-text-input" type="text" formControlName="city">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="zc-field-label">State / Province</label>
+                                <input class="zc-text-input" type="text" formControlName="state">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="zc-field-label">ZIP / Postal Code</label>
+                                <input class="zc-text-input" type="text" formControlName="zip">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="zc-field-label">Country *</label>
+                                <select class="zc-select-input" formControlName="country">
+                                    <option value="" disabled selected>
+                                        Select country
+                                    </option>
+                                    <option value="India">India</option>
+                                    <option value="USA">United States</option>
+                                    <option value="UK">United Kingdom</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="zc-field-label">Website</label>
+                                <input class="zc-text-input" type="url" formControlName="website"
+                                    placeholder="https://">
+                            </div>
+
+                            <div class="col-12">
+                                <label class="zc-field-label">Purpose *</label>
+                                <div class="zc-select-wrapper">
+                                    <select class="zc-select-input" formControlName="purpose">
+                                        <option value="" disabled selected>
+                                            Please select an option
+                                        </option>
+                                        <option *ngFor="let p of purposes" [value]="p">
+                                            {{ p }}
+                                        </option>
+                                    </select>
+                                    <span class="zc-select-arrow"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <label class="zc-field-label">
+                                    Please let us know how we can help..! *
+                                </label>
+                                <div class="zc-textarea-wrapper">
+                                    <textarea class="zc-textarea" rows="4" formControlName="message"></textarea>
+                                    <span class="zc-char-counter">
+                                        {{ remainingChars }} / 180
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <button type="submit" class="zc-submit-btn" [disabled]="contactForm.invalid">
+                                    Request information
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Map section -->
+    <section class="zc-map-section">
+        <div class="zc-map-overlay"></div>
+        <iframe class="zc-map-frame"
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d118337.77074833543!2d80.026833!3d12.807252!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52f9ba216442e5%3A0xf77f21ef323a7acd!2sZymetree%20Tech%20%26%20Trade!5e1!3m2!1sen!2sus!4v1766354599041!5m2!1sen!2sus"
+            style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+
+</div>

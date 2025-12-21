@@ -13,10 +13,59 @@ body {
     overflow-x: hidden;
 }
 
-.border{
+.border {
     border: 1pxsolid white;
 }
 
-.w-20{
+.w-20 {
     width: 20%;
 }
+
+/* No custom @font-face needed; FA provides the font */
+/* Base style for all icon-* */
+[class^="icon-"],
+[class*=" icon-"] {
+    font-family: 'FontAwesome';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Map to FA 4.7 unicodes */
+.icon-leaf::before {
+    content: "\f06c";
+}
+
+/* fa-leaf */
+.icon-shield::before {
+    content: "\f132";
+}
+
+/* fa-shield */
+.icon-sprout::before {
+    content: "\f18c";
+}
+
+/* fa-pagelines */
+.icon-sparkles::before {
+    content: "\f005";
+}
+
+/* fa-star (or any you like) */
+.icon-droplets::before {
+    content: "\f043";
+}
+
+/* fa-tint */
+.icon-chevron-right::before {
+    content: "\f054";
+}
+
+/* fa-chevron-right */
+.icon-chevron-down::before {
+    content: "\f078";
+}
+
+/* fa-chevron-down */

@@ -13,32 +13,35 @@ interface CardData {
   styleUrl: './personal-care.css',
 })
 export class PersonalCare {
-  cardItems: CardData[] = [
-    {
-      title: 'Handmade Soaps',
-      description: 'Made in small batches to ensure purity and quality, our soaps are free from harsh chemicals, synthetic fragrances, and artificial preservatives. Choose your preferred fragrance blend, skin-type formulation, and design to create a bar that truly matches your personal style.',
-      imageUrl: 'https://images.pexels.com/photos/6444/pencil-typography-black-design.jpg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
-      labelText: 'Design'
-    },
-    {
-      title: 'Code',
-      description: 'Code review (sometimes referred to as peer review) is a software quality assurance activity in which one or several people check a program mainly by viewing and reading parts of its source code, and they do so after implementation or as an interruption of implementation.',
-      imageUrl: 'https://images.pexels.com/photos/276452/pexels-photo-276452.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-      labelText: 'Code'
-    },
-    // {
-    //   title: 'Launch',
-    //   description: 'A software release life cycle is the sum of the stages of development and maturity for a piece of computer software. Cycles range from its initial development to its eventual release, and include updated versions of the released version to help improve software or fix software bugs still present in the software.',
-    //   imageUrl: 'https://images.pexels.com/photos/355906/pexels-photo-355906.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-    //   labelText: 'Launch'
-    // },
-    // {
-    //   title: 'Earn',
-    //   description: 'You earn money when you trade your time and energy for money. I earn my money by working in construction.',
-    //   imageUrl: 'https://images.pexels.com/photos/928181/pexels-photo-928181.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-    //   labelText: 'Earn'
-    // }
-  ];
+
+  selectedCards: any[] = [];
+
+  // cardItems: CardData[] = [
+  //   {
+  //     title: 'Handmade Soaps',
+  //     description: 'Made in small batches to ensure purity and quality, our soaps are free from harsh chemicals, synthetic fragrances, and artificial preservatives. Choose your preferred fragrance blend, skin-type formulation, and design to create a bar that truly matches your personal style.',
+  //     imageUrl: 'https://images.pexels.com/photos/6444/pencil-typography-black-design.jpg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
+  //     labelText: 'Design'
+  //   },
+  //   {
+  //     title: 'Code',
+  //     description: 'Code review (sometimes referred to as peer review) is a software quality assurance activity in which one or several people check a program mainly by viewing and reading parts of its source code, and they do so after implementation or as an interruption of implementation.',
+  //     imageUrl: 'https://images.pexels.com/photos/276452/pexels-photo-276452.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  //     labelText: 'Code'
+  //   },
+  //   // {
+  //   //   title: 'Launch',
+  //   //   description: 'A software release life cycle is the sum of the stages of development and maturity for a piece of computer software. Cycles range from its initial development to its eventual release, and include updated versions of the released version to help improve software or fix software bugs still present in the software.',
+  //   //   imageUrl: 'https://images.pexels.com/photos/355906/pexels-photo-355906.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  //   //   labelText: 'Launch'
+  //   // },
+  //   // {
+  //   //   title: 'Earn',
+  //   //   description: 'You earn money when you trade your time and energy for money. I earn my money by working in construction.',
+  //   //   imageUrl: 'https://images.pexels.com/photos/928181/pexels-photo-928181.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  //   //   labelText: 'Earn'
+  //   // }
+  // ];
 
   onReadMoreClick(title: string): void {
     console.log(`Read more clicked for: ${title}`);
@@ -85,4 +88,36 @@ export class PersonalCare {
     console.log('Login button clicked');
     // Add your login logic here
   }
+
+  showBelowCards(type: string) {
+  if (type === 'soap') {
+    this.selectedCards = [
+      {
+        title: 'Herbal Soap',
+        desc: 'Made with neem, tulsi and essential oils.',
+        image: 'https://images.pexels.com/photos/4202924/pexels-photo-4202924.jpeg'
+      },
+      {
+        title: 'Charcoal Soap',
+        desc: 'Deep cleansing activated charcoal soap.',
+        image: 'https://images.pexels.com/photos/6621334/pexels-photo-6621334.jpeg'
+      }
+    ];
+  }
+
+  if (type === 'code') {
+    this.selectedCards = [
+      {
+        title: 'Code Review',
+        desc: 'Improve readability and maintainability.',
+        image: 'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg'
+      },
+      {
+        title: 'Best Practices',
+        desc: 'Follow clean architecture and standards.',
+        image: 'https://images.pexels.com/photos/1181676/pexels-photo-1181676.jpeg'
+      }
+    ];
+  }
+}
 }

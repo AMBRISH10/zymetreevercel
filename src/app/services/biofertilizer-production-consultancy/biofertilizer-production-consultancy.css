@@ -1,0 +1,531 @@
+
+.aran-container {
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    color: #1a1a1a;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8f5e9 100%);
+    min-height: 100vh;
+}
+
+/* Header */
+.aran-header {
+    background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
+    color: white;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.aran-header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.aran-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.aran-logo-text {
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.aran-tagline {
+    font-size: 0.75rem;
+    opacity: 0.9;
+    margin-top: 0.25rem;
+}
+
+.aran-nav {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.aran-nav-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+}
+
+.aran-nav-link:hover,
+.aran-nav-link.active {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.aran-mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+/* Hero */
+.aran-hero {
+    background: linear-gradient(135deg,
+            rgba(0, 0, 0, 0),
+            rgba(255, 255, 255, 0)),
+        url('https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=1600&h=900&fit=crop') center/cover;
+    color: white;
+    padding: 5rem 1.5rem;
+    text-align: center;
+}
+
+.aran-hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.aran-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.aran-hero-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+}
+
+.aran-hero-features {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.aran-hero-feature {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
+}
+
+/* Main */
+.aran-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+}
+
+.aran-section {
+    margin-bottom: 4rem;
+}
+
+.aran-section-title {
+    font-size: 2.5rem;
+    color: #2e7d32;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.aran-section-description {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+/* Benefits grid */
+.aran-benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.aran-benefit-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s;
+    border: 2px solid transparent;
+}
+
+.aran-benefit-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(46, 125, 50, 0.15);
+    border-color: #66bb6a;
+}
+
+.aran-benefit-icon {
+    background: linear-gradient(135deg, #66bb6a, #43a047);
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.aran-benefit-title {
+    font-size: 1.2rem;
+    color: #2e7d32;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+/* Products */
+.aran-products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.aran-product-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s;
+}
+
+.aran-product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(46, 125, 50, 0.15);
+}
+
+.aran-product-header {
+    background: linear-gradient(135deg, #66bb6a, #43a047);
+    color: white;
+    padding: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.aran-product-name {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.aran-product-desc {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    opacity: 0.9;
+}
+
+.aran-product-body {
+    padding: 1.5rem;
+}
+
+.aran-product-detail {
+    margin-bottom: 1.2rem;
+}
+
+.aran-product-label {
+    font-weight: 600;
+    color: #2e7d32;
+    margin-bottom: 0.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.aran-product-value {
+    color: #555;
+    line-height: 1.6;
+}
+
+.nitrogen-name {
+    color: #2e7d32;
+    margin-bottom: 1rem;
+}
+
+.nitrogen-dosage {
+    font-weight: 600;
+    color: #2e7d32;
+}
+
+.dosage-strong {
+    font-weight: 600;
+    color: #2e7d32;
+}
+
+/* Nitrogen grid */
+.aran-nitrogen-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.aran-nitrogen-card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-left: 4px solid #43a047;
+    transition: all 0.3s;
+}
+
+.aran-nitrogen-card:hover {
+    transform: translateX(5px);
+    box-shadow: 0 8px 20px rgba(46, 125, 50, 0.15);
+}
+
+/* Biocontrol */
+.aran-biocontrol-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.aran-biocontrol-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-top: 4px solid #ff6f00;
+    transition: all 0.3s;
+}
+
+.aran-biocontrol-card:hover {
+    transform: scale(1.05);
+}
+
+.biocontrol-name {
+    color: #ff6f00;
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+}
+
+.biocontrol-label {
+    color: #ff6f00;
+}
+
+/* Images */
+.aran-image-container {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.aran-product-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* FAA specific */
+.extra-top {
+    margin-top: 2rem;
+}
+
+.faa {
+    background: linear-gradient(135deg, #42a5f5, #1976d2);
+}
+
+.faa-title {
+    color: #1976d2;
+}
+
+.application-card {
+    margin-top: 3rem;
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.application-title {
+    color: #1976d2;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.application-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.application-heading {
+    color: #2e7d32;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.application-text {
+    color: #555;
+    line-height: 1.6;
+}
+
+.application-note {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: #e8f5e9;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.application-note p {
+    color: #2e7d32;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+/* Soil section */
+.soil {
+    background: linear-gradient(135deg, #8d6e63, #5d4037);
+}
+
+.soil-title {
+    color: #5d4037;
+}
+
+.soil-products-card {
+    margin-top: 3rem;
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.soil-products-title {
+    color: #5d4037;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.soil-products-list {
+    list-style: none;
+    padding: 0;
+}
+
+.soil-product-item {
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    background: #f5f5f5;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.soil-icon {
+    color: #5d4037;
+}
+
+/* Footer */
+.aran-footer {
+    background: linear-gradient(135deg, #1b5e20, #2e7d32);
+    color: white;
+    padding: 3rem 1.5rem 1.5rem;
+    margin-top: 4rem;
+}
+
+.aran-footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.aran-footer-logo {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.aran-footer-text-main {
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
+
+.aran-footer-text-sub {
+    opacity: 0.8;
+    font-size: 0.9rem;
+}
+
+.aran-footer-copy {
+    margin-top: 2rem;
+    opacity: 0.7;
+    font-size: 0.85rem;
+}
+
+/* Basic icon placeholders – replace with lucide-angular components or SVGs */
+.icon-leaf,
+.icon-droplets,
+.icon-sprout,
+.icon-shield,
+.icon-sparkles,
+.icon-menu,
+.icon-x,
+.icon-chevron,
+.icon-chevron-down,
+.icon-chevron-right {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .aran-nav {
+        display: none;
+    }
+
+    .aran-mobile-menu-btn {
+        display: block;
+    }
+
+    .aran-nav.mobile-open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #2e7d32;
+        padding: 1rem;
+        gap: 0.5rem;
+    }
+
+    .aran-hero h1 {
+        font-size: 2rem;
+    }
+
+    .aran-hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .aran-section-title {
+        font-size: 1.8rem;
+    }
+
+    .aran-products-grid,
+    .aran-nitrogen-grid {
+        grid-template-columns: 1fr;
+    }
+}

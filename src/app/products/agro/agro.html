@@ -1,1 +1,239 @@
-<p>agro works!</p>
+<div class="specialty-chemicals-container">
+    <div class="hero-section">
+        <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="4000"
+            data-bs-pause="false">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                <!-- <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="5" aria-label="Slide 6"></button> -->
+            </div>
+
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="../../../assets/sea_wead.jpg" class="d-block w-100" alt="Water Conservation">
+                    <div class="carousel-overlay"></div>
+                    <div class="carousel-caption">
+                        <div class="container">
+                            <h1 class="hero-title">
+                                SEAWEED EXTRACT
+                            </h1>
+                            <p class="hero-description">
+                                A natural plant growth booster rich in nutrients and bioactive compounds.Enhances root
+                                development, yield, and stress resistance.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="../../../assets/fish_oil.jpg" class="d-block w-100" alt="Clean Water Technology">
+                    <div class="carousel-overlay"></div>
+                    <div class="carousel-caption">
+                        <div class="container">
+                            <h1 class="hero-title">
+                                FISH AMINO ACID
+                            </h1>
+                            <p class="hero-description">
+                                An organic nutrient source that promotes healthy vegetative growth.Improves soil
+                                microbes and plant metabolism naturally.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="../../../assets/veggie.jpg"
+                        class="d-block w-100" alt="Sustainable Future">
+                    <div class="carousel-overlay"></div>
+                    <div class="carousel-caption">
+                        <div class="container">
+                            <h1 class="hero-title">
+                                AGRO WASTE DECOMPOSER
+                            </h1>
+                            <p class="hero-description">
+                                Speeds up decomposition of crop residues into useful organic matter.Improves soil
+                                fertility while reducing farm waste.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="../../../assets/trash.jpg"
+                        class="d-block w-100" alt="Sustainable Future">
+                    <div class="carousel-overlay"></div>
+                    <div class="carousel-caption">
+                        <div class="container">
+                            <h1 class="hero-title">
+                                ENRICHED COMPOST
+                            </h1>
+                            <p class="hero-description">
+                                Nutrient-rich compost that improves soil structure and fertility.Supports healthy crop
+                                growth and better moisture retention.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="../../../assets/biofertlizer.jpg"
+                        class="d-block w-100" alt="Sustainable Future">
+                    <div class="carousel-overlay"></div>
+                    <div class="carousel-caption">
+                        <div class="container">
+                            <h1 class="hero-title">
+                                BIOFERTILIZER
+                            </h1>
+                            <p class="hero-description">
+                                Contains beneficial microbes that enhance nutrient availability.Improves soil health and
+                                reduces chemical fertilizer use.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="carousel-item">
+                    <img src="https://img.freepik.com/free-photo/asian-woman-using-alcohol-gel-hand-sanitizer-wash-hand-protect-coronavirus-female-push-alcohol-bottle-clean-hand-hygiene-when-social-distancing-stay-home-self-quarantine-time_7861-2480.jpg?semt=ais_hybrid&w=740&q=80"
+                        class="d-block w-100" alt="Sustainable Future">
+                    <div class="carousel-overlay"></div>
+                    <div class="carousel-caption">
+                        <div class="container">
+                            <h1 class="hero-title">
+                                DISINFECTANTS
+                            </h1>
+                            <p class="hero-description">
+                                Committed to environmental stewardship and sustainable practices. We're building a
+                                future where
+                                clean water and environmental protection go hand in hand.
+                            </p>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+</div>
+<div class="agro-container">
+    <!-- Hero Section -->
+    <!-- <section class="hero-section" @fadeInUp>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Agricultural Solutions</h1>
+            <p class="hero-subtitle">Premium Quality Products for Sustainable Farming</p>
+            <button class="hero-cta">Explore Products</button>
+        </div>
+    </section> -->
+
+    <!-- Products List -->
+    <section class="products-section">
+        <div class="content-wrapper">
+            <h2 class="section-title">Our Products</h2>
+            <div class="products-list" [@staggerFadeIn]="products.length">
+                <div *ngFor="let product of products" class="product-item" (click)="openDialog(product)" @scaleIn>
+                    <div class="product-item-content">
+                        <div class="product-icon">🌿</div>
+                        <h3 class="product-item-name">{{ product.name }}</h3>
+                        <p class="product-item-desc">{{ product.description }}</p>
+                        <span class="learn-more">Learn More →</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <!-- <section class="features-section" @fadeInUp>
+        <div class="content-wrapper">
+            <h2 class="section-title">Why Choose Us</h2>
+            <div class="features-grid">
+                <div class="feature-item" @scaleIn>
+                    <div class="feature-icon">🌱</div>
+                    <h3 class="feature-title">100% Organic</h3>
+                    <p class="feature-text">All products are certified organic and eco-friendly</p>
+                </div>
+                <div class="feature-item" @scaleIn>
+                    <div class="feature-icon">🚚</div>
+                    <h3 class="feature-title">Fast Delivery</h3>
+                    <p class="feature-text">Quick and reliable delivery across the country</p>
+                </div>
+                <div class="feature-item" @scaleIn>
+                    <div class="feature-icon">💰</div>
+                    <h3 class="feature-title">Best Prices</h3>
+                    <p class="feature-text">Competitive pricing with bulk discounts</p>
+                </div>
+                <div class="feature-item" @scaleIn>
+                    <div class="feature-icon">🎯</div>
+                    <h3 class="feature-title">Expert Support</h3>
+                    <p class="feature-text">24/7 agricultural expert consultation</p>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Dialog Popup -->
+    <div class="dialog-overlay" *ngIf="selectedProduct" (click)="closeDialog()" @fadeIn>
+        <div class="dialog-container" (click)="$event.stopPropagation()" @slideUp>
+            <button class="dialog-close" (click)="closeDialog()">×</button>
+
+            <div class="dialog-content">
+                <div class="dialog-header">
+                    <div class="dialog-icon">🌿</div>
+                    <h2 class="dialog-title">{{ selectedProduct.name }}</h2>
+                    <p class="dialog-subtitle">{{ selectedProduct.description }}</p>
+                </div>
+
+                <div class="dialog-body">
+                    <div class="dialog-section">
+                        <h3 class="dialog-section-title">Overview</h3>
+                        <p class="dialog-text">{{ selectedProduct.detailedDescription }}</p>
+                    </div>
+
+                    <div class="dialog-section">
+                        <h3 class="dialog-section-title">Composition</h3>
+                        <p class="dialog-text">{{ selectedProduct.composition }}</p>
+                    </div>
+
+                    <div class="dialog-section">
+                        <h3 class="dialog-section-title">Key Benefits</h3>
+                        <ul class="dialog-list">
+                            <li *ngFor="let benefit of selectedProduct.benefits" class="dialog-list-item">
+                                {{ benefit }}
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="dialog-section">
+                        <h3 class="dialog-section-title">Applications</h3>
+                        <ul class="dialog-list">
+                            <li *ngFor="let app of selectedProduct.applications" class="dialog-list-item">
+                                {{ app }}
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="dialog-section">
+                        <h3 class="dialog-section-title">Recommended Dosage</h3>
+                        <p class="dialog-text dosage-text">{{ selectedProduct.dosage }}</p>
+                    </div>
+                </div>
+
+                <div class="dialog-footer">
+                    <button class="dialog-btn dialog-btn-secondary" (click)="closeDialog()">Close</button>
+                    <button class="dialog-btn dialog-btn-primary">Request Quote</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

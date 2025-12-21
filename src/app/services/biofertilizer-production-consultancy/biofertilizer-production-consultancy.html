@@ -1,1 +1,484 @@
-<p>biofertilizer-production-consultancy works!</p>
+<div class="aran-container">
+
+    <!-- Hero Section -->
+    <section class="aran-hero">
+        <div class="aran-hero-content">
+            <h1>Bio Fertilizer &amp; Biocontrol Solutions</h1>
+            <p class="aran-hero-subtitle">
+                Living microorganisms that enhance nutrient availability, promote healthy plant growth,
+                and protect the environment for sustainable agriculture
+            </p>
+            <div class="aran-hero-features">
+                <div class="aran-hero-feature">
+                    <span class="bi bi-leaf-fill"></span> <!-- leaf -->
+                    <span>100% Organic</span>
+                </div>
+                <div class="aran-hero-feature">
+                    <span class="bi bi-shield-fill-check"></span> <!-- shield-like -->
+                    <span>Eco-Friendly</span>
+                </div>
+                <div class="aran-hero-feature">
+                    <span class="bi bi-flower1"></span> <!-- sprout-like -->
+                    <span>Sustainable Growth</span>
+                </div>
+                <div class="aran-hero-feature">
+                    <span class="bi bi-stars"></span> <!-- sparkles -->
+                    <span>Improved Soil Health</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="aran-main">
+        <!-- Benefits Section -->
+        <section class="aran-section">
+            <h2 class="aran-section-title">
+                <span class="bi bi-stars"></span> <!-- sparkles -->
+                Benefits of Biofertilizers
+            </h2>
+            <div class="aran-benefits-grid">
+                <div class="aran-benefit-card">
+                    <div class="aran-benefit-icon">
+                        <span class="bi bi-leaf-fill"></span>
+                    </div>
+                    <h3 class="aran-benefit-title">Eco-Friendly Alternative</h3>
+                    <p>Natural alternative to chemical fertilizers, protecting the environment</p>
+                </div>
+                <div class="aran-benefit-card">
+                    <div class="aran-benefit-icon">
+                        <span class="bi bi-flower1"></span>
+                    </div>
+                    <h3 class="aran-benefit-title">Improves Soil Fertility</h3>
+                    <p>Naturally enhances soil fertility without pollution</p>
+                </div>
+                <div class="aran-benefit-card">
+                    <div class="aran-benefit-icon">
+                        <span class="bi bi-droplet"></span>
+                    </div>
+                    <h3 class="aran-benefit-title">Enhanced Nutrient Uptake</h3>
+                    <p>Boosts absorption of N, P, K, and micronutrients</p>
+                </div>
+                <div class="aran-benefit-card">
+                    <div class="aran-benefit-icon">
+                        <span class="bi bi-stars"></span>
+                    </div>
+                    <h3 class="aran-benefit-title">Cost-Effective</h3>
+                    <p>Reduces chemical fertilizer use by 20-40%</p>
+                </div>
+                <div class="aran-benefit-card">
+                    <div class="aran-benefit-icon">
+                        <span class="bi bi-leaf-fill"></span>
+                    </div>
+                    <h3 class="aran-benefit-title">Increases Crop Yield</h3>
+                    <p>Promotes better growth and higher productivity</p>
+                </div>
+                <div class="aran-benefit-card">
+                    <div class="aran-benefit-icon">
+                        <span class="bi bi-shield-fill-check"></span>
+                    </div>
+                    <h3 class="aran-benefit-title">Sustainable Agriculture</h3>
+                    <p>Ensures long-term sustainability and soil health</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nitrogen Fixing Bacteria -->
+        <section class="aran-section">
+            <h2 class="aran-section-title">
+                <span class="bi bi-flower1"></span>
+                Nitrogen Fixing Bacteria
+            </h2>
+            <p class="aran-section-description">
+                Nitrogen-fixing bacteria convert atmospheric nitrogen into plant-usable forms,
+                providing a natural and sustainable nitrogen source for crops.
+            </p>
+            <div class="aran-nitrogen-grid">
+                <div class="aran-nitrogen-card" *ngFor="let product of nitrogenProducts; let i = index">
+                    <h3 class="aran-product-name nitrogen-name">
+                        {{ product.name }}
+                    </h3>
+                    <div class="aran-product-detail">
+                        <div class="aran-product-label">
+                            <span class="bi bi-leaf-fill"></span>
+                            Target Crops:
+                        </div>
+                        <div class="aran-product-value">{{ product.crops }}</div>
+                    </div>
+                    <div class="aran-product-detail">
+                        <div class="aran-product-label">
+                            <span class="bi bi-stars"></span>
+                            Key Features:
+                        </div>
+                        <div class="aran-product-value">{{ product.features }}</div>
+                    </div>
+                    <div class="aran-product-detail">
+                        <div class="aran-product-label">
+                            <span class="bi bi-droplet"></span>
+                            Application:
+                        </div>
+                        <div class="aran-product-value">{{ product.application }}</div>
+                    </div>
+                    <div class="aran-product-detail">
+                        <div class="aran-product-label">Dosage:</div>
+                        <div class="aran-product-value nitrogen-dosage">
+                            {{ product.dosage }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Other Biofertilizers -->
+        <section class="aran-section">
+            <h2 class="aran-section-title">
+                <span class="bi bi-leaf-fill"></span>
+                Other Biofertilizers
+            </h2>
+            <div class="aran-products-grid">
+                <div class="aran-product-card" *ngFor="let product of otherBioFertilizers; let idx = index">
+                    <div class="aran-product-header" (click)="toggleProduct(idx)">
+                        <div>
+                            <div class="aran-product-name">{{ product.name }}</div>
+                            <div class="aran-product-desc">
+                                {{ product.description }}
+                            </div>
+                        </div>
+                        <span class="bi bi-chevron" [ngClass]="{
+                'bi bi-chevron-down': expandedProduct === idx,
+                'bi bi-chevron-right': expandedProduct !== idx
+              }"></span>
+                    </div>
+
+                    <div class="aran-product-body" *ngIf="expandedProduct === idx">
+                        <div class="aran-product-detail">
+                            <div class="aran-product-label">
+                                <span class="bi bi-leaf-fill"></span>
+                                Target Crops:
+                            </div>
+                            <div class="aran-product-value">{{ product.crops }}</div>
+                        </div>
+                        <div class="aran-product-detail">
+                            <div class="aran-product-label">
+                                <span class="bi bi-stars"></span>
+                                Key Features:
+                            </div>
+                            <div class="aran-product-value">{{ product.features }}</div>
+                        </div>
+                        <div class="aran-product-detail">
+                            <div class="aran-product-label">
+                                <span class="bi bi-droplet"></span>
+                                Application:
+                            </div>
+                            <div class="aran-product-value">{{ product.application }}</div>
+                        </div>
+                        <div class="aran-product-detail">
+                            <div class="aran-product-label">Dosage:</div>
+                            <div class="aran-product-value dosage-strong">
+                                {{ product.dosage }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Micronutrients -->
+        <section class="aran-section">
+            <h2 class="aran-section-title">
+                <span class="bi bi-stars"></span>
+                Micronutrient Biofertilizers
+            </h2>
+            <div class="aran-products-grid">
+                <div class="aran-product-card" *ngFor="let product of microNutrients">
+                    <div class="aran-product-header">
+                        <div>
+                            <div class="aran-product-name">{{ product.name }}</div>
+                            <div class="aran-product-desc">
+                                {{ product.description }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="aran-product-body">
+                        <div class="aran-product-detail">
+                            <div class="aran-product-label">
+                                <span class="bi bi-leaf-fill"></span>
+                                Target Crops:
+                            </div>
+                            <div class="aran-product-value">{{ product.crops }}</div>
+                        </div>
+                        <div class="aran-product-detail">
+                            <div class="aran-product-label">
+                                <span class="bi bi-stars"></span>
+                                Key Features:
+                            </div>
+                            <div class="aran-product-value">{{ product.features }}</div>
+                        </div>
+                        <div class="aran-product-detail">
+                            <div class="aran-product-label">
+                                <span class="bi bi-droplet"></span>
+                                Application:
+                            </div>
+                            <div class="aran-product-value">{{ product.application }}</div>
+                        </div>
+                        <div class="aran-product-detail">
+                            <div class="aran-product-label">Dosage:</div>
+                            <div class="aran-product-value dosage-strong">
+                                {{ product.dosage }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Biocontrol Agents -->
+        <section class="aran-section">
+            <h2 class="aran-section-title">
+                <span class="bi bi-shield-fill-check"></span>
+                Biocontrol Microbes
+            </h2>
+            <p class="aran-section-description">
+                Beneficial microorganisms that suppress plant pests, pathogens, and diseases through
+                natural biological mechanisms, offering an eco-friendly alternative to chemical pesticides.
+            </p>
+            <div class="aran-image-container">
+                <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&h=600&fit=crop"
+                    alt="Biocontrol Microorganisms" class="aran-product-image" />
+            </div>
+            <div class="aran-biocontrol-grid">
+                <div class="aran-biocontrol-card" *ngFor="let agent of biocontrolAgents">
+                    <h3 class="biocontrol-name">{{ agent.name }}</h3>
+                    <div class="aran-product-detail">
+                        <div class="aran-product-label biocontrol-label">
+                            Target:
+                        </div>
+                        <div class="aran-product-value">{{ agent.target }}</div>
+                    </div>
+                    <div class="aran-product-detail">
+                        <div class="aran-product-label biocontrol-label">
+                            Mechanism:
+                        </div>
+                        <div class="aran-product-value">{{ agent.mechanism }}</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bio-Stimulants -->
+        <section class="aran-section">
+            <h2 class="aran-section-title">
+                <span class="bi bi-droplet"></span>
+                Fish Amino Acid - Bio-Stimulant
+            </h2>
+            <p class="aran-section-description">
+                Fish Amino Acid is a powerful organic bio-stimulant derived from fish waste,
+                rich in amino acids, proteins, and micronutrients that enhance plant growth and vitality.
+            </p>
+            <div class="aran-image-container">
+                <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=400&fit=crop"
+                    alt="Fish Amino Acid" class="aran-product-image" />
+            </div>
+
+            <div class="aran-benefits-grid extra-top">
+                <div class="aran-benefit-card">
+                    <div class="aran-benefit-icon faa">
+                        <span class="bi bi-flower1"></span>
+                    </div>
+                    <h3 class="aran-benefit-title faa-title">
+                        Boosts Vegetative Growth
+                    </h3>
+                    <p>Especially effective for leaves and stems development</p>
+                </div>
+                <div class="aran-benefit-card">
+                    <div class="aran-benefit-icon faa">
+                        <span class="bi bi-shield-fill-check"></span>
+                    </div>
+                    <h3 class="aran-benefit-title faa-title">
+                        Stress Recovery
+                    </h3>
+                    <p>Helps plants recover from stress, pruning, or transplanting</p>
+                </div>
+                <div class="aran-benefit-card">
+                    <div class="aran-benefit-icon faa">
+                        <span class="bi bi-leaf-fill"></span>
+                    </div>
+                    <h3 class="aran-benefit-title faa-title">
+                        Improves Chlorophyll
+                    </h3>
+                    <p>Results in greener, healthier plants with better photosynthesis</p>
+                </div>
+                <div class="aran-benefit-card">
+                    <div class="aran-benefit-icon faa">
+                        <span class="bi bi-stars"></span>
+                    </div>
+                    <h3 class="aran-benefit-title faa-title">
+                        Flowering &amp; Fruiting
+                    </h3>
+                    <p>Supports flowering and fruiting by strengthening plant metabolism</p>
+                </div>
+                <div class="aran-benefit-card">
+                    <div class="aran-benefit-icon faa">
+                        <span class="bi bi-droplet"></span>
+                    </div>
+                    <h3 class="aran-benefit-title faa-title">
+                        Enhances Soil Fertility
+                    </h3>
+                    <p>Increases beneficial microbial populations in soil</p>
+                </div>
+                <div class="aran-benefit-card">
+                    <div class="aran-benefit-icon faa">
+                        <span class="bi bi-leaf-fill"></span>
+                    </div>
+                    <h3 class="aran-benefit-title faa-title">
+                        Overall Plant Vigour
+                    </h3>
+                    <p>Promotes overall plant vigour and yield improvement</p>
+                </div>
+            </div>
+
+            <div class="application-card">
+                <h3 class="application-title">
+                    Application Method
+                </h3>
+                <div class="application-grid">
+                    <div>
+                        <h4 class="application-heading">
+                            <span class="bi bi-droplet"></span>
+                            Foliar Spray
+                        </h4>
+                        <p class="application-text">
+                            Dilute <strong>2-5 ml FAA per litre</strong> of water.
+                            Spray during early morning or evening for best results.
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="application-heading">
+                            <span class="bi bi-flower1"></span>
+                            Soil Drench
+                        </h4>
+                        <p class="application-text">
+                            Mix <strong>5-10 ml per litre</strong> of water and apply directly to the soil around plant
+                            roots.
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="application-heading">
+                            <span class="bi bi-stars"></span>
+                            Frequency
+                        </h4>
+                        <p class="application-text">
+                            Apply every <strong>7-10 days</strong> during active growth stages for optimal results.
+                        </p>
+                    </div>
+                </div>
+                <div class="application-note">
+                    <p>
+                        ✓ Suitable for all types of plants &amp; crops
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Soil Conditioner -->
+        <section class="aran-section">
+            <h2 class="aran-section-title">
+                <span class="bi bi-flower1"></span>
+                Soil Conditioner
+            </h2>
+            <p class="aran-section-description">
+                Soil conditioner is any material added to soil to improve its physical properties,
+                making it more suitable for plant growth. Unlike fertilizers which supply nutrients,
+                soil conditioners enhance the soil's structure, aeration, water retention and overall health.
+            </p>
+            <div class="aran-image-container">
+                <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&h=600&fit=crop"
+                    alt="Soil Conditioner - Organic Compost" class="aran-product-image" />
+            </div>
+            <div class="aran-benefits-grid">
+                <div class="aran-benefit-card">
+                    <div class="aran-benefit-icon soil">
+                        <span class="bi bi-flower1"></span>
+                    </div>
+                    <h3 class="aran-benefit-title soil-title">
+                        Improves Soil Structure
+                    </h3>
+                    <p>Helps sandy soils hold water and clay soils drain better</p>
+                </div>
+                <div class="aran-benefit-card">
+                    <div class="aran-benefit-icon soil">
+                        <span class="bi bi-leaf-fill"></span>
+                    </div>
+                    <h3 class="aran-benefit-title soil-title">
+                        Enhances Aeration
+                    </h3>
+                    <p>Promotes better root growth through improved soil aeration</p>
+                </div>
+                <div class="aran-benefit-card">
+                    <div class="aran-benefit-icon soil">
+                        <span class="bi bi-droplet"></span>
+                    </div>
+                    <h3 class="aran-benefit-title soil-title">
+                        Water Retention
+                    </h3>
+                    <p>Boosts water-holding capacity for drought resilience</p>
+                </div>
+                <div class="aran-benefit-card">
+                    <div class="aran-benefit-icon soil">
+                        <span class="bi bi-shield-fill-check"></span>
+                    </div>
+                    <h3 class="aran-benefit-title soil-title">
+                        Reduces Compaction
+                    </h3>
+                    <p>Prevents soil compaction and maintains soil health</p>
+                </div>
+                <div class="aran-benefit-card">
+                    <div class="aran-benefit-icon soil">
+                        <span class="bi bi-stars"></span>
+                    </div>
+                    <h3 class="aran-benefit-title soil-title">
+                        Microbial Activity
+                    </h3>
+                    <p>Promotes beneficial microbial activity in soil</p>
+                </div>
+                <div class="aran-benefit-card">
+                    <div class="aran-benefit-icon soil">
+                        <span class="bi bi-leaf-fill"></span>
+                    </div>
+                    <h3 class="aran-benefit-title soil-title">
+                        Nutrient Availability
+                    </h3>
+                    <p>Increases nutrient availability and retention</p>
+                </div>
+            </div>
+
+            <div class="soil-products-card">
+                <h3 class="soil-products-title">
+                    Our Soil Conditioner Products
+                </h3>
+                <ul class="soil-products-list">
+                    <li class="soil-product-item">
+                        <span class="bi bi-leaf-fill soil-icon"></span>
+                        <span>Bio Enriched Organic Compost</span>
+                    </li>
+                    <li class="soil-product-item">
+                        <span class="bi bi-leaf-fill soil-icon"></span>
+                        <span>Vermicompost</span>
+                    </li>
+                    <li class="soil-product-item">
+                        <span class="bi bi-leaf-fill soil-icon"></span>
+                        <span>City Compost</span>
+                    </li>
+                    <li class="soil-product-item">
+                        <span class="bi bi-leaf-fill soil-icon"></span>
+                        <span>Organic Manure</span>
+                    </li>
+                    <li class="soil-product-item">
+                        <span class="bi bi-leaf-fill soil-icon"></span>
+                        <span>Phosphate Rich Organic Manure</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+</div>

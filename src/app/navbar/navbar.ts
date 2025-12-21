@@ -36,22 +36,22 @@ export class Navbar {
     { label: 'BioCulture for Wastewater Treatment', link: '/products/bioculture' },
     { label: 'Homecare/Housekeeping', link: '/products/home-care-products' },
     { label: 'Personal Care', link: '/products/personal-care' },
-    { label: 'AGRO', link: '#agro' },
-    { label: 'Chemicals For Cleaning', link: '#cleaning-chemicals' }
+    { label: 'AGRO', link: '/products/agro' },
+    { label: 'Chemicals For Cleaning', link: '/products/chemicals-for-cleaning' }
   ];
 
   projectsMenu: MenuItem[] = [
-    { label: 'Improve (Wetland Water Treatment)', link: '#improve' },
-    { label: 'Electrocoagulation for Wastewater Treatment', link: '#electrocoagulation' },
-    { label: 'MBR for STP & ETP', link: '#mbr' },
-    { label: 'Online Water Quality Monitoring System', link: '#monitoring' }
+    { label: 'Improve (Wetland Water Treatment)', link: '/projects/improve' },
+    { label: 'Electrocoagulation for Wastewater Treatment', link: '/projects/electrocoagulation' },
+    { label: 'MBR for STP & ETP', link: '/projects/mbr' },
+    { label: 'Online Water Quality Monitoring System', link: '/projects/monitoring' }
   ];
 
   servicesMenu: MenuItem[] = [
-    { label: 'Environment Management Consultancy', link: '#environment' },
-    { label: 'Wastewater Treatment Consultancy', link: '#wastewater' },
-    { label: 'Biofertilizer Production Consultancy', link: '#biofertilizer' },
-    { label: 'Consultancy for Essential Oil Production', link: '#essential-oil' }
+    { label: 'Environment Management Consultancy', link: '/services/environment' },
+    { label: 'Wastewater Treatment Consultancy', link: '/services/wastewater' },
+    { label: 'Biofertilizer Production Consultancy', link: '/services/biofertilizer' },
+    { label: 'Consultancy for Essential Oil Production', link: '/services/essential-oil' }
   ];
 
   catalogMenu: MenuItem[] = [
@@ -77,7 +77,7 @@ export class Navbar {
       image: 'assets/agro.webp',
       title: 'AGRO Products',
       subtitle: 'Agricultural Solutions',
-      link: '#agro'
+      link: '/products/agro'
     }
   ];
 
@@ -86,19 +86,19 @@ export class Navbar {
       image: 'assets/wetland.jpg',
       title: 'Wetland Water Treatment',
       subtitle: 'Improve Project',
-      link: '/products/speciality-chemicals'
+      link: '/projects/improve'
     },
     {
       image: 'assets/electro.webp',
       title: 'Electrocoagulation',
       subtitle: 'Advanced Treatment',
-      link: '#electrocoagulation'
+      link: '/projects/electrocoagulation'
     },
     {
       image: 'assets/MBR.jpg',
       title: 'MBR Systems',
       subtitle: 'STP & ETP Solutions',
-      link: '#mbr'
+      link: '/projects/mbr'
     }
   ];
 
@@ -107,19 +107,19 @@ export class Navbar {
       image: 'assets/environmental.avif',
       title: 'Environment Management',
       subtitle: 'Expert Consultancy',
-      link: '#environment'
+      link: '/services/environment'
     },
     {
       image: 'assets/wastewater.jpg',
       title: 'Wastewater Treatment',
       subtitle: 'Professional Consulting',
-      link: '#wastewater'
+      link: '/services/wastewater'
     },
     {
       image: 'assets/biofertilizer.png',
       title: 'Biofertilizer Production',
       subtitle: 'Production Guidance',
-      link: '#biofertilizer'
+      link: '/services/biofertilizer'
     }
   ];
 
