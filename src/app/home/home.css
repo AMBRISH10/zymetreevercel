@@ -1,353 +1,285 @@
-.light {
-  background: #f3f5f7;
-}
-
-a,
-a:hover {
-  text-decoration: none;
-  transition: color 0.3s ease-in-out;
-}
-
-#pageHeaderTitle {
-  margin: 2rem 0;
-  text-transform: uppercase;
-  text-align: center;
-  font-size: 2.5rem;
-}
-
-/* Cards */
 .postcard {
-  flex-wrap: wrap;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 2rem;
   display: flex;
-
-  box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.66);
-  border-radius: 10px;
-  margin: 0 0 2rem 0;
+  background: #fff;
+  border-radius: 12px;
   overflow: hidden;
-  position: relative;
-  color: #ffffff;
-
-  &.dark {
-    background-color: #18151f;
-  }
-
-  &.light {
-    background-color: #e1e5ea;
-  }
-
-  .t-dark {
-    color: #18151f;
-  }
-
-  a {
-    color: inherit;
-  }
-
-  h1,
-  .h1 {
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-    line-height: 1.2;
-  }
-
-  .small {
-    font-size: 80%;
-  }
-
-  .postcard__title {
-    font-size: 1.75rem;
-  }
-
-  .postcard__img {
-    max-height: 180px;
-    width: 100%;
-    object-fit: cover;
-    position: relative;
-  }
-
-  .postcard__img_link {
-    display: contents;
-  }
-
-  .postcard__bar {
-    width: 50px;
-    height: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    background-color: #424242;
-    transition: width 0.2s ease;
-  }
-
-  .postcard__text {
-    padding: 1.5rem;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .postcard__preview-txt {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    text-align: justify;
-    height: 100%;
-  }
-
-  .postcard__tagbox {
-    display: flex;
-    flex-flow: row wrap;
-    font-size: 14px;
-    margin: 20px 0 0 0;
-    padding: 0;
-    justify-content: center;
-
-    .tag__item {
-      display: inline-block;
-      background: rgba(83, 83, 83, 0.4);
-      border-radius: 3px;
-      padding: 2.5px 10px;
-      margin: 0 5px 5px 0;
-      cursor: default;
-      user-select: none;
-      transition: background-color 0.3s;
-
-      &:hover {
-        background: rgba(83, 83, 83, 0.8);
-      }
-    }
-  }
-
-  &:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-image: linear-gradient(-70deg, #424242, transparent 50%);
-    opacity: 1;
-    border-radius: 10px;
-  }
-
-  &:hover .postcard__bar {
-    width: 100px;
-  }
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-@media screen and (min-width: 769px) {
-  .postcard {
-    flex-wrap: inherit;
-
-    .postcard__title {
-      font-size: 2rem;
-    }
-
-    .postcard__tagbox {
-      justify-content: start;
-    }
-
-    .postcard__img {
-      max-width: 300px;
-      max-height: 100%;
-      transition: transform 0.3s ease;
-    }
-
-    .postcard__text {
-      padding: 3rem;
-      width: 100%;
-    }
-
-    .media.postcard__text:before {
-      content: "";
-      position: absolute;
-      display: block;
-      background: #18151f;
-      top: -20%;
-      height: 130%;
-      width: 55px;
-    }
-
-    &:hover .postcard__img {
-      transform: scale(1.1);
-    }
-
-    &:nth-child(2n+1) {
-      flex-direction: row;
-    }
-
-    &:nth-child(2n+0) {
-      flex-direction: row-reverse;
-    }
-
-    &:nth-child(2n+1) .postcard__text::before {
-      left: -12px !important;
-      transform: rotate(4deg);
-    }
-
-    &:nth-child(2n+0) .postcard__text::before {
-      right: -12px !important;
-      transform: rotate(-4deg);
-    }
-  }
+.postcard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
-@media screen and (min-width: 1024px) {
-  .postcard__text {
-    padding: 2rem 3.5rem;
-  }
-
-  .postcard__text:before {
-    content: "";
-    position: absolute;
-    display: block;
-
-    top: -20%;
-    height: 130%;
-    width: 55px;
-  }
-
-  .postcard.dark {
-    .postcard__text:before {
-      background: #18151f;
-    }
-  }
-
-  .postcard.light {
-    .postcard__text:before {
-      background: #e1e5ea;
-    }
-  }
+.postcard__img_link {
+  flex: 0 0 300px;
 }
 
-/* COLORS */
-.postcard .postcard__tagbox .green.play:hover {
-  background: green;
-  color: black;
+.postcard__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.green .postcard__title:hover {
-  color: green;
+.postcard__text {
+  padding: 2rem;
+  flex: 1;
 }
 
-.green .postcard__bar {
-  background-color: green;
+.postcard__title {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
 }
 
-.green::before {
-  background-image: linear-gradient(-30deg,
-      green-rgb-015,
-      transparent 50%);
+.postcard__subtitle {
+  color: #666;
+  margin-bottom: 1rem;
 }
 
-.green:nth-child(2n)::before {
-  background-image: linear-gradient(30deg, green-rgb-015, transparent 50%);
+.postcard__bar {
+  height: 3px;
+  width: 50px;
+  margin: 1rem 0;
 }
 
-.postcard .postcard__tagbox .blue.play:hover {
-  background: blue;
+.postcard__preview-txt {
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
 }
 
-.blue .postcard__title:hover {
-  color: blue;
+.postcard__tagbox {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tag__item {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 500;
+  color: white;
+}
+
+/* Color Classes */
+.blue .postcard__title {
+  color: #0066cc;
 }
 
 .blue .postcard__bar {
-  background-color: blue;
+  background: #0066cc;
 }
 
-.blue::before {
-  background-image: linear-gradient(-30deg, blue-rgb-015, transparent 50%);
+.blue .tag__item {
+  background: #0066cc;
 }
 
-.blue:nth-child(2n)::before {
-  background-image: linear-gradient(30deg, blue-rgb-015, transparent 50%);
-}
-
-.postcard .postcard__tagbox .red.play:hover {
-  background: red;
-}
-
-.red .postcard__title:hover {
-  color: red;
+.red .postcard__title {
+  color: #dc3545;
 }
 
 .red .postcard__bar {
-  background-color: red;
+  background: #dc3545;
 }
 
-.red::before {
-  background-image: linear-gradient(-30deg, red-rgb-015, transparent 50%);
+.red .tag__item {
+  background: #dc3545;
 }
 
-.red:nth-child(2n)::before {
-  background-image: linear-gradient(30deg, red-rgb-015, transparent 50%);
+.green .postcard__title {
+  color: #28a745;
 }
 
-.postcard .postcard__tagbox .yellow.play:hover {
-  background: yellow;
-  color: black;
+.green .postcard__bar {
+  background: #28a745;
 }
 
-.yellow .postcard__title:hover {
-  color: yellow;
+.green .tag__item {
+  background: #28a745;
 }
 
-.yellow .postcard__bar {
-  background-color: yellow;
+/* Modal Styling */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
 }
 
-.yellow::before {
-  background-image: linear-gradient(-30deg,
-      yellow-rgb-015,
-      transparent 50%);
-}
-
-.yellow:nth-child(2n)::before {
-  background-image: linear-gradient(30deg,
-      yellow-rgb-015,
-      transparent 50%);
-}
-
-@media screen and (min-width: 769px) {
-  .green::before {
-    background-image: linear-gradient(-80deg,
-        green-rgb-015,
-        transparent 50%);
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
 
-  .green:nth-child(2n)::before {
-    background-image: linear-gradient(80deg,
-        green-rgb-015,
-        transparent 50%);
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-container {
+  background: white;
+  border-radius: 16px;
+  max-width: 900px;
+  width: 90%;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+  animation: slideUp 0.3s ease;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
   }
 
-  .blue::before {
-    background-image: linear-gradient(-80deg,
-        blue-rgb-015,
-        transparent 50%);
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: #f0f0f0;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.modal-close:hover {
+  background: #dc3545;
+  color: white;
+  transform: rotate(90deg);
+}
+
+.modal-header {
+  padding: 2rem;
+  border-bottom: 1px solid #eee;
+}
+
+.modal-header h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: 2rem;
+  color: #333;
+}
+
+.modal-header p {
+  margin: 0;
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.modal-body {
+  padding: 2rem;
+}
+
+/* Product Cards Grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.product-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border-color: #0066cc;
+}
+
+.product-image {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  background: #f8f9fa;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image img {
+  transform: scale(1.05);
+}
+
+.product-content {
+  padding: 1.5rem;
+}
+
+.product-content h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.product-content p {
+  margin: 0 0 1rem 0;
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.product-link {
+  color: #0066cc;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.product-card:hover .product-link {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .postcard {
+    flex-direction: column;
   }
 
-  .blue:nth-child(2n)::before {
-    background-image: linear-gradient(80deg, blue-rgb-015, transparent 50%);
+  .postcard__img_link {
+    flex: 0 0 200px;
   }
 
-  .red::before {
-    background-image: linear-gradient(-80deg, red-rgb-015, transparent 50%);
+  .product-grid {
+    grid-template-columns: 1fr;
   }
 
-  .red:nth-child(2n)::before {
-    background-image: linear-gradient(80deg, red-rgb-015, transparent 50%);
+  .modal-container {
+    width: 95%;
+    max-height: 90vh;
   }
 
-  .yellow::before {
-    background-image: linear-gradient(-80deg,
-        yellow-rgb-015,
-        transparent 50%);
-  }
-
-  .yellow:nth-child(2n)::before {
-    background-image: linear-gradient(80deg,
-        yellow-rgb-015,
-        transparent 50%);
+  .modal-header h2 {
+    font-size: 1.5rem;
   }
 }
 
