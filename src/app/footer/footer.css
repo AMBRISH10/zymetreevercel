@@ -1,5 +1,9 @@
 .footer {
-  background: linear-gradient(135deg, #2c5530 0%, #1a3d1f 100%);
+  /* background: linear-gradient(135deg, #2c5530 0%, #1a3d1f 100%); */
+  background: url('../../assets/footer1.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   color: #ffffff;
   padding: 60px 0 0;
   position: relative;
