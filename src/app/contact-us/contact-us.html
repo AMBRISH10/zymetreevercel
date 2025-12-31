@@ -9,7 +9,7 @@
 
                     <div class="zc-info-section">
                         <div class="zc-info-heading">
-                            <span class="zc-info-icon zc-info-icon--office"></span>
+                            <i class="bi bi-building zc-info-icon"></i>
                             <span class="zc-info-label">Registered office</span>
                         </div>
                         <p class="zc-info-text">
@@ -24,7 +24,7 @@
 
                     <div class="zc-info-section">
                         <div class="zc-info-item">
-                            <span class="zc-info-icon zc-info-icon--phone"></span>
+                            <i class="bi bi-telephone-fill zc-info-icon"></i>
                             <a href="tel:+919445927940" class="zc-info-link">
                                 +91 94459 27940
                             </a>
@@ -34,13 +34,13 @@
                             </a>
                         </div>
                         <div class="zc-info-item">
-                            <span class="zc-info-icon zc-info-icon--whatsapp"></span>
-                            <a href="tel:+919445927940" class="zc-info-link">
+                            <i class="bi bi-whatsapp zc-info-icon"></i>
+                            <a href="https://wa.me/919445927940" class="zc-info-link" target="_blank">
                                 +91 94459 27940
                             </a>
                         </div>
                         <div class="zc-info-item">
-                            <span class="zc-info-icon zc-info-icon--mail"></span>
+                            <i class="bi bi-envelope-fill zc-info-icon"></i>
                             <a href="mailto:marketing.zymetree@gmail.com" class="zc-info-link">
                                 marketing.zymetree@gmail.com
                             </a>
@@ -56,56 +56,81 @@
 
                         <div class="row g-3">
                             <div class="col-md-6">
-                                <label class="zc-field-label">Name *</label>
-                                <input class="zc-text-input" type="text" formControlName="name">
+                                <label class="zc-field-label">
+                                    <i class="bi bi-person-fill"></i> Name *
+                                </label>
+                                <input class="zc-text-input" type="text" formControlName="name"
+                                    placeholder="Enter your name">
                             </div>
 
                             <div class="col-md-6">
-                                <label class="zc-field-label">Email Address *</label>
-                                <input class="zc-text-input" type="email" formControlName="email">
+                                <label class="zc-field-label">
+                                    <i class="bi bi-envelope-fill"></i> Email Address *
+                                </label>
+                                <input class="zc-text-input" type="email" formControlName="email"
+                                    placeholder="your@email.com">
                             </div>
 
                             <div class="col-md-6">
-                                <label class="zc-field-label">Phone Number *</label>
-                                <input class="zc-text-input" type="tel" formControlName="phone">
+                                <label class="zc-field-label">
+                                    <i class="bi bi-telephone-fill"></i> Phone Number *
+                                </label>
+                                <input class="zc-text-input" type="tel" formControlName="phone"
+                                    placeholder="+91 XXXXX XXXXX">
                             </div>
 
                             <div class="col-md-6">
-                                <label class="zc-field-label">City</label>
-                                <input class="zc-text-input" type="text" formControlName="city">
+                                <label class="zc-field-label">
+                                    <i class="bi bi-geo-alt-fill"></i> City
+                                </label>
+                                <input class="zc-text-input" type="text" formControlName="city" placeholder="Your city">
                             </div>
 
                             <div class="col-md-6">
-                                <label class="zc-field-label">State / Province</label>
-                                <input class="zc-text-input" type="text" formControlName="state">
+                                <label class="zc-field-label">
+                                    <i class="bi bi-map-fill"></i> State / Province
+                                </label>
+                                <input class="zc-text-input" type="text" formControlName="state"
+                                    placeholder="Your state">
                             </div>
 
                             <div class="col-md-6">
-                                <label class="zc-field-label">ZIP / Postal Code</label>
-                                <input class="zc-text-input" type="text" formControlName="zip">
+                                <label class="zc-field-label">
+                                    <i class="bi bi-mailbox"></i> ZIP / Postal Code
+                                </label>
+                                <input class="zc-text-input" type="text" formControlName="zip" placeholder="XXXXXX">
                             </div>
 
                             <div class="col-md-6">
-                                <label class="zc-field-label">Country *</label>
-                                <select class="zc-select-input" formControlName="country">
-                                    <option value="" disabled selected>
-                                        Select country
-                                    </option>
-                                    <option value="India">India</option>
-                                    <option value="USA">United States</option>
-                                    <option value="UK">United Kingdom</option>
-                                    <option value="Other">Other</option>
-                                </select>
+                                <label class="zc-field-label">
+                                    <i class="bi bi-globe"></i> Country *
+                                </label>
+                                <div class="zc-select-wrapper">
+                                    <select class="zc-select-input" formControlName="country">
+                                        <option value="" disabled selected>
+                                            Select country
+                                        </option>
+                                        <option value="India">India</option>
+                                        <option value="USA">United States</option>
+                                        <option value="UK">United Kingdom</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                    <span class="zc-select-arrow"></span>
+                                </div>
                             </div>
 
                             <div class="col-md-6">
-                                <label class="zc-field-label">Website</label>
+                                <label class="zc-field-label">
+                                    <i class="bi bi-link-45deg"></i> Website
+                                </label>
                                 <input class="zc-text-input" type="url" formControlName="website"
-                                    placeholder="https://">
+                                    placeholder="https://yourwebsite.com">
                             </div>
 
                             <div class="col-12">
-                                <label class="zc-field-label">Purpose *</label>
+                                <label class="zc-field-label">
+                                    <i class="bi bi-clipboard-check-fill"></i> Purpose *
+                                </label>
                                 <div class="zc-select-wrapper">
                                     <select class="zc-select-input" formControlName="purpose">
                                         <option value="" disabled selected>
@@ -121,10 +146,11 @@
 
                             <div class="col-12">
                                 <label class="zc-field-label">
-                                    Please let us know how we can help..! *
+                                    <i class="bi bi-chat-dots-fill"></i> Please let us know how we can help..! *
                                 </label>
                                 <div class="zc-textarea-wrapper">
-                                    <textarea class="zc-textarea" rows="4" formControlName="message"></textarea>
+                                    <textarea class="zc-textarea" rows="4" formControlName="message"
+                                        placeholder="Tell us about your requirements..."></textarea>
                                     <span class="zc-char-counter">
                                         {{ remainingChars }} / 180
                                     </span>
@@ -133,7 +159,7 @@
 
                             <div class="col-12">
                                 <button type="submit" class="zc-submit-btn" [disabled]="contactForm.invalid">
-                                    Request information
+                                    <i class="bi bi-send-fill"></i> Request information
                                 </button>
                             </div>
                         </div>

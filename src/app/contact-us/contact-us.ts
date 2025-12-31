@@ -4,7 +4,7 @@ import { FormGroup, FormBuilder, Validators, FormsModule, ReactiveFormsModule } 
 
 @Component({
   selector: 'app-contact-us',
-  imports: [CommonModule,ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './contact-us.html',
   styleUrl: './contact-us.css',
 })

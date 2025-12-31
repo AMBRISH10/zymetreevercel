@@ -27,8 +27,8 @@ export class Navbar {
   activeDropdown: string | null = null;
 
   menuItems: MenuItem[] = [
-    { label: 'Home', link: '#home' },
-    { label: 'About Us', link: '#about' }
+    { label: 'Home', link: '' },
+    { label: 'About Us', link: 'about-us' }
   ];
 
   productsMenu: MenuItem[] = [
@@ -55,8 +55,14 @@ export class Navbar {
   ];
 
   catalogMenu: MenuItem[] = [
-    { label: 'Product Catalog', link: '#product-catalog' },
-    { label: 'Technical Documents', link: '#technical-docs' }
+    {
+      label: 'Product Catalog',
+      link: 'assets/Docs/CREST-Brochure.pdf'
+    },
+    {
+      label: 'Technical Documents',
+      link: 'assets/Docs/House-keeping.pdf'
+    }
   ];
 
   productsMegaMenu: MegaMenuItem[] = [
@@ -150,5 +156,15 @@ export class Navbar {
   closeMenu(): void {
     this.isMenuOpen = false;
     this.activeDropdown = null;
+  }
+
+  downloadFile(filePath: string): void {
+    const link = document.createElement('a');
+    link.href = filePath;
+    link.download = filePath.split('/').pop() || 'download';
+    link.target = '_blank';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   }
 }

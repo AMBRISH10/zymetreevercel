@@ -1,6 +1,50 @@
-<div class="container">
-  <div class="panel" *ngFor="let p of panels; let i = index" [class.active]="p.active"
-    [style.background-image]="'url(' + p.img + ')'" (click)="activatePanel(i)">
-    <h3>{{ p.title }}</h3>
+<div class="gallery-container" (keydown)="onKeyDown($event)" tabindex="0">
+  <!-- Row 1 - Scrolling Left -->
+  <div class="scroll-wrapper">
+    <div class="scroll-row scroll-left" [class.paused]="isRow1Paused" (mouseenter)="pauseRow1()"
+      (mouseleave)="resumeRow1()">
+      <div *ngFor="let image of row1Images; let i = index" class="product-card" (click)="openLightbox(image)">
+        <div class="product-image-wrapper">
+          <img [src]="image.thumbnail" [alt]="image.alt" class="product-image">
+          <div class="overlay">
+            <!-- <span class="view-icon">🔍</span> -->
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <!-- Row 2 - Scrolling Right -->
+  <div class="scroll-wrapper">
+    <div class="scroll-row scroll-right" [class.paused]="isRow2Paused" (mouseenter)="pauseRow2()"
+      (mouseleave)="resumeRow2()">
+      <div *ngFor="let image of row2Images; let i = index" class="product-card" (click)="openLightbox(image)">
+        <div class="product-image-wrapper">
+          <img [src]="image.thumbnail" [alt]="image.alt" class="product-image">
+          <div class="overlay">
+            <!-- <span class="view-icon">🔍</span> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="lightbox-overlay" *ngIf="isLightboxOpen" (click)="closeLightbox()">
+  <button class="close-btn" (click)="closeLightbox()" aria-label="Close">
+    &times;
+  </button>
+
+  <button class="nav-btn prev-btn" (click)="previousImage(); $event.stopPropagation()" aria-label="Previous">
+    &#8249;
+  </button>
+
+  <div class="lightbox-content" (click)="$event.stopPropagation()">
+    <img *ngIf="selectedImageIndex !== null" [src]="allImages[selectedImageIndex].full"
+      [alt]="allImages[selectedImageIndex].alt" class="lightbox-image">
+  </div>
+
+  <button class="nav-btn next-btn" (click)="nextImage(); $event.stopPropagation()" aria-label="Next">
+    &#8250;
+  </button>
 </div>

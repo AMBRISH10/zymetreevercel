@@ -156,7 +156,7 @@
         </div>
     </div>
 
-    <div class="container tabs-section">
+    <!-- <div class="container tabs-section">
         <div class="tabs-wrapper">
             <button
                 *ngFor="let tab of ['kitchenCare', 'fabricCare','toiletCare','floorCare','autoCare','disinfectants']"
@@ -259,6 +259,117 @@
             </div>
 
         </div>
+    </div> -->
+    <div class="container tabs-section">
+        <div class="tabs-wrapper">
+            <button
+                *ngFor="let tab of ['kitchenCare', 'fabricCare','toiletCare','floorCare','autoCare','disinfectants']"
+                class="tab-button" [class.active]="activeTab === tab" (click)="setActiveTab(tab)">
+                {{ tabContent[tab].title }}
+            </button>
+        </div>
     </div>
 
+    <div class="container content-section">
+        <div class="content-wrapper">
+
+            <div id="content-header" class="content-header animate-on-scroll"
+                [ngStyle]="getAnimationStyle('content-header')">
+
+                <div class="header-top">
+                    <div class="icon-wrapper">
+                        <i class="icon-{{ getActiveTabContent().icon }}"></i>
+                    </div>
+                    <div>
+                        <h2 class="content-title">
+                            {{ getActiveTabContent().title }}
+                        </h2>
+                        <h3 class="content-subtitle">
+                            {{ getActiveTabContent().subtitle }}
+                        </h3>
+                    </div>
+                </div>
+
+                <p class="content-description">
+                    {{ getActiveTabContent().description }}
+                </p>
+
+                <p *ngIf="getActiveTabContent().note" class="content-note">
+                    {{ getActiveTabContent().note }}
+                </p>
+
+                <div class="highlight-box">
+                    <p class="highlight-text">
+                        {{ getActiveTabContent().highlight }}
+                    </p>
+                </div>
+
+                <div *ngIf="getActiveTabContent().benefits" class="benefits-list">
+                    <div *ngFor="let benefit of getActiveTabContent().benefits" class="benefit-item">
+                        <i class="check-icon">✓</i>
+                        <p class="benefit-text">{{ benefit }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="products-section" class="products-section animate-on-scroll"
+                [ngStyle]="getAnimationStyle('products-section', 0.2)">
+
+                <h3 class="products-title">We Offer</h3>
+
+                <div class="products-grid">
+                    <div *ngFor="let product of getActiveProducts(); let i = index" class="product-card"
+                        [style.animation-delay]="(i * 0.1) + 's'">
+                        <div class="product-header">
+                            <div class="product-icon">
+                                <i class="droplet-icon">💧</i>
+                            </div>
+                            <i class="arrow-icon">›</i>
+                        </div>
+                        <h4 class="product-name">{{ product.name }}</h4>
+                        <p class="product-desc">({{ product.desc }})</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="product-images" class="product-images animate-on-scroll"
+                [ngStyle]="getAnimationStyle('product-images', 0.4)">
+
+                <div class="images-grid">
+                    <div *ngFor="let image of getActiveProductImages()" class="image-card {{ image.cardClass }}"
+                        (click)="openImagePopup(image)">
+                        <div class="image-box {{ image.boxClass }}">
+                            <img [src]="image.imageUrl" [alt]="image.label" class="product-image">
+                        </div>
+                        <p class="image-label">{{ image.label }}</p>
+                        <p class="image-size">{{ image.size }}</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Fullscreen Image Popup -->
+    <div *ngIf="isImagePopupOpen" class="image-popup-overlay" (click)="closeImagePopup()">
+        <div class="image-popup-container" (click)="$event.stopPropagation()">
+            <button class="popup-close-btn" (click)="closeImagePopup()">
+                <span>&times;</span>
+            </button>
+
+            <div class="popup-content">
+                <div class="popup-image-wrapper">
+                    <div class="popup-image-box {{ selectedImage?.boxClass }}">
+                        <img [src]="selectedImage?.imageUrl" [alt]="selectedImage?.label" class="popup-product-image">
+                    </div>
+                </div>
+
+                <div class="popup-details">
+                    <h3 class="popup-title">{{ selectedImage?.label }}</h3>
+                    <p class="popup-size">{{ selectedImage?.size }}</p>
+                    <p class="popup-tab">Category: {{ getActiveTabContent().title }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

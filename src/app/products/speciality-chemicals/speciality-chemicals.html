@@ -1,73 +1,7 @@
-<!-- <div class="row">
-    <div class="col-12">
-        
-    </div>
-</div>
-
-<div class="container h-100">
-    <div class="row align-middle">
-        <div class="col-md-6 col-lg-4 column">
-            <div class="card gr-1">
-                <div class="txt">
-                    <h1>BRANDING AND <br>
-                        CORPORATE DESIGN</h1>
-                    <p>Visual communication and problem-solving</p>
-                </div>
-                <a href="#">more</a>
-                <div class="ico-card">
-                    <i class="fa fa-rebel"></i>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-lg-4 column">
-            <div class="card gr-2">
-                <div class="txt">
-                    <h1>Web Front-End <br>
-                        SOLUTIONS</h1>
-                    <p>How design is implemented on the web.</p>
-                </div>
-                <a href="#">more</a>
-                <div class="ico-card">
-                    <i class="fa fa-codepen"></i>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-lg-4 column">
-            <div class="card gr-3">
-                <div class="txt">
-                    <h1>UX/UI WEBsite <br>AND MOBILE app</h1>
-                    <p>User Interface and User Experience Design.</p>
-                </div>
-                <a href="#">more</a>
-                <div class="ico-card">
-                    <i class="fa fa-empire"></i>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</div> -->
-
-<!-- specialty-chemicals.component.html -->
 <div class="specialty-chemicals-container">
-
-    <!-- Hero Section -->
-    <!-- <div class="hero-section">
-        <div class="container">
-            <h1 class="hero-title animate-fade-in">
-                Specialty Chemicals
-            </h1>
-            <p class="hero-description">
-                Our world is facing a water crisis. Climate change disrupts rainfall patterns, intensifies droughts and
-                floods, and threatens water security. Here at Zymetree, we believe in a future where clean water is
-                accessible to all.
-            </p>
-        </div>
-    </div> -->
     <div class="hero-section">
         <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="4000"
             data-bs-pause="false">
-            <!-- Carousel Indicators -->
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"
                     aria-current="true" aria-label="Slide 1"></button>
@@ -75,7 +9,6 @@
                 <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
 
-            <!-- Carousel Items -->
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1920&h=800&fit=crop"
@@ -146,7 +79,6 @@
         </div>
     </div>
 
-    <!-- Mission Statement -->
     <div class="container mission-section">
         <div class="mission-card">
             <div class="row">
@@ -175,7 +107,6 @@
         </div>
     </div>
 
-    <!-- Navigation Tabs -->
     <div class="container tabs-section">
         <div class="tabs-wrapper">
             <button *ngFor="let tab of ['hvac', 'ro', 'boiler']" class="tab-button" [class.active]="activeTab === tab"
@@ -185,7 +116,6 @@
         </div>
     </div>
 
-    <!-- Content Section -->
     <div class="container content-section">
         <div class="content-wrapper">
 
@@ -250,37 +180,43 @@
                 </div>
             </div>
 
-            <!-- Product Images -->
             <div id="product-images" class="product-images animate-on-scroll"
                 [ngStyle]="getAnimationStyle('product-images', 0.4)">
 
                 <div class="images-grid">
-                    <div class="image-card blue-card">
-                        <div class="image-box blue-box">
-                            <span class="box-text">50</span>
+                    <div *ngFor="let image of getActiveProductImages()" class="image-card {{ image.cardClass }}"
+                        (click)="openImagePopup(image)">
+                        <div class="image-box {{ image.boxClass }}">
+                            <img [src]="image.image" [alt]="image.label" class="product-image">
                         </div>
-                        <p class="image-label">Antiscalant</p>
-                        <p class="image-size">50 Kg Container</p>
-                    </div>
-
-                    <div class="image-card gray-card">
-                        <div class="image-box gray-box">
-                            <span class="box-text">5</span>
-                        </div>
-                        <p class="image-label">Antiscalant</p>
-                        <p class="image-size">5 Kg Container</p>
-                    </div>
-
-                    <div class="image-card blue-card">
-                        <div class="image-box blue-box">
-                            <span class="box-text">50</span>
-                        </div>
-                        <p class="image-label">{{ getProductLabel() }}</p>
-                        <p class="image-size">50 Kg Container</p>
+                        <p class="image-label">{{ image.label }}</p>
+                        <p class="image-size">{{ image.description }}</p>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
 
+    <!-- Fullscreen Image Popup -->
+    <div *ngIf="isImagePopupOpen" class="image-popup-overlay" (click)="closeImagePopup()">
+        <div class="image-popup-container" (click)="$event.stopPropagation()">
+            <button class="popup-close-btn" (click)="closeImagePopup()">
+                <span>&times;</span>
+            </button>
+
+            <div class="popup-content">
+                <div class="popup-image-wrapper">
+                    <div class="popup-image-box {{ selectedImage?.boxClass }}">
+                        <img [src]="selectedImage?.imageUrl" [alt]="selectedImage?.label" class="popup-product-image">
+                    </div>
+                </div>
+
+                <div class="popup-details">
+                    <h3 class="popup-title">{{ selectedImage?.label }}</h3>
+                    <p class="popup-size">{{ selectedImage?.size }}</p>
+                    <p class="popup-tab">Category: {{ getActiveTabContent().title }}</p>
+                </div>
+            </div>
         </div>
     </div>
 

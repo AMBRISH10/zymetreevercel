@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 interface Product {
   name: string;
   desc: string;
@@ -15,6 +15,17 @@ interface TabContent {
   icon: string;
 }
 
+export interface ChemicalProduct {
+  image: string;
+  size: string;
+  label: string;
+  containerSize: string;
+  description: string;
+  cardClass: string;
+  boxClass: string;
+  imageUrl?: string;
+}
+
 @Component({
   selector: 'app-speciality-chemicals',
   imports: [CommonModule],
@@ -23,8 +34,240 @@ interface TabContent {
 })
 export class SpecialityChemicals {
   activeTab: string = 'hvac';
+  isImagePopupOpen: boolean = false;
+  selectedImage: ChemicalProduct | null = null;
   isVisible: { [key: string]: boolean } = {};
   private observer!: IntersectionObserver;
+  chemicalProductsByTab: { [key: string]: ChemicalProduct[] } = {
+    hvac: [
+      {
+        image: 'assets/products/splChem/HVAC-Antiscalant50-300x300.jpg.jpeg',
+        label: 'Antiscalant',
+        description: '50 Kg Container',
+        cardClass: 'blue-card',
+        boxClass: 'blue-box',
+        size: '50',
+        containerSize: ''
+      },
+      {
+        image: 'assets/products/splChem/HVAC-Antiscalant-222x300.jpg.jpeg',
+        label: 'Antiscalant',
+        description: '222x300 Container',
+        cardClass: 'gray-card',
+        boxClass: 'gray-box',
+        size: '222',
+        containerSize: ''
+      },
+      {
+        image: 'assets/products/splChem/HVAC-Biocide50-300x300.jpg.jpeg',
+        label: 'Biocide',
+        description: '50 Kg Container',
+        cardClass: 'blue-card',
+        boxClass: 'blue-box',
+        size: '50',
+        containerSize: ''
+      },
+      {
+        image: 'assets/products/splChem/HVAC-Biocide-222x300.jpg.jpeg',
+        label: 'Biocide',
+        description: '222x300 Container',
+        cardClass: 'gray-card',
+        boxClass: 'gray-box',
+        size: '222',
+        containerSize: ''
+      },
+      {
+        image: 'assets/products/splChem/HVAC-Biodispersant50-300x300.jpg.jpeg',
+        label: 'Biodispersant',
+        description: '50 Kg Container',
+        cardClass: 'blue-card',
+        boxClass: 'blue-box',
+        size: '50',
+        containerSize: ''
+      },
+      {
+        image: 'assets/products/splChem/HVAC-Biodespersant-222x300.jpg.jpeg',
+        label: 'Biodispersant',
+        description: '222x300 Container',
+        cardClass: 'gray-card',
+        boxClass: 'gray-box',
+        size: '222',
+        containerSize: ''
+      },
+      {
+        image: 'assets/products/splChem/HVAC-Corrosion-Inhibitor50-300x300.jpg.jpeg',
+        label: 'Corrosion Inhibitor',
+        description: '50 Kg Container',
+        cardClass: 'blue-card',
+        boxClass: 'blue-box',
+        size: '50',
+        containerSize: ''
+      },
+      {
+        image: 'assets/products/splChem/HVAC-Corrosion-inhibitor-224x300.jpg.jpeg',
+        label: 'Corrosion Inhibitor',
+        description: '224x300 Container',
+        cardClass: 'gray-card',
+        boxClass: 'gray-box',
+        size: '224',
+        containerSize: ''
+      },
+      {
+        image: 'assets/products/splChem/HVAC-Desaclant50-300x300.jpg.jpeg',
+        label: 'Descalant',
+        description: '50 Kg Container',
+        cardClass: 'blue-card',
+        boxClass: 'blue-box',
+        size: '50',
+        containerSize: ''
+      },
+      {
+        image: 'assets/products/splChem/HVAC-Descalant-222x300.jpg.jpeg',
+        label: 'Descalant',
+        description: '222x300 Container',
+        cardClass: 'gray-card',
+        boxClass: 'gray-box',
+        size: '222',
+        containerSize: ''
+      },
+      {
+        image: 'assets/products/splChem/HVAC-pH-modifier50-300x300.jpg.jpeg',
+        label: 'pH Modifier',
+        description: '50 Kg Container',
+        cardClass: 'blue-card',
+        boxClass: 'blue-box',
+        size: '50',
+        containerSize: ''
+      },
+      {
+        image: 'assets/products/splChem/HVAC-pH-modifier-222x300.jpg.jpeg',
+        label: 'pH Modifier',
+        description: '222x300 Container',
+        cardClass: 'gray-card',
+        boxClass: 'gray-box',
+        size: '222',
+        containerSize: ''
+      }
+    ],
+
+    ro: [],       // add RO images later
+    boiler: []    // add Boiler images later
+  };
+
+
+  chemicalProducts: ChemicalProduct[] = [
+    {
+      image: 'assets/products/splChem/HVAC-Antiscalant50-300x300.jpg.jpeg',
+      size: '50',
+      label: 'Antiscalant',
+      description: '50 Kg Container',
+      cardClass: 'blue-card',
+      boxClass: 'blue-box',
+      containerSize: ''
+    },
+    {
+      image: 'assets/products/splChem/HVAC-Antiscalant-222x300.jpg.jpeg',
+      size: '222',
+      label: 'Antiscalant',
+      description: '222x300 Container',
+      cardClass: 'gray-card',
+      boxClass: 'gray-box',
+      containerSize: ''
+    },
+    {
+      image: 'assets/products/splChem/HVAC-Biocide-222x300.jpg.jpeg',
+      size: '222',
+      label: 'Biocide',
+      description: '222x300 Container',
+      cardClass: 'blue-card',
+      boxClass: 'blue-box',
+      containerSize: ''
+    },
+    {
+      image: 'assets/products/splChem/HVAC-Biocide50-300x300.jpg.jpeg',
+      size: '50',
+      label: 'Biocide',
+      description: '50 Kg Container',
+      cardClass: 'gray-card',
+      boxClass: 'gray-box',
+      containerSize: ''
+    },
+    {
+      image: 'assets/products/splChem/HVAC-Biodespersant-222x300.jpg.jpeg',
+      size: '222',
+      label: 'Biodespersant',
+      description: '222x300 Container',
+      cardClass: 'blue-card',
+      boxClass: 'blue-box',
+      containerSize: ''
+    },
+    {
+      image: 'assets/products/splChem/HVAC-Biodispersant50-300x300.jpg.jpeg',
+      size: '50',
+      label: 'Biodispersant',
+      description: '50 Kg Container',
+      cardClass: 'gray-card',
+      boxClass: 'gray-box',
+      containerSize: ''
+    },
+    {
+      image: 'assets/products/splChem/HVAC-Corrosion-inhibitor-224x300.jpg.jpeg',
+      size: '224',
+      label: 'Corrosion Inhibitor',
+      description: '224x300 Container',
+      cardClass: 'blue-card',
+      boxClass: 'blue-box',
+      containerSize: ''
+    },
+    {
+      image: 'assets/products/splChem/HVAC-Corrosion-Inhibitor50-300x300.jpg.jpeg',
+      size: '50',
+      label: 'Corrosion Inhibitor',
+      description: '50 Kg Container',
+      cardClass: 'gray-card',
+      boxClass: 'gray-box',
+      containerSize: ''
+    },
+    {
+      image: 'assets/products/splChem/HVAC-Desaclant50-300x300.jpg.jpeg',
+      size: '50',
+      label: 'Descalant',
+      description: '50 Kg Container',
+      cardClass: 'blue-card',
+      boxClass: 'blue-box',
+      containerSize: ''
+    },
+    {
+      image: 'assets/products/splChem/HVAC-Descalant-222x300.jpg.jpeg',
+      size: '222',
+      label: 'Descalant',
+      description: '222x300 Container',
+      cardClass: 'gray-card',
+      boxClass: 'gray-box',
+      containerSize: ''
+    },
+    {
+      image: 'assets/products/splChem/HVAC-pH-modifier-222x300.jpg.jpeg',
+      size: '222',
+      label: 'pH Modifier',
+      description: '222x300 Container',
+      cardClass: 'blue-card',
+      boxClass: 'blue-box',
+      containerSize: ''
+    },
+    {
+      image: 'assets/products/splChem/HVAC-pH-modifier50-300x300.jpg.jpeg',
+      size: '50',
+      label: 'pH Modifier',
+      description: '50 Kg Container',
+      cardClass: 'gray-card',
+      boxClass: 'gray-box',
+      containerSize: ''
+    }
+  ];
+
+  selectedChemicalProduct: ChemicalProduct | null = null;
+  showModal: boolean = false;
 
   products: { [key: string]: Product[] } = {
     hvac: [
@@ -133,5 +376,49 @@ export class SpecialityChemicals {
       transform: this.isVisible[elementId] ? 'translateY(0)' : 'translateY(30px)',
       transition: `all 0.8s ease-out ${delay}s`
     };
+  }
+
+  openImageModal(chemicalProduct: ChemicalProduct): void {
+    this.selectedChemicalProduct = chemicalProduct;
+    this.showModal = true;
+    document.body.style.overflow = 'hidden';
+  }
+
+  closeImageModal(): void {
+    this.showModal = false;
+    this.selectedChemicalProduct = null;
+    document.body.style.overflow = 'auto';
+  }
+
+  onModalBackgroundClick(event: MouseEvent): void {
+    const target = event.target as HTMLElement;
+    if (target.classList.contains('modal-overlay')) {
+      this.closeImageModal();
+    }
+  }
+
+  @HostListener('document:keydown', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent): void {
+    if (event.key === 'Escape' && this.showModal) {
+      this.closeImageModal();
+    }
+  }
+
+
+  // Image popup methods
+  openImagePopup(image: ChemicalProduct): void {
+    this.selectedImage = image;
+    this.isImagePopupOpen = true;
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+  }
+
+  closeImagePopup(): void {
+    this.isImagePopupOpen = false;
+    this.selectedImage = null;
+    document.body.style.overflow = ''; // Restore scrolling
+  }
+
+  getActiveProductImages(): ChemicalProduct[] {
+    return this.chemicalProductsByTab[this.activeTab] || this.chemicalProductsByTab['stp'];
   }
 }

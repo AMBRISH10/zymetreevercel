@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
+
 interface Product {
   name: string;
   desc: string;
@@ -15,16 +16,13 @@ interface TabContent {
   icon: string;
 }
 
-interface NewsCard {
-  day: string;
-  month: string;
-  imageUrl: string;
-  category: string;
-  title: string;
-  subTitle: string;
-  description: string;
-  timestamp: string;
-  commentsCount: number;
+interface ProductImage {
+  label: string;
+  size: string;
+  containerSize: string;
+  cardClass: string;
+  boxClass: string;
+  imageUrl?: string; // Optional: if you have actual images
 }
 
 @Component({
@@ -38,24 +36,16 @@ export class Bioculture {
   isVisible: { [key: string]: boolean } = {};
   private observer!: IntersectionObserver;
 
-
-  newsCard: NewsCard = {
-    day: '27',
-    month: 'Mar',
-    imageUrl: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg',
-    category: 'Photos',
-    title: 'City Lights in New York',
-    subTitle: 'The city that never sleeps.',
-    description: 'New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.',
-    timestamp: '6 mins ago',
-    commentsCount: 39
-  };
+  // Fullscreen image popup properties
+  isImagePopupOpen: boolean = false;
+  selectedImage: ProductImage | null = null;
 
   showDescription = false;
 
   toggleDescription(): void {
     this.showDescription = !this.showDescription;
   }
+
   products: { [key: string]: Product[] } = {
     stp: [
       { name: 'Zymetreat PM-C01', desc: 'pH Modifier' },
@@ -112,71 +102,357 @@ export class Bioculture {
     ]
   };
 
+  // Product images for each tab
+  productImages: { [key: string]: ProductImage[] } = {
+    stp: [
+      {
+        label: 'Car Wash Shampoo',
+        size: '500 mL Bottle',
+        containerSize: '500mL',
+        cardClass: 'blue-card',
+        boxClass: 'blue-box',
+        imageUrl: 'assets/products/biocul/stp/Car-Wash-Shampoo_500mL.jpeg'
+      },
+      {
+        label: 'Car Wash Shampoo',
+        size: '5L Container',
+        containerSize: '5L',
+        cardClass: 'gray-card',
+        boxClass: 'gray-box',
+        imageUrl: 'assets/products/biocul/stp/Car-Wash-Shampoo_5L.jpeg'
+      },
+      {
+        label: 'Dashboard Polish',
+        size: '5L Container',
+        containerSize: '5L',
+        cardClass: 'blue-card',
+        boxClass: 'blue-box',
+        imageUrl: 'assets/products/biocul/stp/Dashboard-Polish_5L.jpg.jpeg'
+      },
+      {
+        label: 'Car Tyre Polish',
+        size: '5L Container',
+        containerSize: '5L',
+        cardClass: 'blue-card',
+        boxClass: 'blue-box',
+        imageUrl: 'assets/products/biocul/stp/Car-Tyre-Polish_5L.jpeg'
+      },
+      {
+        label: 'Automobile Polish',
+        size: '5L Container',
+        containerSize: '5L',
+        cardClass: 'gray-card',
+        boxClass: 'gray-box',
+        imageUrl: 'assets/products/biocul/stp/Automobile-Polish_5L.jpg.jpeg'
+      },
+      {
+        label: 'Tyre Polish',
+        size: '500 mL Bottle',
+        containerSize: '500mL',
+        cardClass: 'green-card',
+        boxClass: 'green-box',
+        imageUrl: 'assets/products/biocul/stp/Tyre-Polish_500mL.jpg.jpeg'
+      },
+      {
+        label: 'Seat Polish',
+        size: '5L Container',
+        containerSize: '5L',
+        cardClass: 'blue-card',
+        boxClass: 'blue-box',
+        imageUrl: 'assets/products/biocul/stp/Seat-Polish_5L-150x150.jpg.jpeg'
+      },
+      {
+        label: 'Water Less Car Wash',
+        size: '500 mL Bottle',
+        containerSize: '500mL',
+        cardClass: 'gray-card',
+        boxClass: 'gray-box',
+        imageUrl: 'assets/products/biocul/stp/Water-Less-Car-Wash_500mL.jpeg'
+      },
+      {
+        label: 'Car Wash Shampoo',
+        size: '5L Container',
+        containerSize: '5L',
+        cardClass: 'blue-card',
+        boxClass: 'blue-box',
+        imageUrl: 'assets/products/biocul/stp/Car-Wash-Shampoo_5L-150x150.jpeg'
+      },
+      {
+        label: 'Automobile Freshener',
+        size: '250 mL Bottle',
+        containerSize: '250mL',
+        cardClass: 'blue-card',
+        boxClass: 'blue-box',
+        imageUrl: 'assets/products/biocul/stp/Automobile-Freshener_250mL-600x600.jpeg'
+      },
+      {
+        label: 'Car Tyre Polish',
+        size: '5L Container',
+        containerSize: '5L',
+        cardClass: 'gray-card',
+        boxClass: 'gray-box',
+        imageUrl: 'assets/products/biocul/stp/Car-Tyre-Polish_5L-150x150.jpeg'
+      },
+      {
+        label: 'Dashboard Polish',
+        size: '5L Container',
+        containerSize: '5L',
+        cardClass: 'green-card',
+        boxClass: 'green-box',
+        imageUrl: 'assets/products/biocul/stp/Dashboard-Polish_5L.jpg.jpeg'
+      },
+      {
+        label: 'Car Wash Shampoo',
+        size: '500 mL Bottle',
+        containerSize: '500mL',
+        cardClass: 'blue-card',
+        boxClass: 'blue-box',
+        imageUrl: 'assets/products/biocul/stp/Car-Wash-Shampoo_500mL.jpeg'
+      },
+      {
+        label: 'Tyre Polish',
+        size: '500 mL Bottle',
+        containerSize: '500mL',
+        cardClass: 'gray-card',
+        boxClass: 'gray-box',
+        imageUrl: 'assets/products/biocul/stp/Tyre-Polish_500mL.jpg.jpeg'
+      },
+      {
+        label: 'Water Less Car Wash',
+        size: '500 mL Bottle',
+        containerSize: '500mL',
+        cardClass: 'blue-card',
+        boxClass: 'blue-box',
+        imageUrl: 'assets/products/biocul/stp/Water-Less-Car-Wash_500mL.jpeg'
+      },
+      {
+        label: 'Automobile Polish',
+        size: '5L Container',
+        containerSize: '5L',
+        cardClass: 'blue-card',
+        boxClass: 'blue-box',
+        imageUrl: 'assets/products/biocul/stp/Automobile-Polish_5L.jpg.jpeg'
+      },
+      {
+        label: 'Seat Polish',
+        size: '5L Container',
+        containerSize: '5L',
+        cardClass: 'gray-card',
+        boxClass: 'gray-box',
+        imageUrl: 'assets/products/biocul/stp/Seat-Polish_5L-150x150.jpg.jpeg'
+      },
+      {
+        label: 'Automobile Freshener',
+        size: '250 mL Bottle',
+        containerSize: '250mL',
+        cardClass: 'green-card',
+        boxClass: 'green-box',
+        imageUrl: 'assets/products/biocul/stp/Automobile-Freshener_250mL-600x600.jpeg'
+      }
+    ],
+    etp: [
+      {
+        label: 'Car Tyre Polish',
+        size: '5L Container',
+        containerSize: '5L',
+        cardClass: 'blue-card',
+        boxClass: 'blue-box',
+        imageUrl: 'assets/products/biocul/stp/Car-Tyre-Polish_5L.jpeg'
+      },
+      {
+        label: 'Automobile Polish',
+        size: '5L Container',
+        containerSize: '5L',
+        cardClass: 'gray-card',
+        boxClass: 'gray-box',
+        imageUrl: 'assets/products/biocul/stp/Automobile-Polish_5L.jpg.jpeg'
+      },
+      {
+        label: 'Tyre Polish',
+        size: '500 mL Bottle',
+        containerSize: '500mL',
+        cardClass: 'green-card',
+        boxClass: 'green-box',
+        imageUrl: 'assets/products/biocul/stp/Tyre-Polish_500mL.jpg.jpeg'
+      }
+    ],
+    speticTank: [
+      {
+        label: 'Seat Polish',
+        size: '5L Container',
+        containerSize: '5L',
+        cardClass: 'blue-card',
+        boxClass: 'blue-box',
+        imageUrl: 'assets/products/biocul/stp/Seat-Polish_5L-150x150.jpg.jpeg'
+      },
+      {
+        label: 'Water Less Car Wash',
+        size: '500 mL Bottle',
+        containerSize: '500mL',
+        cardClass: 'gray-card',
+        boxClass: 'gray-box',
+        imageUrl: 'assets/products/biocul/stp/Water-Less-Car-Wash_500mL.jpeg'
+      },
+      {
+        label: 'Car Wash Shampoo',
+        size: '5L Container',
+        containerSize: '5L',
+        cardClass: 'blue-card',
+        boxClass: 'blue-box',
+        imageUrl: 'assets/products/biocul/stp/Car-Wash-Shampoo_5L-150x150.jpeg'
+      }
+    ],
+    pond: [
+      {
+        label: 'Automobile Freshener',
+        size: '250 mL Bottle',
+        containerSize: '250mL',
+        cardClass: 'blue-card',
+        boxClass: 'blue-box',
+        imageUrl: 'assets/products/biocul/stp/Automobile-Freshener_250mL-600x600.jpeg'
+      },
+      {
+        label: 'Car Tyre Polish',
+        size: '5L Container',
+        containerSize: '5L',
+        cardClass: 'gray-card',
+        boxClass: 'gray-box',
+        imageUrl: 'assets/products/biocul/stp/Car-Tyre-Polish_5L-150x150.jpeg'
+      },
+      {
+        label: 'Dashboard Polish',
+        size: '5L Container',
+        containerSize: '5L',
+        cardClass: 'green-card',
+        boxClass: 'green-box',
+        imageUrl: 'assets/products/biocul/stp/Dashboard-Polish_5L.jpg.jpeg'
+      }
+    ],
+    deOdour: [
+      {
+        label: 'Car Wash Shampoo',
+        size: '500 mL Bottle',
+        containerSize: '500mL',
+        cardClass: 'blue-card',
+        boxClass: 'blue-box',
+        imageUrl: 'assets/products/biocul/stp/Car-Wash-Shampoo_500mL.jpeg'
+      },
+      {
+        label: 'Tyre Polish',
+        size: '500 mL Bottle',
+        containerSize: '500mL',
+        cardClass: 'gray-card',
+        boxClass: 'gray-box',
+        imageUrl: 'assets/products/biocul/stp/Tyre-Polish_500mL.jpg.jpeg'
+      },
+      {
+        label: 'Water Less Car Wash',
+        size: '500 mL Bottle',
+        containerSize: '500mL',
+        cardClass: 'blue-card',
+        boxClass: 'blue-box',
+        imageUrl: 'assets/products/biocul/stp/Water-Less-Car-Wash_500mL.jpeg'
+      }
+    ],
+    bioNutrient: [
+      {
+        label: 'Automobile Polish',
+        size: '5L Container',
+        containerSize: '5L',
+        cardClass: 'blue-card',
+        boxClass: 'blue-box',
+        imageUrl: 'assets/products/biocul/stp/Automobile-Polish_5L.jpg.jpeg'
+      },
+      {
+        label: 'Seat Polish',
+        size: '5L Container',
+        containerSize: '5L',
+        cardClass: 'gray-card',
+        boxClass: 'gray-box',
+        imageUrl: 'assets/products/biocul/stp/Seat-Polish_5L-150x150.jpg.jpeg'
+      },
+      {
+        label: 'Automobile Freshener',
+        size: '250 mL Bottle',
+        containerSize: '250mL',
+        cardClass: 'green-card',
+        boxClass: 'green-box',
+        imageUrl: 'assets/products/biocul/stp/Automobile-Freshener_250mL-600x600.jpeg'
+      }
+    ]
+  };
+
   tabContent: { [key: string]: TabContent } = {
     stp: {
       title: 'STP',
-      subtitle: 'Ensure Peak Performance: Cooling Water Treatment Solutions',
-      description: 'Protect your critical equipment and optimize cooling system efficiency with our comprehensive line of cooling water treatment chemicals. Untreated cooling water leads to costly problems like corrosion, scaling, and biological growth. These issues reduce heat transfer, increase downtime, and shorten equipment life. Let us help you achieve reliable cooling, reduced maintenance costs, and extended equipment life.',
-      highlight: 'Our tailored chemical programs prevent these concerns, maximizing system performance and energy savings.',
+      subtitle: 'Efficient Sewage Treatment Plant (STP) Solutions',
+      description: 'Our Sewage Treatment Plant (STP) solutions are designed to treat domestic and commercial wastewater effectively, ensuring compliance with environmental standards. Untreated sewage can lead to foul odor, health hazards, and environmental pollution.',
+      highlight: 'We provide customized STP treatment chemicals and bio-solutions that enhance treatment efficiency, reduce sludge volume, and ensure clear, odor-free discharge water suitable for reuse.',
       icon: 'zap'
     },
+
     etp: {
       title: 'ETP',
-      subtitle: 'Unlock the Power of Pure Water: Reverse Osmosis(RO) Chemicals',
-      description: 'Achieve exceptional water quality and optimize your reverse osmosis (RO) system performance with our comprehensive line of RO chemicals. Traditional water contains impurities like dissolved salts, minerals, and organic matter. RO membranes act as a barrier, allowing only purified water to pass through, leaving contaminants behind.',
-      highlight: 'By using our RO chemicals, you can ensure consistent production of high-purity water, extend membrane life, and minimize downtime for maintenance. Let us help your achieve superior water quality and maximize the return on your RO system investment.',
-      note: 'However, over time, these contaminants can accumulate on the membrane surface, reducing efficiency and requiring costly replacements.',
+      subtitle: 'Reliable Effluent Treatment Plant (ETP) Solutions',
+      description: 'Industrial effluents often contain harmful chemicals, oils, heavy metals, and organic pollutants. Our Effluent Treatment Plant (ETP) solutions help industries treat wastewater efficiently before discharge or reuse.',
+      highlight: 'Our ETP chemical programs improve contaminant removal, ensure regulatory compliance, and support sustainable water management while reducing operational costs.',
+      note: 'Proper treatment prevents environmental damage and avoids penalties due to non-compliance.',
       icon: 'droplets'
     },
+
     speticTank: {
-      title: 'Spetic Tank',
-      subtitle: 'Safeguard Your Steam: Effective Boiler Water Treatment Solutions',
-      description: 'Ensure the safe and efficient operation of your boiler system with our proven boiler water treatment chemicals. Hard water and impurities can wreak havoc on boilers, causing corrosion, scale buildup, and foaming. These issues compromise boiler efficiency, increase maintenance costs, and pose safety risks.',
-      highlight: 'Our comprehensive boiler water treatment program utilizes targeted chemicals to prevent corrosion, control scale, and minimize foaming. Experience the benefits of clean and reliable boiler operation. Our treatment programs are customized to your specific boiler type and operating conditions. Let us help you optimize boiler performance, ensure steam quality, and achieve peace of mind.',
+      title: 'Septic Tank',
+      subtitle: 'Advanced Septic Tank Treatment & Maintenance Solutions',
+      description: 'Septic tanks can develop issues such as clogging, foul odors, and slow decomposition due to poor bacterial activity. Our septic tank treatment solutions enhance natural biodegradation of waste.',
+      highlight: 'Using our bio-enzymes and bacterial formulations, septic tanks remain odor-free, require less frequent cleaning, and operate more efficiently.',
       benefits: [
-        'Prevent corrosion: Protect your boiler tubes and extend equipment life.',
-        'Control scale: Eliminate mineral deposits that impede heat transfer and reduce energy consumption.',
-        'Minimize foaming: Maintain proper water levels and prevent carryover of boiler water into the steam system.'
+        'Improves waste decomposition and reduces sludge buildup.',
+        'Eliminates foul odors and blockages.',
+        'Extends septic tank life and lowers maintenance frequency.'
       ],
       icon: 'shield'
     },
+
     pond: {
       title: 'Pond',
-      subtitle: 'Safeguard Your Steam: Effective Boiler Water Treatment Solutions',
-      description: 'Ensure the safe and efficient operation of your boiler system with our proven boiler water treatment chemicals. Hard water and impurities can wreak havoc on boilers, causing corrosion, scale buildup, and foaming. These issues compromise boiler efficiency, increase maintenance costs, and pose safety risks.',
-      highlight: 'Our comprehensive boiler water treatment program utilizes targeted chemicals to prevent corrosion, control scale, and minimize foaming. Experience the benefits of clean and reliable boiler operation. Our treatment programs are customized to your specific boiler type and operating conditions. Let us help you optimize boiler performance, ensure steam quality, and achieve peace of mind.',
+      subtitle: 'Pond & Water Body Treatment Solutions',
+      description: 'Stagnant ponds and water bodies often suffer from algae growth, foul smell, mosquito breeding, and poor water quality. Our pond treatment solutions help restore ecological balance.',
+      highlight: 'We offer eco-friendly pond treatment chemicals and bio-products that control algae, improve water clarity, and eliminate odor without harming aquatic life.',
       benefits: [
-        'Prevent corrosion: Protect your boiler tubes and extend equipment life.',
-        'Control scale: Eliminate mineral deposits that impede heat transfer and reduce energy consumption.',
-        'Minimize foaming: Maintain proper water levels and prevent carryover of boiler water into the steam system.'
+        'Controls algae and organic sludge.',
+        'Improves dissolved oxygen levels.',
+        'Prevents mosquito breeding and foul odor.'
       ],
       icon: 'shield'
     },
+
     deOdour: {
       title: 'De Odour',
-      subtitle: 'Safeguard Your Steam: Effective Boiler Water Treatment Solutions',
-      description: 'Ensure the safe and efficient operation of your boiler system with our proven boiler water treatment chemicals. Hard water and impurities can wreak havoc on boilers, causing corrosion, scale buildup, and foaming. These issues compromise boiler efficiency, increase maintenance costs, and pose safety risks.',
-      highlight: 'Our comprehensive boiler water treatment program utilizes targeted chemicals to prevent corrosion, control scale, and minimize foaming. Experience the benefits of clean and reliable boiler operation. Our treatment programs are customized to your specific boiler type and operating conditions. Let us help you optimize boiler performance, ensure steam quality, and achieve peace of mind.',
+      subtitle: 'Effective Industrial & Environmental Odor Control',
+      description: 'Unpleasant odors from STPs, ETPs, garbage areas, and industrial processes can impact workplace safety and surrounding communities. Our deodorization solutions neutralize odor at the source.',
+      highlight: 'We provide advanced odor control chemicals and bio-deodorizers that safely eliminate foul smells and improve air quality.',
       benefits: [
-        'Prevent corrosion: Protect your boiler tubes and extend equipment life.',
-        'Control scale: Eliminate mineral deposits that impede heat transfer and reduce energy consumption.',
-        'Minimize foaming: Maintain proper water levels and prevent carryover of boiler water into the steam system.'
+        'Neutralizes odor-causing gases effectively.',
+        'Safe for humans and the environment.',
+        'Ideal for STP, ETP, landfills, and waste zones.'
       ],
       icon: 'shield'
     },
+
     bioNutrient: {
       title: 'Bio Nutrient',
-      subtitle: 'Safeguard Your Steam: Effective Boiler Water Treatment Solutions',
-      description: 'Ensure the safe and efficient operation of your boiler system with our proven boiler water treatment chemicals. Hard water and impurities can wreak havoc on boilers, causing corrosion, scale buildup, and foaming. These issues compromise boiler efficiency, increase maintenance costs, and pose safety risks.',
-      highlight: 'Our comprehensive boiler water treatment program utilizes targeted chemicals to prevent corrosion, control scale, and minimize foaming. Experience the benefits of clean and reliable boiler operation. Our treatment programs are customized to your specific boiler type and operating conditions. Let us help you optimize boiler performance, ensure steam quality, and achieve peace of mind.',
+      subtitle: 'Biological Nutrients for Enhanced Wastewater Treatment',
+      description: 'Biological treatment systems require the right balance of nutrients for microorganisms to perform efficiently. Our bio-nutrients support healthy microbial growth in STP and ETP processes.',
+      highlight: 'Our specially formulated bio-nutrients improve biological activity, speed up waste breakdown, and stabilize treatment plant performance.',
       benefits: [
-        'Prevent corrosion: Protect your boiler tubes and extend equipment life.',
-        'Control scale: Eliminate mineral deposits that impede heat transfer and reduce energy consumption.',
-        'Minimize foaming: Maintain proper water levels and prevent carryover of boiler water into the steam system.'
+        'Enhances microbial efficiency.',
+        'Improves COD and BOD reduction.',
+        'Stabilizes treatment performance under fluctuating loads.'
       ],
       icon: 'shield'
     }
   };
+
 
   ngOnInit(): void {
     this.setupIntersectionObserver();
@@ -221,6 +497,10 @@ export class Bioculture {
     return this.products[this.activeTab];
   }
 
+  getActiveProductImages(): ProductImage[] {
+    return this.productImages[this.activeTab] || this.productImages['stp'];
+  }
+
   getProductLabel(): string {
     return this.activeTab === 'etp' ? 'Bio Dispersant' : 'Antiscalant';
   }
@@ -231,5 +511,18 @@ export class Bioculture {
       transform: this.isVisible[elementId] ? 'translateY(0)' : 'translateY(30px)',
       transition: `all 0.8s ease-out ${delay}s`
     };
+  }
+
+  // Image popup methods
+  openImagePopup(image: ProductImage): void {
+    this.selectedImage = image;
+    this.isImagePopupOpen = true;
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+  }
+
+  closeImagePopup(): void {
+    this.isImagePopupOpen = false;
+    this.selectedImage = null;
+    document.body.style.overflow = ''; // Restore scrolling
   }
 }

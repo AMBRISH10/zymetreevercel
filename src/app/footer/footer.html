@@ -1,103 +1,75 @@
-<!-- footer.component.html -->
-<footer class="footer-section">
-  <div class="container">
+<footer class="footer">
+  <div class="footer-container">
     <div class="footer-content">
-      <div class="row">
-        <!-- Company Info Column -->
-        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-          <div class="footer-widget">
-            <h3 class="footer-logo">YourBrand</h3>
-            <p class="footer-description">
-              We are a team of talented developers making websites with modern technologies and creative designs.
-            </p>
-            <div class="social-links">
-              <a href="#" class="social-link" aria-label="Facebook">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" class="social-link" aria-label="Twitter">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="#" class="social-link" aria-label="Instagram">
-                <i class="fab fa-instagram"></i>
-              </a>
-              <a href="#" class="social-link" aria-label="LinkedIn">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-            </div>
-          </div>
+      <!-- About Section -->
+      <div class="footer-section footer-logo-section">
+        <img src="../../assets/cropped-Zymetree-Logo-No-Text.png" alt="Zymetree Logo" class="footer-logo"
+          onerror="this.style.display='none'">
+        <h3>About Zymetree</h3>
+        <p class="footer-description">
+          Zymetree is an environmental beneficial initiative focusing on reducing waste in all forms, reusing biological
+          resources, and recycling treated resources. Through continuous research, we've developed environmentally
+          beneficial effective microbial consortia for various industrial and domestic needs.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#catalog">Download Catalog</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <div class="contact-info">
+          <p><strong>Email:</strong> marketing.zymetree@gmail.com</p>
+          <p><strong>Phone:</strong> +91 94459 27940</p>
+          <p><strong>Address:</strong>
+            Zymetree Tech &amp; Trade,<br>
+            (A Registered MSME Unit),<br>
+            No. B4/25, Pulamaipithan Salai<br>
+            Industrial Estate, Martimalai Nagar,<br>
+            Chengalpattu District,<br>
+            Tamil Nadu - 603209, India</p>
         </div>
 
-        <!-- Quick Links Column -->
-        <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
-          <div class="footer-widget">
-            <h4 class="widget-title">Quick Links</h4>
-            <ul class="footer-links">
-              <li><a href="#" (click)="navigate($event, 'about')">About Us</a></li>
-              <li><a href="#" (click)="navigate($event, 'services')">Services</a></li>
-              <li><a href="#" (click)="navigate($event, 'portfolio')">Portfolio</a></li>
-              <li><a href="#" (click)="navigate($event, 'contact')">Contact</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Support Column -->
-        <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
-          <div class="footer-widget">
-            <h4 class="widget-title">Support</h4>
-            <ul class="footer-links">
-              <li><a href="#" (click)="navigate($event, 'faq')">FAQ</a></li>
-              <li><a href="#" (click)="navigate($event, 'privacy')">Privacy Policy</a></li>
-              <li><a href="#" (click)="navigate($event, 'terms')">Terms of Service</a></li>
-              <li><a href="#" (click)="navigate($event, 'help')">Help Center</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Newsletter Column -->
-        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-          <div class="footer-widget">
-            <h4 class="widget-title">Newsletter</h4>
-            <p class="newsletter-text">Subscribe to our newsletter for updates and news.</p>
-            <form [formGroup]="newsletterForm" (ngSubmit)="onSubscribe()" class="newsletter-form">
-              <div class="input-group">
-                <input type="email" formControlName="email" class="form-control" placeholder="Enter your email"
-                  [class.is-invalid]="email?.invalid && email?.touched">
-                <button type="submit" class="btn-subscribe" [disabled]="newsletterForm.invalid || isSubmitting">
-                  <span *ngIf="!isSubmitting">Subscribe</span>
-                  <span *ngIf="isSubmitting">
-                    <i class="fas fa-spinner fa-spin"></i>
-                  </span>
-                </button>
-              </div>
-              <div *ngIf="email?.invalid && email?.touched" class="error-message">
-                <small *ngIf="email?.errors?.['required']">Email is required</small>
-                <small *ngIf="email?.errors?.['email']">Please enter a valid email</small>
-              </div>
-              <div *ngIf="subscriptionMessage" class="subscription-message" [class.success]="subscriptionSuccess">
-                {{ subscriptionMessage }}
-              </div>
-            </form>
-          </div>
+        <h3 style="margin-top: 25px;">Follow Us</h3>
+        <div class="social-links">
+          <a href="https://www.facebook.com/share/1eitgJDSJv/" target="_blank" class="facebook" title="Facebook">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/marketing.zymetree2023/" target="_blank" class="instagram"
+            title="Instagram">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+            </svg>
+          </a>
+          <a href="https://youtube.com/@zymetreetechtrade?si=RV8ooiztSeOBqOkQ" target="_blank" class="youtube"
+            title="YouTube">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+            </svg>
+          </a>
         </div>
       </div>
     </div>
 
     <!-- Footer Bottom -->
     <div class="footer-bottom">
-      <div class="row align-items-center">
-        <div class="col-md-6 text-center text-md-start">
-          <p class="copyright-text">
-            © {{ currentYear }} YourBrand. All rights reserved.
-          </p>
-        </div>
-        <div class="col-md-6 text-center text-md-end">
-          <ul class="footer-bottom-links">
-            <li><a href="#" (click)="navigate($event, 'privacy')">Privacy</a></li>
-            <li><a href="#" (click)="navigate($event, 'terms')">Terms</a></li>
-            <li><a href="#" (click)="navigate($event, 'sitemap')">Sitemap</a></li>
-          </ul>
-        </div>
-      </div>
+      <p>&copy; 2026 <a href="#" target="_blank">Zymetree Tech & Trade</a>. All Rights Reserved.</p>
     </div>
   </div>
 </footer>

@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { CenteredCarousel } from "../centered-carousel/centered-carousel";
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
@@ -163,6 +163,20 @@ export class Home {
       ]
     }
   ];
+
+  @ViewChild('bgVideo') bgVideo!: ElementRef<HTMLVideoElement>;
+
+  ngAfterViewInit() {
+    const video = this.bgVideo.nativeElement;
+    video.muted = true;
+
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        console.warn('Autoplay blocked');
+      });
+    }
+  }
 
   @HostListener('window:scroll', [])
   onScroll() {

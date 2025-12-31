@@ -16,17 +16,11 @@
           </a>
 
           <!-- Products Mega Menu -->
-          <div
-            class="dropdown-container"
-            (mouseenter)="onDropdownMouseEnter('products')"
+          <div class="dropdown-container" (mouseenter)="onDropdownMouseEnter('products')"
             (mouseleave)="onDropdownMouseLeave()">
             <button class="nav-link dropdown-trigger">
               Products
-              <svg
-                [class.rotate]="isDropdownOpen('products')"
-                class="dropdown-icon"
-                fill="none"
-                stroke="currentColor"
+              <svg [class.rotate]="isDropdownOpen('products')" class="dropdown-icon" fill="none" stroke="currentColor"
                 viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
@@ -55,17 +49,11 @@
           </div>
 
           <!-- Projects Mega Menu -->
-          <div
-            class="dropdown-container"
-            (mouseenter)="onDropdownMouseEnter('projects')"
+          <div class="dropdown-container" (mouseenter)="onDropdownMouseEnter('projects')"
             (mouseleave)="onDropdownMouseLeave()">
             <button class="nav-link dropdown-trigger">
               Projects
-              <svg
-                [class.rotate]="isDropdownOpen('projects')"
-                class="dropdown-icon"
-                fill="none"
-                stroke="currentColor"
+              <svg [class.rotate]="isDropdownOpen('projects')" class="dropdown-icon" fill="none" stroke="currentColor"
                 viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
@@ -94,17 +82,11 @@
           </div>
 
           <!-- Services Mega Menu -->
-          <div
-            class="dropdown-container"
-            (mouseenter)="onDropdownMouseEnter('services')"
+          <div class="dropdown-container" (mouseenter)="onDropdownMouseEnter('services')"
             (mouseleave)="onDropdownMouseLeave()">
             <button class="nav-link dropdown-trigger">
               Services
-              <svg
-                [class.rotate]="isDropdownOpen('services')"
-                class="dropdown-icon"
-                fill="none"
-                stroke="currentColor"
+              <svg [class.rotate]="isDropdownOpen('services')" class="dropdown-icon" fill="none" stroke="currentColor"
                 viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
@@ -133,24 +115,19 @@
           </div>
 
           <!-- Download Catalog Dropdown -->
-          <div
-            class="dropdown-container simple-dropdown"
-            (mouseenter)="onDropdownMouseEnter('catalog')"
+          <div class="dropdown-container simple-dropdown" (mouseenter)="onDropdownMouseEnter('catalog')"
             (mouseleave)="onDropdownMouseLeave()">
             <button class="nav-link dropdown-trigger">
               Download Catalog
-              <svg
-                [class.rotate]="isDropdownOpen('catalog')"
-                class="dropdown-icon"
-                fill="none"
-                stroke="currentColor"
+              <svg [class.rotate]="isDropdownOpen('catalog')" class="dropdown-icon" fill="none" stroke="currentColor"
                 viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
 
             <div *ngIf="isDropdownOpen('catalog')" class="simple-dropdown-menu">
-              <a *ngFor="let item of catalogMenu" [href]="item.link" class="dropdown-link">
+              <a *ngFor="let item of catalogMenu" href="javascript:void(0)" class="dropdown-link"
+                (click)="downloadFile(item.link)">
                 {{ item.label }}
               </a>
             </div>
@@ -161,9 +138,7 @@
 
         <!-- Mobile Menu Button -->
         <div class="mobile-menu-button">
-          <button
-            (click)="toggleMenu()"
-            class="hamburger-button"
+          <button (click)="toggleMenu()" class="hamburger-button"
             [attr.aria-label]="isMenuOpen ? 'Close menu' : 'Open menu'">
             <svg *ngIf="!isMenuOpen" class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -186,17 +161,14 @@
           <div>
             <button (click)="toggleDropdown('products')" class="mobile-dropdown-trigger">
               <span>Products</span>
-              <svg
-                [class.rotate]="isDropdownOpen('products')"
-                class="dropdown-icon"
-                fill="none"
-                stroke="currentColor"
+              <svg [class.rotate]="isDropdownOpen('products')" class="dropdown-icon" fill="none" stroke="currentColor"
                 viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
             <div *ngIf="isDropdownOpen('products')" class="mobile-dropdown-content">
-              <a *ngFor="let item of productsMenu" [href]="item.link" class="mobile-dropdown-link" (click)="closeMenu()">
+              <a *ngFor="let item of productsMenu" [href]="item.link" class="mobile-dropdown-link"
+                (click)="closeMenu()">
                 {{ item.label }}
               </a>
             </div>
@@ -206,17 +178,14 @@
           <div>
             <button (click)="toggleDropdown('projects')" class="mobile-dropdown-trigger">
               <span>Projects</span>
-              <svg
-                [class.rotate]="isDropdownOpen('projects')"
-                class="dropdown-icon"
-                fill="none"
-                stroke="currentColor"
+              <svg [class.rotate]="isDropdownOpen('projects')" class="dropdown-icon" fill="none" stroke="currentColor"
                 viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
             <div *ngIf="isDropdownOpen('projects')" class="mobile-dropdown-content">
-              <a *ngFor="let item of projectsMenu" [href]="item.link" class="mobile-dropdown-link" (click)="closeMenu()">
+              <a *ngFor="let item of projectsMenu" [href]="item.link" class="mobile-dropdown-link"
+                (click)="closeMenu()">
                 {{ item.label }}
               </a>
             </div>
@@ -226,17 +195,14 @@
           <div>
             <button (click)="toggleDropdown('services')" class="mobile-dropdown-trigger">
               <span>Services</span>
-              <svg
-                [class.rotate]="isDropdownOpen('services')"
-                class="dropdown-icon"
-                fill="none"
-                stroke="currentColor"
+              <svg [class.rotate]="isDropdownOpen('services')" class="dropdown-icon" fill="none" stroke="currentColor"
                 viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
             <div *ngIf="isDropdownOpen('services')" class="mobile-dropdown-content">
-              <a *ngFor="let item of servicesMenu" [href]="item.link" class="mobile-dropdown-link" (click)="closeMenu()">
+              <a *ngFor="let item of servicesMenu" [href]="item.link" class="mobile-dropdown-link"
+                (click)="closeMenu()">
                 {{ item.label }}
               </a>
             </div>
@@ -246,17 +212,14 @@
           <div>
             <button (click)="toggleDropdown('catalog')" class="mobile-dropdown-trigger">
               <span>Download Catalog</span>
-              <svg
-                [class.rotate]="isDropdownOpen('catalog')"
-                class="dropdown-icon"
-                fill="none"
-                stroke="currentColor"
+              <svg [class.rotate]="isDropdownOpen('catalog')" class="dropdown-icon" fill="none" stroke="currentColor"
                 viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
             <div *ngIf="isDropdownOpen('catalog')" class="mobile-dropdown-content">
-              <a *ngFor="let item of catalogMenu" [href]="item.link" class="mobile-dropdown-link" (click)="closeMenu()">
+              <a *ngFor="let item of catalogMenu" href="javascript:void(0)" class="mobile-dropdown-link"
+                (click)="downloadFile(item.link); closeMenu()">
                 {{ item.label }}
               </a>
             </div>

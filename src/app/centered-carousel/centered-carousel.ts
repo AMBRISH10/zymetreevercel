@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+interface GalleryImage {
+  thumbnail: string;
+  full: string;
+  alt: string;
+}
+
 @Component({
   selector: 'app-centered-carousel',
   imports: [CommonModule],
@@ -8,35 +14,142 @@ import { CommonModule } from '@angular/common';
   styleUrl: './centered-carousel.css',
 })
 export class CenteredCarousel {
-  panels = [
+  row1Images: GalleryImage[] = [
     {
-      title: 'Explore The World',
-      img: 'https://images.unsplash.com/photo-1558979158-65a1eaa08691?auto=format&fit=crop&w=1350&q=80',
-      active: true
+      thumbnail: 'assets/products/aloevera_soap.jpeg',
+      full: 'assets/products/aloevera_soap.jpeg',
+      alt: 'Product 1'
     },
     {
-      title: 'Wild Forest',
-      img: 'https://images.unsplash.com/photo-1572276596237-5db2c3e16c5d?auto=format&fit=crop&w=1350&q=80',
-      active: false
+      thumbnail: 'assets/products/Dishwashgel_all-300x260.jpg',
+      full: 'assets/products/Dishwashgel_all-300x260.jpg',
+      alt: 'Product 2'
     },
     {
-      title: 'Sunny Beach',
-      img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1353&q=80',
-      active: false
+      thumbnail: 'assets/products/orange_soap.jpeg',
+      full: 'assets/products/orange_soap.jpeg',
+      alt: 'Product 3'
     },
     {
-      title: 'City on Winter',
-      img: 'https://images.unsplash.com/photo-1551009175-8a68da93d5f9?auto=format&fit=crop&w=1351&q=80',
-      active: false
+      thumbnail: 'assets/products/Phenyl-compound_1L-225x300.jpeg',
+      full: 'assets/products/Phenyl-compound_1L-225x300.jpeg',
+      alt: 'Product 4'
     },
     {
-      title: 'Mountains - Clouds',
-      img: 'https://images.unsplash.com/photo-1549880338-65ddcdfd017b?auto=format&fit=crop&w=1350&q=80',
-      active: false
+      thumbnail: 'assets/products/Floor-cleaner_Neem_500mL-273x300.jpg',
+      full: 'assets/products/Floor-cleaner_Neem_500mL-273x300.jpg',
+      alt: 'Product 5'
+    },
+    {
+      thumbnail: 'assets/products/coffee_soap.jpeg',
+      full: 'assets/products/coffee_soap.jpeg',
+      alt: 'Product 6'
     }
   ];
 
-  activatePanel(index: number) {
-    this.panels.forEach((p, i) => p.active = i === index);
+  row2Images: GalleryImage[] = [
+    {
+      thumbnail: 'assets/products/coal_soap.jpeg',
+      full: 'assets/products/coal_soap.jpeg',
+      alt: 'Product 7'
+    },
+    {
+      thumbnail: 'assets/products/Detergent-powder-2-Kg-219x300.jpg',
+      full: 'assets/products/Detergent-powder-2-Kg-219x300.jpg',
+      alt: 'Product 8'
+    },
+    {
+      thumbnail: 'assets/products/KIT-PRO-Kitchen-Oil-Grease-Remover-225x300.jpeg',
+      full: 'assets/products/KIT-PRO-Kitchen-Oil-Grease-Remover-225x300.jpeg',
+      alt: 'Product 9'
+    },
+    {
+      thumbnail: 'assets/products/neem_soap.jpeg',
+      full: 'assets/products/neem_soap.jpeg',
+      alt: 'Product 10'
+    },
+    {
+      thumbnail: 'assets/products/Room freshener_all.png',
+      full: 'assets/products/Room freshener_all.png',
+      alt: 'Product 11'
+    },
+    {
+      thumbnail: 'assets/products/Floor-cleaner_Lemon_5L-229x300.jpg',
+      full: 'assets/products/Floor-cleaner_Lemon_5L-229x300.jpg',
+      alt: 'Product 12'
+    }
+  ];
+
+  allImages: GalleryImage[] = [...this.row1Images, ...this.row2Images];
+
+  selectedImageIndex: number | null = null;
+  isLightboxOpen = false;
+  isRow1Paused = false;
+  isRow2Paused = false;
+
+  ngOnInit(): void {
+    // Duplicate images for infinite scroll effect
+    this.row1Images = [...this.row1Images, ...this.row1Images];
+    this.row2Images = [...this.row2Images, ...this.row2Images];
+  }
+
+  ngOnDestroy(): void {
+    // Cleanup if needed
+  }
+
+  openLightbox(image: GalleryImage): void {
+    const index = this.allImages.findIndex(img => img.thumbnail === image.thumbnail);
+    this.selectedImageIndex = index;
+    this.isLightboxOpen = true;
+  }
+
+  closeLightbox(): void {
+    this.isLightboxOpen = false;
+    this.selectedImageIndex = null;
+  }
+
+  nextImage(): void {
+    if (this.selectedImageIndex !== null) {
+      this.selectedImageIndex = (this.selectedImageIndex + 1) % this.allImages.length;
+    }
+  }
+
+  previousImage(): void {
+    if (this.selectedImageIndex !== null) {
+      this.selectedImageIndex =
+        (this.selectedImageIndex - 1 + this.allImages.length) % this.allImages.length;
+    }
+  }
+
+  onKeyDown(event: KeyboardEvent): void {
+    if (!this.isLightboxOpen) return;
+
+    switch (event.key) {
+      case 'Escape':
+        this.closeLightbox();
+        break;
+      case 'ArrowRight':
+        this.nextImage();
+        break;
+      case 'ArrowLeft':
+        this.previousImage();
+        break;
+    }
+  }
+
+  pauseRow1(): void {
+    this.isRow1Paused = true;
+  }
+
+  resumeRow1(): void {
+    this.isRow1Paused = false;
+  }
+
+  pauseRow2(): void {
+    this.isRow2Paused = true;
+  }
+
+  resumeRow2(): void {
+    this.isRow2Paused = false;
   }
 }

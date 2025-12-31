@@ -31,14 +31,6 @@ export const routes: Routes = [
         path: 'contact-us',
         component: ContactUs
     },
-    // {
-    //     path: 'services',
-    //     component: ''
-    // },
-    // {
-    //     path: 'projects',
-    //     component: ''
-    // },
     {
         path: 'products',
         children: [
