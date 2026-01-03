@@ -1,29 +1,34 @@
 import { CommonModule } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
 interface Product {
+  id: string;
   name: string;
-  desc: string;
+  fullName: string;
+  description: string;
+  icon: string;
+  color: string;
+  image: string;
 }
 
-interface TabContent {
+interface Category {
+  id: string;
   title: string;
   subtitle: string;
   description: string;
-  highlight: string;
-  note?: string;
+  products: Product[];
   benefits?: string[];
-  icon: string;
 }
 
-export interface ChemicalProduct {
-  image: string;
-  size: string;
-  label: string;
-  containerSize: string;
+interface Treatment {
+  icon: string;
+  title: string;
   description: string;
-  cardClass: string;
-  boxClass: string;
-  imageUrl?: string;
+  color: string;
+}
+
+interface ChemicalProduct {
+  productTitle: string;
+  imageUrl: string;
 }
 
 @Component({
@@ -33,392 +38,489 @@ export interface ChemicalProduct {
   styleUrl: './speciality-chemicals.css',
 })
 export class SpecialityChemicals {
-  activeTab: string = 'hvac';
-  isImagePopupOpen: boolean = false;
-  selectedImage: ChemicalProduct | null = null;
-  isVisible: { [key: string]: boolean } = {};
-  private observer!: IntersectionObserver;
-  chemicalProductsByTab: { [key: string]: ChemicalProduct[] } = {
-    hvac: [
-      {
-        image: 'assets/products/splChem/HVAC-Antiscalant50-300x300.jpg.jpeg',
-        label: 'Antiscalant',
-        description: '50 Kg Container',
-        cardClass: 'blue-card',
-        boxClass: 'blue-box',
-        size: '50',
-        containerSize: ''
-      },
-      {
-        image: 'assets/products/splChem/HVAC-Antiscalant-222x300.jpg.jpeg',
-        label: 'Antiscalant',
-        description: '222x300 Container',
-        cardClass: 'gray-card',
-        boxClass: 'gray-box',
-        size: '222',
-        containerSize: ''
-      },
-      {
-        image: 'assets/products/splChem/HVAC-Biocide50-300x300.jpg.jpeg',
-        label: 'Biocide',
-        description: '50 Kg Container',
-        cardClass: 'blue-card',
-        boxClass: 'blue-box',
-        size: '50',
-        containerSize: ''
-      },
-      {
-        image: 'assets/products/splChem/HVAC-Biocide-222x300.jpg.jpeg',
-        label: 'Biocide',
-        description: '222x300 Container',
-        cardClass: 'gray-card',
-        boxClass: 'gray-box',
-        size: '222',
-        containerSize: ''
-      },
-      {
-        image: 'assets/products/splChem/HVAC-Biodispersant50-300x300.jpg.jpeg',
-        label: 'Biodispersant',
-        description: '50 Kg Container',
-        cardClass: 'blue-card',
-        boxClass: 'blue-box',
-        size: '50',
-        containerSize: ''
-      },
-      {
-        image: 'assets/products/splChem/HVAC-Biodespersant-222x300.jpg.jpeg',
-        label: 'Biodispersant',
-        description: '222x300 Container',
-        cardClass: 'gray-card',
-        boxClass: 'gray-box',
-        size: '222',
-        containerSize: ''
-      },
-      {
-        image: 'assets/products/splChem/HVAC-Corrosion-Inhibitor50-300x300.jpg.jpeg',
-        label: 'Corrosion Inhibitor',
-        description: '50 Kg Container',
-        cardClass: 'blue-card',
-        boxClass: 'blue-box',
-        size: '50',
-        containerSize: ''
-      },
-      {
-        image: 'assets/products/splChem/HVAC-Corrosion-inhibitor-224x300.jpg.jpeg',
-        label: 'Corrosion Inhibitor',
-        description: '224x300 Container',
-        cardClass: 'gray-card',
-        boxClass: 'gray-box',
-        size: '224',
-        containerSize: ''
-      },
-      {
-        image: 'assets/products/splChem/HVAC-Desaclant50-300x300.jpg.jpeg',
-        label: 'Descalant',
-        description: '50 Kg Container',
-        cardClass: 'blue-card',
-        boxClass: 'blue-box',
-        size: '50',
-        containerSize: ''
-      },
-      {
-        image: 'assets/products/splChem/HVAC-Descalant-222x300.jpg.jpeg',
-        label: 'Descalant',
-        description: '222x300 Container',
-        cardClass: 'gray-card',
-        boxClass: 'gray-box',
-        size: '222',
-        containerSize: ''
-      },
-      {
-        image: 'assets/products/splChem/HVAC-pH-modifier50-300x300.jpg.jpeg',
-        label: 'pH Modifier',
-        description: '50 Kg Container',
-        cardClass: 'blue-card',
-        boxClass: 'blue-box',
-        size: '50',
-        containerSize: ''
-      },
-      {
-        image: 'assets/products/splChem/HVAC-pH-modifier-222x300.jpg.jpeg',
-        label: 'pH Modifier',
-        description: '222x300 Container',
-        cardClass: 'gray-card',
-        boxClass: 'gray-box',
-        size: '222',
-        containerSize: ''
-      }
-    ],
 
-    ro: [],       // add RO images later
-    boiler: []    // add Boiler images later
-  };
+  chemicalInventory: ChemicalProduct[] = [];
+  selectedItemIndex: number = 0;
+  isLightboxVisible: boolean = false;
 
-
-  chemicalProducts: ChemicalProduct[] = [
+  selectedCategory: Category | null = null;
+  selectedProduct: Product | null = null;
+  treatments: Treatment[] = [
     {
-      image: 'assets/products/splChem/HVAC-Antiscalant50-300x300.jpg.jpeg',
-      size: '50',
-      label: 'Antiscalant',
-      description: '50 Kg Container',
-      cardClass: 'blue-card',
-      boxClass: 'blue-box',
-      containerSize: ''
+      icon: 'bi-droplet-fill',
+      title: 'RO WATER & MEMBRANE TREATMENT',
+      description: 'Achieve exceptional water quality and optimize your reverse osmosis (RO) system performance with our comprehensive line of RO chemicals. Traditional water contains impurities like dissolved salts, minerals and organic matter. RO membranes act as a barrier, allowing only purified water to pass through,leaving contaminants behind. By using our RO chemicals, you can ensure consistent production of high-purity water, extend membrane life and minimize downtime for maintenance. You can achieve superior water quality and maximize the return on your RO system investment. However, over time, these contaminants can accumulate on the membrane surface, reducing efficiency and requiring costly replacements.',
+      color: 'primary'
     },
     {
-      image: 'assets/products/splChem/HVAC-Antiscalant-222x300.jpg.jpeg',
-      size: '222',
-      label: 'Antiscalant',
-      description: '222x300 Container',
-      cardClass: 'gray-card',
-      boxClass: 'gray-box',
-      containerSize: ''
+      icon: 'bi-thermometer-half',
+      title: 'BOILER WATER TREATMENT',
+      description: 'Ensure the safe and efficient operation of your boiler system with our proven boiler water treatment chemicals. Hard water and impurities can wreak havoc on boilers, causing corrosion, scale buildup, and foaming. These issues compromise boiler efficiency, increase maintenance costs, and pose safety risks.',
+      color: 'danger'
     },
     {
-      image: 'assets/products/splChem/HVAC-Biocide-222x300.jpg.jpeg',
-      size: '222',
-      label: 'Biocide',
-      description: '222x300 Container',
-      cardClass: 'blue-card',
-      boxClass: 'blue-box',
-      containerSize: ''
-    },
-    {
-      image: 'assets/products/splChem/HVAC-Biocide50-300x300.jpg.jpeg',
-      size: '50',
-      label: 'Biocide',
-      description: '50 Kg Container',
-      cardClass: 'gray-card',
-      boxClass: 'gray-box',
-      containerSize: ''
-    },
-    {
-      image: 'assets/products/splChem/HVAC-Biodespersant-222x300.jpg.jpeg',
-      size: '222',
-      label: 'Biodespersant',
-      description: '222x300 Container',
-      cardClass: 'blue-card',
-      boxClass: 'blue-box',
-      containerSize: ''
-    },
-    {
-      image: 'assets/products/splChem/HVAC-Biodispersant50-300x300.jpg.jpeg',
-      size: '50',
-      label: 'Biodispersant',
-      description: '50 Kg Container',
-      cardClass: 'gray-card',
-      boxClass: 'gray-box',
-      containerSize: ''
-    },
-    {
-      image: 'assets/products/splChem/HVAC-Corrosion-inhibitor-224x300.jpg.jpeg',
-      size: '224',
-      label: 'Corrosion Inhibitor',
-      description: '224x300 Container',
-      cardClass: 'blue-card',
-      boxClass: 'blue-box',
-      containerSize: ''
-    },
-    {
-      image: 'assets/products/splChem/HVAC-Corrosion-Inhibitor50-300x300.jpg.jpeg',
-      size: '50',
-      label: 'Corrosion Inhibitor',
-      description: '50 Kg Container',
-      cardClass: 'gray-card',
-      boxClass: 'gray-box',
-      containerSize: ''
-    },
-    {
-      image: 'assets/products/splChem/HVAC-Desaclant50-300x300.jpg.jpeg',
-      size: '50',
-      label: 'Descalant',
-      description: '50 Kg Container',
-      cardClass: 'blue-card',
-      boxClass: 'blue-box',
-      containerSize: ''
-    },
-    {
-      image: 'assets/products/splChem/HVAC-Descalant-222x300.jpg.jpeg',
-      size: '222',
-      label: 'Descalant',
-      description: '222x300 Container',
-      cardClass: 'gray-card',
-      boxClass: 'gray-box',
-      containerSize: ''
-    },
-    {
-      image: 'assets/products/splChem/HVAC-pH-modifier-222x300.jpg.jpeg',
-      size: '222',
-      label: 'pH Modifier',
-      description: '222x300 Container',
-      cardClass: 'blue-card',
-      boxClass: 'blue-box',
-      containerSize: ''
-    },
-    {
-      image: 'assets/products/splChem/HVAC-pH-modifier50-300x300.jpg.jpeg',
-      size: '50',
-      label: 'pH Modifier',
-      description: '50 Kg Container',
-      cardClass: 'gray-card',
-      boxClass: 'gray-box',
-      containerSize: ''
+      icon: 'bi-wind',
+      title: 'COOLING TOWER WATER TREATMENT',
+      description: 'Protect your critical equipment and optimize cooling system efficiency with our comprehensive line of cooling water treatment chemicals. Untreated cooling water leads to costly problems like corrosion, scaling, and biological growth. These issues reduce heat transfer, increase downtime, and shorten equipment life. Let us help you achieve reliable cooling, reduced maintenance costs and extended equipment life. Our tailored chemical programs prevent these concerns, maximizing system performance and energy savings.',
+      color: 'info'
     }
   ];
 
-  selectedChemicalProduct: ChemicalProduct | null = null;
-  showModal: boolean = false;
-
-  products: { [key: string]: Product[] } = {
-    hvac: [
-      { name: 'Zymetreat PM-C01', desc: 'pH Modifier' },
-      { name: 'Zymetreat AS-C01', desc: 'Antiscalant' },
-      { name: 'Zymetreat DS-C01', desc: 'Descalant' },
-      { name: 'Zymetreat MB-C01', desc: 'Microbiocide' },
-      { name: 'Zymetreat MB-C02', desc: 'Bio-Dispersant' },
-      { name: 'Zymetreat CI-C01', desc: 'Corrosion Inhibitor' }
-    ],
-    ro: [
-      { name: 'Zymetreat AS-R01', desc: 'Antiscalant' },
-      { name: 'Zymetreat MB-R02', desc: 'Bio Dispersant' },
-      { name: 'Zymetreat MB-R01', desc: 'Biocide' }
-    ],
-    boiler: [
-      { name: 'Zymetreat PM-C01', desc: 'pH Modifier' },
-      { name: 'Zymetreat AS-C01', desc: 'Antiscalant' },
-      { name: 'Zymetreat DS-C01', desc: 'Descalant' },
-      { name: 'Zymetreat MB-C01', desc: 'Microbiocide' },
-      { name: 'Zymetreat MB-C02', desc: 'Bio-Dispersant' },
-      { name: 'Zymetreat CI-C01', desc: 'Corrosion Inhibitor' }
-    ]
-  };
-
-  tabContent: { [key: string]: TabContent } = {
-    hvac: {
-      title: 'HVAC/Cooling Tower',
-      subtitle: 'Ensure Peak Performance: Cooling Water Treatment Solutions',
-      description: 'Protect your critical equipment and optimize cooling system efficiency with our comprehensive line of cooling water treatment chemicals. Untreated cooling water leads to costly problems like corrosion, scaling, and biological growth. These issues reduce heat transfer, increase downtime, and shorten equipment life. Let us help you achieve reliable cooling, reduced maintenance costs, and extended equipment life.',
-      highlight: 'Our tailored chemical programs prevent these concerns, maximizing system performance and energy savings.',
-      icon: 'zap'
+  mainProducts: Product[] = [
+    {
+      id: 'pm',
+      name: 'PM',
+      fullName: 'pH Modifier',
+      description: 'Maintain the ideal pH range for system stability and chemical effectiveness.',
+      icon: 'bi-speedometer2',
+      color: '#2d5016',
+      image: 'assets/images/products/ph-modifier.jpg'
     },
-    ro: {
-      title: 'Reverse Osmosis',
-      subtitle: 'Unlock the Power of Pure Water: Reverse Osmosis(RO) Chemicals',
-      description: 'Achieve exceptional water quality and optimize your reverse osmosis (RO) system performance with our comprehensive line of RO chemicals. Traditional water contains impurities like dissolved salts, minerals, and organic matter. RO membranes act as a barrier, allowing only purified water to pass through, leaving contaminants behind.',
-      highlight: 'By using our RO chemicals, you can ensure consistent production of high-purity water, extend membrane life, and minimize downtime for maintenance. Let us help your achieve superior water quality and maximize the return on your RO system investment.',
-      note: 'However, over time, these contaminants can accumulate on the membrane surface, reducing efficiency and requiring costly replacements.',
-      icon: 'droplets'
+    {
+      id: 'as',
+      name: 'AS',
+      fullName: 'Antiscalant',
+      description: 'Prevents mineral scale formation in reverse osmosis, cooling tower & boiler systems.',
+      icon: 'bi-shield-check',
+      color: '#3d6b1f',
+      image: 'assets/images/products/antiscalant.jpg'
     },
-    boiler: {
-      title: 'Boiler Chemicals',
-      subtitle: 'Safeguard Your Steam: Effective Boiler Water Treatment Solutions',
-      description: 'Ensure the safe and efficient operation of your boiler system with our proven boiler water treatment chemicals. Hard water and impurities can wreak havoc on boilers, causing corrosion, scale buildup, and foaming. These issues compromise boiler efficiency, increase maintenance costs, and pose safety risks.',
-      highlight: 'Our comprehensive boiler water treatment program utilizes targeted chemicals to prevent corrosion, control scale, and minimize foaming. Experience the benefits of clean and reliable boiler operation. Our treatment programs are customized to your specific boiler type and operating conditions. Let us help you optimize boiler performance, ensure steam quality, and achieve peace of mind.',
-      benefits: [
-        'Prevent corrosion: Protect your boiler tubes and extend equipment life.',
-        'Control scale: Eliminate mineral deposits that impede heat transfer and reduce energy consumption.',
-        'Minimize foaming: Maintain proper water levels and prevent carryover of boiler water into the steam system.'
+    {
+      id: 'ds',
+      name: 'DS',
+      fullName: 'Descalant',
+      description: 'High-strength descaling chemical to dissolve tough mineral deposits.',
+      icon: 'bi-droplet-half',
+      color: '#4d8629',
+      image: 'assets/images/products/descalant.jpg'
+    },
+    {
+      id: 'mb',
+      name: 'MB',
+      fullName: 'Microbiocide',
+      description: 'Fast-acting biocide to control bacteria, algae and fungal growth.',
+      icon: 'bi-virus',
+      color: '#5ea332',
+      image: 'assets/images/products/microbiocide.jpg'
+    },
+    {
+      id: 'ci',
+      name: 'CI',
+      fullName: 'Corrosion Inhibitor',
+      description: 'Protects metal surfaces and prevents rust, pitting and degradation.',
+      icon: 'bi-shield-fill-check',
+      color: '#70bf3c',
+      image: 'assets/images/products/corrosion-inhibitor.jpg'
+    },
+    {
+      id: 'os',
+      name: 'OS',
+      fullName: 'Oxygen Scavenger',
+      description: 'Removes dissolved oxygen from boiler feedwater and condensate systems.',
+      icon: 'bi-wind',
+      color: '#82d946',
+      image: 'assets/images/products/oxygen-scavenger.jpg'
+    },
+    {
+      id: 'nsho',
+      name: 'NSHO',
+      fullName: 'Nano Silver Hydrogen',
+      description: 'Next-generation multi-component disinfectant with nano-silver ions.',
+      icon: 'bi-stars',
+      color: '#94f050',
+      image: 'assets/images/products/nano-silver-hydrogen.jpg'
+    }
+  ];
+
+  categories: Category[] = [
+    {
+      id: 'ro',
+      title: 'RO Water & Membrane Treatment',
+      subtitle: 'Unlock the Power of Pure Water!',
+      description: 'Achieve exceptional water quality and optimize your reverse osmosis (RO) system performance.',
+      products: [
+        {
+          id: 'pm-r01',
+          name: 'Zymetreat PM',
+          fullName: 'pH Modifier',
+          description: 'Maintains ideal pH range for system stability and chemical effectiveness. Available as pH Booster for acidic water and pH Reducer for alkaline water.',
+          icon: 'bi-speedometer2',
+          color: '#2d5016',
+          image: 'assets/images/products/ro/pm-r01.jpg'
+        },
+
+        {
+          id: 'as-r01',
+          name: 'Zymetreat AS',
+          fullName: 'Antiscalant',
+          description: 'Prevents mineral scale formation in RO systems, cooling towers and boilers. Controls hard-to-treat salts, improves reliability and extends equipment life.',
+          icon: 'bi-shield-check',
+          color: '#3d6b1f',
+          image: 'assets/images/products/ro/as-r01.jpg'
+        },
+
+        {
+          id: 'ds-r01',
+          name: 'Zymetreat DS',
+          fullName: 'Descalant',
+          description: 'High-strength descaling chemical that removes calcium, magnesium, rust and iron oxide deposits. Restores efficiency without damaging metal surfaces.',
+          icon: 'bi-droplet-half',
+          color: '#4d8629',
+          image: 'assets/images/products/ro/ds-r01.jpg'
+        },
+
+        {
+          id: 'mb-r01',
+          name: 'Zymetreat MB',
+          fullName: 'Microbiocide',
+          description: 'Fast-acting biocide controlling bacteria, algae and fungi in cooling towers, RO pre-treatment and industrial water circuits.',
+          icon: 'bi-virus',
+          color: '#5ea332',
+          image: 'assets/images/products/ro/mb-r01.jpg'
+        },
+
+        {
+          id: 'ci-r01',
+          name: 'Zymetreat CI',
+          fullName: 'Corrosion Inhibitor',
+          description: 'Forms a protective film on metal surfaces to prevent rust, pitting and corrosion in boilers, pipelines and cooling systems.',
+          icon: 'bi-shield-fill-check',
+          color: '#82d946',
+          image: 'assets/images/products/ro/ci-r01.jpg'
+        },
+
+        {
+          id: 'os-r01',
+          name: 'Zymetreat OS',
+          fullName: 'Oxygen Scavenger',
+          description: 'Removes dissolved oxygen from boiler feedwater and condensate systems, preventing pitting corrosion and extending boiler life.',
+          icon: 'bi-wind',
+          color: '#3a6f3a',
+          image: 'assets/images/products/ro/os-r01.jpg'
+        },
+
+        {
+          id: 'nsho-r01',
+          name: 'Zymetreat NSHO',
+          fullName: 'Nano Silver Hydrogen Peroxide',
+          description: 'Advanced disinfectant combining hydrogen peroxide and nano-silver ions for long-lasting microbial control without harmful residues.',
+          icon: 'bi-droplet',
+          color: '#70bf3c',
+          image: 'assets/images/products/ro/nsho-r01.jpg'
+        }
       ],
-      icon: 'shield'
-    }
-  };
+      benefits: [
+        'Consistent high-purity water production',
+        'Extended membrane life',
+        'Minimized downtime',
+        'Maximum ROI on RO systems'
+      ]
+    },
+    {
+      id: 'boiler',
+      title: 'Boiler Water Treatment',
+      subtitle: 'Safeguard Your Steam',
+      description: 'Ensure the safe and efficient operation of your boiler system with proven treatment chemicals.',
+      products: [
+        {
+          id: 'pm-b01',
+          name: 'Zymetreat PM-B01',
+          fullName: 'pH Modifier',
+          description: 'Maintains optimal pH levels in boiler feedwater to improve chemical performance and prevent corrosion and scaling.',
+          icon: 'bi-speedometer2',
+          color: '#5b3a29',
+          image: 'assets/images/products/boiler/pm-b01.jpg'
+        },
 
-  ngOnInit(): void {
-    this.setupIntersectionObserver();
+        {
+          id: 'as-b01',
+          name: 'Zymetreat AS-B01',
+          fullName: 'Antiscalant',
+          description: 'Prevents scale formation caused by calcium, magnesium and silica in boilers, heat exchangers and steam systems.',
+          icon: 'bi-shield-check',
+          color: '#6d4b32',
+          image: 'assets/images/products/boiler/as-b01.jpg'
+        },
+
+        {
+          id: 'ds-b01',
+          name: 'Zymetreat DS-B01',
+          fullName: 'Descalant',
+          description: 'High-performance descaling chemical for removing hard scale, rust and iron oxide deposits from boilers and pipelines.',
+          icon: 'bi-droplet-half',
+          color: '#7f5c3b',
+          image: 'assets/images/products/boiler/ds-b01.jpg'
+        },
+
+        {
+          id: 'mb-b01',
+          name: 'Zymetreat MB-B01',
+          fullName: 'Microbiocide',
+          description: 'Controls bacteria, algae and fungal growth in boiler feedwater systems, condensate lines and cooling circuits.',
+          icon: 'bi-virus',
+          color: '#8f6d45',
+          image: 'assets/images/products/boiler/mb-b01.jpg'
+        },
+
+        {
+          id: 'mb-b02',
+          name: 'Zymetreat MB-B02',
+          fullName: 'Bio-Dispersant',
+          description: 'Disperses sludge, biofilm and organic deposits, improving system cleanliness and enhancing biocide efficiency.',
+          icon: 'bi-diagram-3',
+          color: '#a07e4f',
+          image: 'assets/images/products/boiler/mb-b02.jpg'
+        },
+
+        {
+          id: 'ci-b01',
+          name: 'Zymetreat CI-B01',
+          fullName: 'Corrosion Inhibitor',
+          description: 'Forms a protective film on metal surfaces to prevent corrosion, pitting and metal loss in boilers and steam systems.',
+          icon: 'bi-shield-fill-check',
+          color: '#b08f59',
+          image: 'assets/images/products/boiler/ci-b01.jpg'
+        },
+
+        {
+          id: 'sp-b01',
+          name: 'Zymetreat SP-B01',
+          fullName: 'Cleaner – Acidic',
+          description: 'Acid-based cleaner designed to remove inorganic scale and mineral deposits from boiler and heat exchanger surfaces.',
+          icon: 'bi-bucket',
+          color: '#5b3a29',
+          image: 'assets/images/products/boiler/sp-b01.jpg'
+        },
+
+        {
+          id: 'sp-b02',
+          name: 'Zymetreat SP-B02',
+          fullName: 'Cleaner – Alkalic',
+          description: 'Alkaline cleaner effective in removing oil, grease, organic fouling and sludge from boiler systems.',
+          icon: 'bi-bucket-fill',
+          color: '#6d4b32',
+          image: 'assets/images/products/boiler/sp-b02.jpg'
+        },
+
+        {
+          id: 'sp-b03',
+          name: 'Zymetreat SP-B03',
+          fullName: 'Organic Cleaner',
+          description: 'Specialized cleaner formulated to eliminate stubborn organic deposits and biofouling in boiler and process equipment.',
+          icon: 'bi-droplet',
+          color: '#7f5c3b',
+          image: 'assets/images/products/boiler/sp-b03.jpg'
+        }
+      ],
+      benefits: [
+        'Prevents corrosion and extends equipment life',
+        'Eliminates scale and improves heat transfer',
+        'Minimizes foaming and ensures steam quality',
+        'Customized treatment programs'
+      ]
+    },
+    {
+      id: 'cooling',
+      title: 'Cooling Tower Water Treatment',
+      subtitle: 'Ensure Peak Performance',
+      description: 'Protect critical equipment and optimize cooling system efficiency with comprehensive treatment.',
+      products: [
+        {
+          id: 'pm-c01',
+          name: 'Zymetreat PM-C01',
+          fullName: 'pH Modifier',
+          description: 'Maintains optimal pH balance in cooling tower water to ensure effective chemical treatment and system stability.',
+          icon: 'bi-speedometer2',
+          color: '#1f4f5a',
+          image: 'assets/images/products/cooling/pm-c01.jpg'
+        },
+
+        {
+          id: 'as-c01',
+          name: 'Zymetreat AS-C01',
+          fullName: 'Antiscalant',
+          description: 'Prevents scale formation caused by calcium, magnesium and silica in cooling towers and recirculating water systems.',
+          icon: 'bi-shield-check',
+          color: '#2b6a78',
+          image: 'assets/images/products/cooling/as-c01.jpg'
+        },
+
+        {
+          id: 'ds-c01',
+          name: 'Zymetreat DS-C01',
+          fullName: 'Descalant',
+          description: 'High-strength descaling chemical formulated to remove mineral scale, rust and deposits from cooling tower systems.',
+          icon: 'bi-droplet-half',
+          color: '#378595',
+          image: 'assets/images/products/cooling/ds-c01.jpg'
+        },
+
+        {
+          id: 'mb-c01',
+          name: 'Zymetreat MB-C01',
+          fullName: 'Microbiocide',
+          description: 'Fast-acting biocide for controlling bacteria, algae and fungi in cooling towers and open recirculating systems.',
+          icon: 'bi-virus',
+          color: '#43a0b2',
+          image: 'assets/images/products/cooling/mb-c01.jpg'
+        },
+
+        {
+          id: 'mb-c02',
+          name: 'Zymetreat MB-C02',
+          fullName: 'Bio-Dispersant',
+          description: 'Disperses biofilm, sludge and organic matter, improving heat transfer efficiency and biocide performance.',
+          icon: 'bi-diagram-3',
+          color: '#4fbac9',
+          image: 'assets/images/products/cooling/mb-c02.jpg'
+        },
+
+        {
+          id: 'ci-c01',
+          name: 'Zymetreat CI-C01',
+          fullName: 'Corrosion Inhibitor',
+          description: 'Forms a protective layer on metal surfaces to prevent corrosion, pitting and metal loss in cooling water systems.',
+          icon: 'bi-shield-fill-check',
+          color: '#5bd4e0',
+          image: 'assets/images/products/cooling/ci-c01.jpg'
+        }
+      ],
+      benefits: [
+        'Prevents corrosion, scaling, and biological growth',
+        'Maximizes heat transfer efficiency',
+        'Reduces maintenance costs',
+        'Extends equipment lifespan'
+      ]
+    }
+  ];
+
+  ngOnInit() {
+    this.initializeProductCatalog();
   }
 
-  ngOnDestroy(): void {
-    if (this.observer) {
-      this.observer.disconnect();
-    }
+  openCategoryModal(category: Category): void {
+    this.selectedCategory = category;
   }
 
-  setupIntersectionObserver(): void {
-    this.observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const id = entry.target.id;
-            this.isVisible[id] = true;
-          }
-        });
+  openProductModal(product: Product): void {
+    this.selectedProduct = product;
+  }
+
+  closeCategoryModal(): void {
+    this.selectedCategory = null;
+  }
+
+  closeProductModal(): void {
+    this.selectedProduct = null;
+  }
+
+  onImageError(event: any): void {
+    // Fallback to placeholder if image fails to load
+    event.target.style.display = 'none';
+    const placeholder = event.target.parentElement;
+    placeholder.innerHTML = `
+      <div class="product-image-placeholder" style="background-color: ${this.selectedProduct?.color}20">
+        <i class="bi ${this.selectedProduct?.icon}" style="color: ${this.selectedProduct?.color}; font-size: 80px;"></i>
+      </div>
+    `;
+  }
+
+  private initializeProductCatalog(): void {
+    this.chemicalInventory = [
+      {
+        productTitle: 'HVAC Antiscalant',
+        imageUrl: 'assets/products/splChem/HVAC-Antiscalant-222x300.jpg.jpeg'
       },
-      { threshold: 0.1 }
-    );
-
-    setTimeout(() => {
-      const elements = document.querySelectorAll('.animate-on-scroll');
-      elements.forEach((el) => {
-        this.observer.observe(el);
-      });
-    }, 100);
+      {
+        productTitle: 'HVAC Antiscalant 50',
+        imageUrl: 'assets/products/splChem/HVAC-Antiscalant50-300x300.jpg.jpeg'
+      },
+      {
+        productTitle: 'HVAC Biocide',
+        imageUrl: 'assets/products/splChem/HVAC-Biocide-222x300.jpg.jpeg'
+      },
+      {
+        productTitle: 'HVAC Biocide 50',
+        imageUrl: 'assets/products/splChem/HVAC-Biocide50-300x300.jpg.jpeg'
+      },
+      {
+        productTitle: 'HVAC Biodespersant',
+        imageUrl: 'assets/products/splChem/HVAC-Biodespersant-222x300.jpg.jpeg'
+      },
+      {
+        productTitle: 'HVAC Biodispersant 50',
+        imageUrl: 'assets/products/splChem/HVAC-Biodispersant50-300x300.jpg.jpeg'
+      },
+      {
+        productTitle: 'HVAC Corrosion Inhibitor',
+        imageUrl: 'assets/products/splChem/HVAC-Corrosion-inhibitor-224x300.jpg.jpeg'
+      },
+      {
+        productTitle: 'HVAC Corrosion Inhibitor 50',
+        imageUrl: 'assets/products/splChem/HVAC-Corrosion-Inhibitor50-300x300.jpg.jpeg'
+      },
+      {
+        productTitle: 'HVAC Desaclant 50',
+        imageUrl: 'assets/products/splChem/HVAC-Desaclant50-300x300.jpg.jpeg'
+      },
+      {
+        productTitle: 'HVAC Descalant',
+        imageUrl: 'assets/products/splChem/HVAC-Descalant-222x300.jpg.jpeg'
+      },
+      {
+        productTitle: 'HVAC pH Modifier',
+        imageUrl: 'assets/products/splChem/HVAC-pH-modifier-222x300.jpg.jpeg'
+      },
+      {
+        productTitle: 'HVAC pH Modifier 50',
+        imageUrl: 'assets/products/splChem/HVAC-pH-modifier50-300x300.jpg.jpeg'
+      }
+    ];
   }
 
-  setActiveTab(tab: string): void {
-    this.activeTab = tab;
-  }
-
-  getActiveTabContent(): TabContent {
-    return this.tabContent[this.activeTab];
-  }
-
-  getActiveProducts(): Product[] {
-    return this.products[this.activeTab];
-  }
-
-  getProductLabel(): string {
-    return this.activeTab === 'ro' ? 'Bio Dispersant' : 'Antiscalant';
-  }
-
-  getAnimationStyle(elementId: string, delay: number = 0): any {
-    return {
-      opacity: this.isVisible[elementId] ? 1 : 0,
-      transform: this.isVisible[elementId] ? 'translateY(0)' : 'translateY(30px)',
-      transition: `all 0.8s ease-out ${delay}s`
-    };
-  }
-
-  openImageModal(chemicalProduct: ChemicalProduct): void {
-    this.selectedChemicalProduct = chemicalProduct;
-    this.showModal = true;
+  openLightboxViewer(itemIndex: number): void {
+    this.selectedItemIndex = itemIndex;
+    this.isLightboxVisible = true;
     document.body.style.overflow = 'hidden';
   }
 
-  closeImageModal(): void {
-    this.showModal = false;
-    this.selectedChemicalProduct = null;
+  closeLightboxViewer(): void {
+    this.isLightboxVisible = false;
     document.body.style.overflow = 'auto';
   }
 
-  onModalBackgroundClick(event: MouseEvent): void {
-    const target = event.target as HTMLElement;
-    if (target.classList.contains('modal-overlay')) {
-      this.closeImageModal();
+  navigateToAdjacentItem(direction: number): void {
+    this.selectedItemIndex += direction;
+
+    if (this.selectedItemIndex < 0) {
+      this.selectedItemIndex = this.chemicalInventory.length - 1;
+    } else if (this.selectedItemIndex >= this.chemicalInventory.length) {
+      this.selectedItemIndex = 0;
     }
+  }
+
+  getCurrentDisplayedProduct(): ChemicalProduct {
+    return this.chemicalInventory[this.selectedItemIndex];
   }
 
   @HostListener('document:keydown', ['$event'])
-  handleKeyboardEvent(event: KeyboardEvent): void {
-    if (event.key === 'Escape' && this.showModal) {
-      this.closeImageModal();
+  handleKeyboardNavigation(event: KeyboardEvent): void {
+    if (!this.isLightboxVisible) return;
+
+    switch (event.key) {
+      case 'Escape':
+        this.closeLightboxViewer();
+        break;
+      case 'ArrowLeft':
+        this.navigateToAdjacentItem(-1);
+        break;
+      case 'ArrowRight':
+        this.navigateToAdjacentItem(1);
+        break;
     }
   }
 
-
-  // Image popup methods
-  openImagePopup(image: ChemicalProduct): void {
-    this.selectedImage = image;
-    this.isImagePopupOpen = true;
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
-  }
-
-  closeImagePopup(): void {
-    this.isImagePopupOpen = false;
-    this.selectedImage = null;
-    document.body.style.overflow = ''; // Restore scrolling
-  }
-
-  getActiveProductImages(): ChemicalProduct[] {
-    return this.chemicalProductsByTab[this.activeTab] || this.chemicalProductsByTab['stp'];
+  preventEventBubbling(event: Event): void {
+    event.stopPropagation();
   }
 }
