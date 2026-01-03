@@ -1,1 +1,304 @@
-<app-not-found></app-not-found>
+<div class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-10 mx-auto text-center">
+                <div class="hero-badge mb-3">
+                    <i class="bi bi-house-heart-fill"></i>
+                </div>
+                <h1 class="display-3 fw-bold mb-3">ZYMETREE HOME CARE</h1>
+                <p class="hero-tagline">Pure Care. Powerful Clean.</p>
+                <p class="lead mb-4">
+                    Zymetree brings you a smarter way to keep your home clean, fresh and healthy.
+                    Our Home Care range of products are crafted with advanced, safe and efficient
+                    formulations designed to deliver professional cleaning performance for everyday living.
+                </p>
+                <div class="hero-features">
+                    <span><i class="bi bi-check-circle-fill"></i> Effortless Cleaning</span>
+                    <span><i class="bi bi-check-circle-fill"></i> Long-lasting Freshness</span>
+                    <span><i class="bi bi-check-circle-fill"></i> Family-Safe Hygiene</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Why Choose Section -->
+<div class="container my-5">
+    <div class="why-choose-section">
+        <h2 class="text-center mb-5 fw-bold">Why Choose Zymetree?</h2>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="bi bi-lightning-charge-fill"></i>
+                    </div>
+                    <h5>High-Performance</h5>
+                    <p>Advanced cleaning solutions for superior results</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="bi bi-leaf-fill"></i>
+                    </div>
+                    <h5>Eco-Conscious</h5>
+                    <p>Safe and environmentally friendly ingredients</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="bi bi-clock-history"></i>
+                    </div>
+                    <h5>Long-lasting</h5>
+                    <p>Hygiene and freshness that truly lasts</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="bi bi-house-check-fill"></i>
+                    </div>
+                    <h5>Tailored Care</h5>
+                    <p>Perfect solutions for every room in your home</p>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-5">
+            <p class="lead fw-bold text-success">
+                Create a cleaner, healthier living space — with Zymetree, home care feels effortless.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Product Categories -->
+<div class="categories-showcase">
+    <div class="container">
+        <h2 class="text-center mb-5 fw-bold">Our Complete Home Care Range</h2>
+
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6" *ngFor="let category of categories">
+                <div class="category-card" [style.border-top-color]="category.color"
+                    (click)="openCategoryModal(category)" role="button">
+                    <div class="category-header">
+                        <div class="category-icon" [style.background-color]="category.color">
+                            <i [class]="'bi ' + category.icon"></i>
+                        </div>
+                        <div>
+                            <h4 class="category-title">{{ category.title }}</h4>
+                            <p class="category-subtitle" *ngIf="category.subtitle">{{ category.subtitle }}</p>
+                        </div>
+                    </div>
+                    <p class="category-description">{{ category.description }}</p>
+                    <div class="category-footer">
+                        <span class="product-badge">
+                            <i class="bi bi-box-seam me-2"></i>{{ category.products.length }} Products
+                        </span>
+                        <span class="explore-btn">
+                            Explore <i class="bi bi-arrow-right-circle-fill ms-2"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Special Products Callout -->
+<div class="container my-5">
+    <div class="special-products-section">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h3 class="fw-bold mb-3">Custom Solutions Available</h3>
+                <p class="mb-3">
+                    We manufacture <strong>customized cleaning liquids</strong> tailored to meet unique
+                    operational needs of various industries. Our advanced formulations address specific
+                    cleaning challenges across manufacturing, commercial, and specialized service environments.
+                </p>
+                <ul class="custom-list">
+                    <li><i class="bi bi-check2-circle text-success me-2"></i>High-foam & Low-foam formulations</li>
+                    <li><i class="bi bi-check2-circle text-success me-2"></i>Neutral pH solutions</li>
+                    <li><i class="bi bi-check2-circle text-success me-2"></i>Degreasing & Descaling agents</li>
+                    <li><i class="bi bi-check2-circle text-success me-2"></i>Application-specific solutions</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <div class="contact-cards">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="bi bi-hexagon-fill"></i>
+                        </div>
+                        <h6>Enzyme Based Cleaners</h6>
+                        <p>Advanced bio-enzymatic cleaning solutions</p>
+                        <a href="tel:+919445927940" class="contact-link">
+                            <i class="bi bi-telephone-fill me-2"></i>+91 94459 27940
+                        </a>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="bi bi-droplet-fill"></i>
+                        </div>
+                        <h6>Coconut Oil Based Cleaners</h6>
+                        <p>Natural, eco-friendly cleaning power</p>
+                        <a href="tel:+919445927940" class="contact-link">
+                            <i class="bi bi-telephone-fill me-2"></i>+91 94459 27940
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Category Modal -->
+<div class="modal fade" [class.show]="selectedCategory" [style.display]="selectedCategory ? 'block' : 'none'"
+    tabindex="-1" *ngIf="selectedCategory">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header"
+                [style.background]="'linear-gradient(135deg, ' + selectedCategory.color + ' 0%, ' + selectedCategory.color + 'cc 100%)'">
+                <div>
+                    <h4 class="modal-title text-white">
+                        <i [class]="'bi ' + selectedCategory.icon + ' me-2'"></i>{{ selectedCategory.title }}
+                    </h4>
+                    <p class="text-white-50 mb-0" *ngIf="selectedCategory.subtitle">{{ selectedCategory.subtitle }}</p>
+                </div>
+                <button type="button" class="btn-close btn-close-white" (click)="closeCategoryModal()"></button>
+            </div>
+            <div class="modal-body">
+                <p class="lead mb-4">{{ selectedCategory.description }}</p>
+
+                <!-- Key Features -->
+                <div class="key-features-section mb-4"
+                    *ngIf="selectedCategory.keyFeatures && selectedCategory.keyFeatures.length > 0">
+                    <h5 class="mb-3"><i class="bi bi-star-fill me-2"></i>Key Features</h5>
+                    <div class="row">
+                        <div class="col-md-6" *ngFor="let feature of selectedCategory.keyFeatures">
+                            <div class="feature-item-modal">
+                                <i class="bi bi-check-circle-fill text-success me-2"></i>{{ feature }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <h5 class="mb-3"><i class="bi bi-grid-3x3-gap-fill me-2"></i>Available Products</h5>
+                <div class="row g-3">
+                    <div class="col-md-6 col-lg-4" *ngFor="let product of selectedCategory.products">
+                        <div class="modal-product-card" [style.border-left-color]="product.color"
+                            (click)="openProductModal(product)" role="button">
+                            <div class="modal-product-icon" [style.background-color]="product.color">
+                                <i [class]="'bi ' + product.icon"></i>
+                            </div>
+                            <h6 class="mb-2 fw-bold">{{ product.name }}</h6>
+                            <p class="small text-muted mb-0">{{ product.description }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="closeCategoryModal()">Close</button>
+                <!-- <button type="button" class="btn btn-success">
+                    <i class="bi bi-cart-plus-fill me-2"></i>View All Products
+                </button> -->
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-backdrop fade" [class.show]="selectedCategory" *ngIf="selectedCategory"
+    (click)="closeCategoryModal()"></div>
+
+<!-- Product Detail Modal -->
+<div class="modal fade" [class.show]="selectedProduct" [style.display]="selectedProduct ? 'block' : 'none'"
+    tabindex="-1" *ngIf="selectedProduct">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header"
+                [style.background]="'linear-gradient(135deg, ' + selectedProduct.color + ' 0%, ' + selectedProduct.color + 'dd 100%)'">
+                <h4 class="modal-title text-white">
+                    <i [class]="'bi ' + selectedProduct.icon + ' me-2'"></i>
+                    {{ selectedProduct.name }}
+                </h4>
+                <button type="button" class="btn-close btn-close-white" (click)="closeProductModal()"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Product Image -->
+                <div class="text-center mb-4">
+                    <div class="product-image-container">
+                        <img [src]="selectedProduct.image" [alt]="selectedProduct.name" class="product-image"
+                            (error)="onImageError($event)">
+                    </div>
+                </div>
+
+                <!-- Product Description -->
+                <div class="product-section">
+                    <h5 class="section-title">Product Description</h5>
+                    <p class="lead">{{ selectedProduct.description }}</p>
+                </div>
+
+                <!-- Features -->
+                <div class="product-section" *ngIf="selectedProduct.features && selectedProduct.features.length > 0">
+                    <h6 class="section-title">
+                        <i class="bi bi-star-fill me-2"></i>Key Features
+                    </h6>
+                    <div class="row">
+                        <div class="col-md-6" *ngFor="let feature of selectedProduct.features">
+                            <div class="feature-tag">
+                                <i class="bi bi-check-circle-fill text-success me-2"></i>{{ feature }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Applications -->
+                <div class="product-section"
+                    *ngIf="selectedProduct.applications && selectedProduct.applications.length > 0">
+                    <h6 class="section-title">
+                        <i class="bi bi-gear-wide-connected me-2"></i>Applications
+                    </h6>
+                    <div class="applications-grid">
+                        <span class="application-badge" *ngFor="let app of selectedProduct.applications">
+                            <i class="bi bi-dot"></i>{{ app }}
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Benefits -->
+                <div class="product-section" *ngIf="selectedProduct.benefits && selectedProduct.benefits.length > 0">
+                    <h6 class="section-title">
+                        <i class="bi bi-award-fill me-2"></i>Additional Benefits
+                    </h6>
+                    <ul class="benefits-list">
+                        <li *ngFor="let benefit of selectedProduct.benefits">
+                            <i class="bi bi-chevron-right text-success me-2"></i>{{ benefit }}
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Packaging Info -->
+                <div class="product-section">
+                    <h6 class="section-title">
+                        <i class="bi bi-box-seam me-2"></i>Available Packaging
+                    </h6>
+                    <div class="packaging-options">
+                        <span class="package-badge">100ml</span>
+                        <span class="package-badge">500ml</span>
+                        <span class="package-badge">1 Liter</span>
+                        <span class="package-badge">5 Liters</span>
+                        <span class="package-badge">20 Liters</span>
+                        <span class="package-badge">Bulk Orders</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="closeProductModal()">Close</button>
+                <!-- <button type="button" class="btn btn-success">
+                    <i class="bi bi-bag-plus-fill me-2"></i>Add to Cart
+                </button> -->
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-backdrop fade" [class.show]="selectedProduct" *ngIf="selectedProduct" (click)="closeProductModal()">
+</div>
