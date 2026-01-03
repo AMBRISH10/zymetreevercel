@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { NotFound } from '../../not-found/not-found';
 
 interface NitrogenProduct {
   name: string;
@@ -34,7 +35,7 @@ interface BiocontrolAgent {
 }
 @Component({
   selector: 'app-biofertilizer-production-consultancy',
-  imports: [CommonModule],
+  imports: [CommonModule,NotFound],
   templateUrl: './biofertilizer-production-consultancy.html',
   styleUrl: './biofertilizer-production-consultancy.css',
 })
