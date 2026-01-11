@@ -42,9 +42,9 @@ export class Navbar {
 
   projectsMenu: MenuItem[] = [
     { label: 'Improve (Wetland Water Treatment)', link: '/projects/improve' },
-    { label: 'Electrocoagulation for Wastewater Treatment', link: '/projects/electrocoagulation' },
-    { label: 'MBR for STP & ETP', link: '/projects/mbr' },
-    { label: 'Online Water Quality Monitoring System', link: '/projects/monitoring' }
+    // { label: 'Electrocoagulation for Wastewater Treatment', link: '/projects/electrocoagulation' },
+    // { label: 'MBR for STP & ETP', link: '/projects/mbr' },
+    // { label: 'Online Water Quality Monitoring System', link: '/projects/monitoring' }
   ];
 
   servicesMenu: MenuItem[] = [
@@ -60,8 +60,24 @@ export class Navbar {
       link: 'assets/Docs/CREST-Brochure.pdf'
     },
     {
-      label: 'Technical Documents',
-      link: 'assets/Docs/House-keeping.pdf'
+      label: 'Cold Processed Handmade soap',
+      link: 'assets/Docs/ARAM_PURE_SOAP_CATALOGUE.pdf'
+    },
+    {
+      label: 'Bio-Culture',
+      link: 'assets/Docs/ARAN_Biofertilizers_Biocontrol.pdf'
+    },
+    {
+      label: 'Improve',
+      link: 'assets/Docs/IMPROVE_Brochure.pdf'
+    },
+    {
+      label: 'House Keeping',
+      link: 'assets/Docs/ZT&T_HKC.pdf'
+    },
+    {
+      label: 'Zymetree Brochure',
+      link: 'assets/Docs/Zymetreat_Brochure.pdf'
     }
   ];
 
@@ -96,15 +112,15 @@ export class Navbar {
     },
     {
       image: 'assets/electro.webp',
-      title: 'Electrocoagulation',
-      subtitle: 'Advanced Treatment',
-      link: '/projects/electrocoagulation'
+      title: '',
+      subtitle: '',
+      link: ''
     },
     {
       image: 'assets/MBR.jpg',
-      title: 'MBR Systems',
-      subtitle: 'STP & ETP Solutions',
-      link: '/projects/mbr'
+      title: '',
+      subtitle: '',
+      link: ''
     }
   ];
 

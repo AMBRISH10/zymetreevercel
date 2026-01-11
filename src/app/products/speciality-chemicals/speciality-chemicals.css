@@ -84,7 +84,7 @@
 }
 
 .categories-section {
-    background: linear-gradient(135deg, #2d5016 0%, #000000 50%, #63ff00 100%);
+    background: linear-gradient(135deg, #2d5016 0%, #a4a4a4 50%, #63ff00 100%);
     padding: 80px 0;
     /* margin: 60px 0; */
 }
@@ -875,7 +875,7 @@
 
 /* //////////////////////////////////////////////////////////////////////////////////// */
 .showcase-wrapper {
-    background: linear-gradient(135deg, #2d5016 0%, #000000 50%, #63ff00 100%);
+    background: linear-gradient(135deg, #2d5016 0%, #a4a4a4 50%, #63ff00 100%);
     min-height: 100vh;
     padding: 40px 20px;
 }
