@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostListener } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 interface Product {
   id: string;
   name: string;
@@ -38,6 +38,20 @@ interface ChemicalProduct {
   styleUrl: './speciality-chemicals.css',
 })
 export class SpecialityChemicals {
+
+  @ViewChild('bgVideo') bgVideo!: ElementRef<HTMLVideoElement>;
+
+  ngAfterViewInit() {
+    const video = this.bgVideo.nativeElement;
+    video.muted = true;
+
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        console.warn('Autoplay blocked');
+      });
+    }
+  }
 
   chemicalInventory: ChemicalProduct[] = [];
   selectedItemIndex: number = 0;

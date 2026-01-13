@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
 
 interface Product {
   name: string;
@@ -41,6 +41,20 @@ export class Bioculture {
   selectedImage: ProductImage | null = null;
 
   showDescription = false;
+
+  @ViewChild('bgVideo') bgVideo!: ElementRef<HTMLVideoElement>;
+
+  ngAfterViewInit() {
+    const video = this.bgVideo.nativeElement;
+    video.muted = true;
+
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        console.warn('Autoplay blocked');
+      });
+    }
+  }
 
   toggleDescription(): void {
     this.showDescription = !this.showDescription;
