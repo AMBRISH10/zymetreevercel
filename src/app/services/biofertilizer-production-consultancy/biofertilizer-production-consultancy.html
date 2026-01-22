@@ -1,1 +1,105 @@
-<app-not-found></app-not-found>
+<div class="biofertilizer-container">
+    <div class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="main-title">
+                    <i class="bi bi-flower3"></i>
+                    Biofertilizer Production Consultation Services
+                </h1>
+                <div class="title-underline"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="intro-section">
+            <div class="intro-card">
+                <p class="intro-text">
+                    We provide specialized consultation services to support small-scale entrepreneurs in establishing
+                    and
+                    operating successful biofertilizer production units. Our services are designed to empower
+                    individuals and
+                    businesses to enter the sustainable agriculture sector with confidence, technical clarity, and
+                    regulatory
+                    readiness.
+                </p>
+            </div>
+
+            <div class="intro-card">
+                <p class="intro-text">
+                    Our consultation covers the complete biofertilizer production lifecycle, including selection of
+                    suitable
+                    microbial strains, raw material sourcing, production methods (solid and liquid biofertilizers),
+                    fermentation
+                    processes, quality control protocols, and shelf-life enhancement. We guide clients in setting up
+                    cost-effective
+                    production units, recommending appropriate equipment, layout planning, and operational workflows
+                    tailored to
+                    small and medium production capacities.
+                </p>
+            </div>
+
+            <div class="intro-card">
+                <p class="intro-text">
+                    We also offer expert support on regulatory compliance, licensing, and certification requirements,
+                    ensuring
+                    products meet national agricultural and environmental standards. Entrepreneurs receive guidance on
+                    packaging, labeling, storage, and transportation to maintain product efficacy and market acceptance.
+                </p>
+            </div>
+
+            <div class="intro-card">
+                <p class="intro-text">
+                    In addition to technical training, we provide business-oriented advisory services such as cost
+                    estimation,
+                    pricing strategies, production scaling, and market entry planning. Our goal is not only to enable
+                    production, but also to help clients build commercially viable and sustainable biofertilizer
+                    enterprises.
+                </p>
+            </div>
+
+            <div class="intro-card highlight-card">
+                <p class="intro-text">
+                    By promoting eco-friendly alternatives to chemical fertilizers, our services contribute to soil
+                    health
+                    improvement, increased crop productivity, and reduced environmental impact. Whether you are starting
+                    a new venture or upgrading an existing operation, our biofertilizer consultation services offer
+                    practical
+                    solutions, hands-on guidance, and ongoing technical support to help you succeed in the growing green
+                    agriculture market.
+                </p>
+            </div>
+        </div>
+
+        <div class="features-section">
+            <h2 class="section-title">
+                <i class="bi bi-stars"></i>
+                Key Service Areas
+            </h2>
+
+            <div class="features-grid">
+                <div *ngFor="let feature of keyFeatures; let i = index" class="feature-card"
+                    [class.hovered]="hoveredIndex === i" (mouseenter)="onFeatureHover(i)"
+                    (mouseleave)="onFeatureLeave()" [style.animation-delay]="feature.delay">
+                    <div class="icon-wrapper">
+                        <i [class]="'bi ' + feature.icon"></i>
+                    </div>
+                    <h3 class="feature-title">{{ feature.title }}</h3>
+                    <p class="feature-description">{{ feature.description }}</p>
+                    <div class="card-shine"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <div class="cta-content">
+                <h3 class="cta-title">Ready to Start Your Biofertilizer Venture?</h3>
+                <p class="cta-subtitle">Let's build a sustainable future together</p>
+                <button class="cta-button">
+                    <i class="bi bi-arrow-right-circle-fill"></i>
+                    Get Started Today
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

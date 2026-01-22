@@ -1,1 +1,58 @@
-<app-not-found></app-not-found>>
+<div class="consultation-container">
+    <div class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="main-title">
+                    <i class="bi bi-globe2"></i>
+                    Environmental Management Consultation
+                </h1>
+                <div class="title-underline"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="intro-section">
+            <p class="intro-text">
+                Our Environmental Management Consultation Services help organizations meet regulatory requirements
+                while minimizing environmental impact and promoting sustainable operations. We provide expert
+                guidance across environmental impact assessments, compliance audits, environmental management
+                plans, and permitting support. By combining technical expertise with practical, cost-effective
+                solutions,
+                we help clients identify risks, reduce liabilities, and improve overall environmental performance. Our
+                consultants stay up to date with evolving environmental regulations and industry best practices,
+                ensuring
+                your projects align with local and international standards. Whether supporting new developments,
+                operational expansions, or compliance challenges, we work closely with clients to deliver clear
+                strategies
+                that balance environmental responsibility with business objectives.
+            </p>
+        </div>
+
+        <div class="services-section">
+            <h2 class="section-title">
+                <i class="bi bi-list-check"></i>
+                Services Offered
+            </h2>
+
+            <div class="services-grid">
+                <div *ngFor="let service of services; let i = index" class="service-card"
+                    [class.hovered]="hoveredIndex === i" (mouseenter)="onServiceHover(i)"
+                    (mouseleave)="onServiceLeave()" [style.animation-delay]="service.delay">
+                    <div class="icon-wrapper">
+                        <i [class]="'bi ' + service.icon"></i>
+                    </div>
+                    <p class="service-text">{{ service.title }}</p>
+                    <div class="card-shine"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <button class="cta-button">
+                <i class="bi bi-envelope-fill"></i>
+                Get a Consultation
+            </button>
+        </div>
+    </div>
+</div>

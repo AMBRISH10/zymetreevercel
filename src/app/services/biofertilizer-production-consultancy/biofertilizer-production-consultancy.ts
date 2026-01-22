@@ -1,175 +1,64 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { NotFound } from '../../not-found/not-found';
-
-interface NitrogenProduct {
-  name: string;
-  crops: string;
-  features: string;
-  application: string;
-  dosage: string;
-}
-
-interface OtherBioFertilizer {
-  name: string;
+interface KeyFeature {
+  icon: string;
+  title: string;
   description: string;
-  crops: string;
-  features: string;
-  application: string;
-  dosage: string;
-}
-
-interface MicroNutrient {
-  name: string;
-  description: string;
-  crops: string;
-  features: string;
-  application: string;
-  dosage: string;
-}
-
-interface BiocontrolAgent {
-  name: string;
-  target: string;
-  mechanism: string;
+  delay: string;
 }
 @Component({
   selector: 'app-biofertilizer-production-consultancy',
-  imports: [CommonModule,NotFound],
+  imports: [CommonModule],
   templateUrl: './biofertilizer-production-consultancy.html',
   styleUrl: './biofertilizer-production-consultancy.css',
 })
 export class BiofertilizerProductionConsultancy {
-  activeSection: 'home' | 'biofertilizer' | 'biocontrol' | 'soil' | 'biostimulant' = 'home';
-  mobileMenuOpen = false;
-  expandedProduct: number | null = null;
-
-  nitrogenProducts: NitrogenProduct[] = [
+  keyFeatures: KeyFeature[] = [
     {
-      name: 'Azospirillum',
-      crops: 'Cereals, Millets, Sugarcane, Cotton, Vegetables',
-      features: 'Fixes atmospheric nitrogen, Produces growth hormones, Improves root development',
-      application: 'Seed treatment, Seedling dip, Soil application',
-      dosage: '2-4 L/ha or 500ml per acre'
+      icon: 'bi-egg',
+      title: 'Microbial Strain Selection',
+      description: 'Expert guidance in selecting suitable microbial strains for optimal biofertilizer production',
+      delay: '0.1s'
     },
     {
-      name: 'Rhizobium',
-      crops: 'Legumes (Pulses, Groundnut, Soybean)',
-      features: 'Forms root nodules, Fixes N2 from atmosphere, Specific to legume crops',
-      application: 'Seed treatment before sowing',
-      dosage: '200-250g per 10kg seeds'
+      icon: 'bi-truck',
+      title: 'Raw Material Sourcing',
+      description: 'Support in identifying and sourcing quality raw materials for production',
+      delay: '0.2s'
     },
     {
-      name: 'Acetobacter',
-      crops: 'Sugarcane, Rice, Cotton',
-      features: 'Fixes atmospheric nitrogen, Produces organic acids, Tolerates acidic conditions',
-      application: 'Soil application, Seed treatment',
-      dosage: '2-4 L/ha'
+      icon: 'bi-gear-wide-connected',
+      title: 'Production Methods',
+      description: 'Comprehensive guidance on solid and liquid biofertilizer production techniques',
+      delay: '0.3s'
     },
     {
-      name: 'Azotobacter',
-      crops: 'Vegetables, Cereals, Cotton, Oilseeds',
-      features: 'Free-living nitrogen fixer, Produces vitamins and growth substances',
-      application: 'Seed treatment, Soil application',
-      dosage: '2-4 L/ha'
+      icon: 'bi-graph-up',
+      title: 'Quality Control',
+      description: 'Implementation of robust quality control protocols and shelf-life enhancement strategies',
+      delay: '0.4s'
+    },
+    {
+      icon: 'bi-shield-check',
+      title: 'Regulatory Compliance',
+      description: 'Expert support for licensing, certification, and meeting agricultural standards',
+      delay: '0.5s'
+    },
+    {
+      icon: 'bi-cash-coin',
+      title: 'Business Advisory',
+      description: 'Cost estimation, pricing strategies, and market entry planning for commercial success',
+      delay: '0.6s'
     }
   ];
 
-  otherBioFertilizers: OtherBioFertilizer[] = [
-    {
-      name: 'Phosphorous Solubilizing Bacteria (PSB)',
-      description: 'Converts insoluble phosphorus into plant-available forms',
-      crops: 'All crops - especially cereals, pulses, oilseeds',
-      features: 'Solubilizes rock phosphate, Reduces P fertilizer need by 25-30%, Enhances root growth',
-      application: 'Seed treatment, Soil application, Seedling root dip',
-      dosage: '2-4 L/ha'
-    },
-    {
-      name: 'Potassium Mobilizing Bacteria (KMB)',
-      description: 'Releases fixed potassium from soil minerals',
-      crops: 'Fruits, Vegetables, Sugarcane, Cotton',
-      features: 'Mobilizes K from soil reserves, Improves fruit quality, Enhances disease resistance',
-      application: 'Soil application, Drip irrigation',
-      dosage: '2-4 L/ha'
-    },
-    {
-      name: 'Mycorrhizal Biofertilizer (VAM)',
-      description: 'Beneficial fungi forming symbiotic root associations',
-      crops: 'Horticulture, Plantation crops, Vegetables',
-      features: 'Increases nutrient absorption area, Improves drought tolerance, Protects against soil pathogens',
-      application: 'Soil application at planting, Seedling treatment',
-      dosage: '4-5 kg/ha'
-    },
-    {
-      name: 'NPK Consortia',
-      description: 'Combined culture of N-fixing, P-solubilizing and K-mobilizing bacteria',
-      crops: 'All crops',
-      features: 'Complete nutrient solution, Reduces chemical fertilizer by 25-30%, Cost-effective',
-      application: 'Seed treatment, Soil application',
-      dosage: '2-4 L/ha'
-    }
-  ];
+  hoveredIndex: number | null = null;
 
-  microNutrients: MicroNutrient[] = [
-    {
-      name: 'Zinc Solubilizing Bacteria (ZnSB)',
-      description: 'Converts unavailable zinc into plant-absorbable forms',
-      crops: 'Rice, Wheat, Maize, Pulses, Vegetables',
-      features: 'Enhances Zn availability, Improves enzyme activity, Boosts immunity',
-      application: 'Soil application, Seed treatment',
-      dosage: '2 L/ha'
-    },
-    {
-      name: 'Silica Solubilizing Bacteria (SiSB)',
-      description: 'Mobilizes silica for stronger plant structure',
-      crops: 'Rice, Sugarcane, Banana, All crops',
-      features: 'Strengthens cell walls, Improves pest resistance, Enhances photosynthesis',
-      application: 'Soil application',
-      dosage: '2 L/ha'
-    },
-    {
-      name: 'Sulphur Solubilizing Bacteria (SSB)',
-      description: 'Oxidizes elemental sulphur to plant-available sulphate',
-      crops: 'Oilseeds, Pulses, Vegetables, All crops',
-      features: 'Improves oil/protein content, Enhances nutrient uptake, Better crop quality',
-      application: 'Soil application',
-      dosage: '2 L/ha'
-    }
-  ];
-
-  biocontrolAgents: BiocontrolAgent[] = [
-    {
-      name: 'Trichoderma viride',
-      target: 'Soil-borne fungal diseases',
-      mechanism: 'Mycoparasitism, antibiosis'
-    },
-    {
-      name: 'Pseudomonas fluorescens',
-      target: 'Root rot, wilt diseases',
-      mechanism: 'Produces antibiotics, induces systemic resistance'
-    },
-    {
-      name: 'Bacillus subtilis',
-      target: 'Fungal & bacterial diseases',
-      mechanism: 'Produces lipopeptides, forms biofilms'
-    },
-    {
-      name: 'Beauveria bassiana',
-      target: 'Insect pests (whitefly, aphids)',
-      mechanism: 'Entomopathogenic fungus'
-    }
-  ];
-
-  setActiveSection(section: 'home' | 'biofertilizer' | 'biocontrol' | 'soil' | 'biostimulant'): void {
-    this.activeSection = section;
-    this.mobileMenuOpen = false;
+  onFeatureHover(index: number): void {
+    this.hoveredIndex = index;
   }
 
-  toggleMobileMenu(): void {
-    this.mobileMenuOpen = !this.mobileMenuOpen;
-  }
-
-  toggleProduct(idx: number): void {
-    this.expandedProduct = this.expandedProduct === idx ? null : idx;
+  onFeatureLeave(): void {
+    this.hoveredIndex = null;
   }
 }
