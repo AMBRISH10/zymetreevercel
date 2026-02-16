@@ -143,6 +143,15 @@ export class SpecialityChemicals {
       icon: 'bi-stars',
       color: '#94f050',
       image: 'assets/images/products/nano-silver-hydrogen.jpg'
+    },
+    {
+      id: 'rawmaterial',
+      name: 'RAWMATERIAL',
+      fullName: 'Raw Material',
+      description: 'We are a reliable raw material supplier for cleaning chemicals and speciality chemicals, serving manufacturers and formulators.Our product range includes acids, bases, fragrances, and functional additives.We ensure consistent quality, technical- grade materials, and batch reliability for every supply.Ideal for household cleaners, industrial cleaners, water treatment, and speciality formulations.Timely delivery, competitive pricing, and technical support make us a trusted sourcing partners',
+      icon: 'bi-box-seam',
+      color: '#7bf028',
+      image: 'assets/images/products/raw-material.jpg'
     }
   ];
 
@@ -160,7 +169,7 @@ export class SpecialityChemicals {
           description: 'Maintains ideal pH range for system stability and chemical effectiveness. Available as pH Booster for acidic water and pH Reducer for alkaline water.',
           icon: 'bi-speedometer2',
           color: '#2d5016',
-          image: 'assets/images/products/ro/pm-r01.jpg'
+          image: 'assets/products/splChem/Reverse Osmosis ZYMETREAT PM R01 pH Modifier.jpg'
         },
 
         {
@@ -170,7 +179,7 @@ export class SpecialityChemicals {
           description: 'Prevents mineral scale formation in RO systems, cooling towers and boilers. Controls hard-to-treat salts, improves reliability and extends equipment life.',
           icon: 'bi-shield-check',
           color: '#3d6b1f',
-          image: 'assets/images/products/ro/as-r01.jpg'
+          image: 'assets/products/splChem/Reverse Osmosis ZYMETREAT AS R01 Antiscalant.jpg'
         },
 
         {
@@ -180,7 +189,7 @@ export class SpecialityChemicals {
           description: 'High-strength descaling chemical that removes calcium, magnesium, rust and iron oxide deposits. Restores efficiency without damaging metal surfaces.',
           icon: 'bi-droplet-half',
           color: '#4d8629',
-          image: 'assets/images/products/ro/ds-r01.jpg'
+          image: 'assets/products/splChem/Reverse Osmosis ZYMETREAT DS R01 Descalant.jpg'
         },
 
         {
@@ -190,7 +199,7 @@ export class SpecialityChemicals {
           description: 'Fast-acting biocide controlling bacteria, algae and fungi in cooling towers, RO pre-treatment and industrial water circuits.',
           icon: 'bi-virus',
           color: '#5ea332',
-          image: 'assets/images/products/ro/mb-r01.jpg'
+          image: 'assets/products/splChem/Reverse Osmosis ZYMETREAT MB R01 MicroBiocide.jpg'
         },
 
         {
@@ -200,7 +209,7 @@ export class SpecialityChemicals {
           description: 'Forms a protective film on metal surfaces to prevent rust, pitting and corrosion in boilers, pipelines and cooling systems.',
           icon: 'bi-shield-fill-check',
           color: '#82d946',
-          image: 'assets/images/products/ro/ci-r01.jpg'
+          image: 'assets/products/splChem/Reverse Osmosis ZYMETREAT CI R01 Scale & Corrosion Inhibitor.jpg'
         },
 
         {
@@ -210,7 +219,7 @@ export class SpecialityChemicals {
           description: 'Removes dissolved oxygen from boiler feedwater and condensate systems, preventing pitting corrosion and extending boiler life.',
           icon: 'bi-wind',
           color: '#3a6f3a',
-          image: 'assets/images/products/ro/os-r01.jpg'
+          image: 'assets/products/splChem/Reverse Osmosis ZYMETREAT OS R01 Oxygen Scavanger.jpg'
         },
 
         {
@@ -220,7 +229,7 @@ export class SpecialityChemicals {
           description: 'Advanced disinfectant combining hydrogen peroxide and nano-silver ions for long-lasting microbial control without harmful residues.',
           icon: 'bi-droplet',
           color: '#70bf3c',
-          image: 'assets/images/products/ro/nsho-r01.jpg'
+          image: 'assets/products/splChem/Reverse Osmosis ZYMETREAT NSHO R01 Nano Silver Hydrogen Peroxide.jpg'
         }
       ],
       benefits: [
@@ -243,7 +252,7 @@ export class SpecialityChemicals {
           description: 'Maintains optimal pH levels in boiler feedwater to improve chemical performance and prevent corrosion and scaling.',
           icon: 'bi-speedometer2',
           color: '#5b3a29',
-          image: 'assets/images/products/boiler/pm-b01.jpg'
+          image: 'assets/products/splChem/Boiler  ZYMETREAT PM B01 pH Modifier.jpg'
         },
 
         {
@@ -253,7 +262,7 @@ export class SpecialityChemicals {
           description: 'Prevents scale formation caused by calcium, magnesium and silica in boilers, heat exchangers and steam systems.',
           icon: 'bi-shield-check',
           color: '#6d4b32',
-          image: 'assets/images/products/boiler/as-b01.jpg'
+          image: 'assets/products/splChem/Boiler ZYMETREAT AS B01 Antiscalant.jpg'
         },
 
         {
@@ -263,7 +272,7 @@ export class SpecialityChemicals {
           description: 'High-performance descaling chemical for removing hard scale, rust and iron oxide deposits from boilers and pipelines.',
           icon: 'bi-droplet-half',
           color: '#7f5c3b',
-          image: 'assets/images/products/boiler/ds-b01.jpg'
+          image: 'assets/products/splChem/Boiler ZYMETREAT DS B01 Descalant.jpg'
         },
 
         {
@@ -273,7 +282,7 @@ export class SpecialityChemicals {
           description: 'Controls bacteria, algae and fungal growth in boiler feedwater systems, condensate lines and cooling circuits.',
           icon: 'bi-virus',
           color: '#8f6d45',
-          image: 'assets/images/products/boiler/mb-b01.jpg'
+          image: 'assets/products/splChem/Boiler ZYMETREAT MB B01 Oxidizing Biocide.jpg'
         },
 
         {
@@ -283,7 +292,7 @@ export class SpecialityChemicals {
           description: 'Disperses sludge, biofilm and organic deposits, improving system cleanliness and enhancing biocide efficiency.',
           icon: 'bi-diagram-3',
           color: '#a07e4f',
-          image: 'assets/images/products/boiler/mb-b02.jpg'
+          image: 'assets/products/splChem/Boiler ZYMETREAT MB B02 Bio Dispersant.jpg'
         },
 
         {
@@ -293,7 +302,7 @@ export class SpecialityChemicals {
           description: 'Forms a protective film on metal surfaces to prevent corrosion, pitting and metal loss in boilers and steam systems.',
           icon: 'bi-shield-fill-check',
           color: '#b08f59',
-          image: 'assets/images/products/boiler/ci-b01.jpg'
+          image: 'assets/products/splChem/Boiler ZYMETREAT CI B01 Scale & Corrosion Inhibitor.jpg'
         },
 
         {
@@ -303,7 +312,7 @@ export class SpecialityChemicals {
           description: 'Acid-based cleaner designed to remove inorganic scale and mineral deposits from boiler and heat exchanger surfaces.',
           icon: 'bi-bucket',
           color: '#5b3a29',
-          image: 'assets/images/products/boiler/sp-b01.jpg'
+          image: 'assets/products/splChem/Boiler ZYMETREAT SP B01 Cleaner Acidic.jpg'
         },
 
         {
@@ -313,7 +322,7 @@ export class SpecialityChemicals {
           description: 'Alkaline cleaner effective in removing oil, grease, organic fouling and sludge from boiler systems.',
           icon: 'bi-bucket-fill',
           color: '#6d4b32',
-          image: 'assets/images/products/boiler/sp-b02.jpg'
+          image: 'assets/products/splChem/Boiler ZYMETREAT SP B02 Cleaner Alkalic.jpg'
         },
 
         {
@@ -323,7 +332,7 @@ export class SpecialityChemicals {
           description: 'Specialized cleaner formulated to eliminate stubborn organic deposits and biofouling in boiler and process equipment.',
           icon: 'bi-droplet',
           color: '#7f5c3b',
-          image: 'assets/images/products/boiler/sp-b03.jpg'
+          image: 'assets/products/splChem/Boiler ZYMETREAT SP B03 Organic Cleaner.jpg'
         }
       ],
       benefits: [
@@ -346,7 +355,7 @@ export class SpecialityChemicals {
           description: 'Maintains optimal pH balance in cooling tower water to ensure effective chemical treatment and system stability.',
           icon: 'bi-speedometer2',
           color: '#1f4f5a',
-          image: 'assets/images/products/cooling/pm-c01.jpg'
+          image: 'assets/products/splChem/Cooling Tower ZYMETREAT PMA C01 pH Modifier.jpg'
         },
 
         {
@@ -356,7 +365,7 @@ export class SpecialityChemicals {
           description: 'Prevents scale formation caused by calcium, magnesium and silica in cooling towers and recirculating water systems.',
           icon: 'bi-shield-check',
           color: '#2b6a78',
-          image: 'assets/images/products/cooling/as-c01.jpg'
+          image: 'assets/products/splChem/Cooling Tower ZYMETREAT AS C01 Antiscalant.jpg'
         },
 
         {
@@ -366,7 +375,7 @@ export class SpecialityChemicals {
           description: 'High-strength descaling chemical formulated to remove mineral scale, rust and deposits from cooling tower systems.',
           icon: 'bi-droplet-half',
           color: '#378595',
-          image: 'assets/images/products/cooling/ds-c01.jpg'
+          image: 'assets/products/splChem/Cooling Tower ZYMETREAT DS C01 Descalant.jpg'
         },
 
         {
@@ -376,7 +385,7 @@ export class SpecialityChemicals {
           description: 'Fast-acting biocide for controlling bacteria, algae and fungi in cooling towers and open recirculating systems.',
           icon: 'bi-virus',
           color: '#43a0b2',
-          image: 'assets/images/products/cooling/mb-c01.jpg'
+          image: 'assets/products/splChem/Cooling Tower ZYMETREAT MB C01 MicroBiocide.jpg'
         },
 
         {
@@ -386,7 +395,7 @@ export class SpecialityChemicals {
           description: 'Disperses biofilm, sludge and organic matter, improving heat transfer efficiency and biocide performance.',
           icon: 'bi-diagram-3',
           color: '#4fbac9',
-          image: 'assets/images/products/cooling/mb-c02.jpg'
+          image: 'assets/products/splChem/Cooling Tower ZYMETREAT MB C02 Bio Dispersant.jpg'
         },
 
         {
@@ -396,7 +405,7 @@ export class SpecialityChemicals {
           description: 'Forms a protective layer on metal surfaces to prevent corrosion, pitting and metal loss in cooling water systems.',
           icon: 'bi-shield-fill-check',
           color: '#5bd4e0',
-          image: 'assets/images/products/cooling/ci-c01.jpg'
+          image: 'assets/products/splChem/Cooling Tower ZYMETREAT CI C01 Corrosion Inhibitor.jpg'
         }
       ],
       benefits: [

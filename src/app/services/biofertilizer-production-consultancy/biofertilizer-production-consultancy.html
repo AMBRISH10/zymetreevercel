@@ -1,105 +1,302 @@
-<div class="biofertilizer-container">
-    <div class="hero-section">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="main-title">
-                    <i class="bi bi-flower3"></i>
-                    Biofertilizer Production Consultation Services
-                </h1>
-                <div class="title-underline"></div>
-            </div>
-        </div>
-    </div>
+<!-- Main Container -->
+<div class="biofertilizer-main-wrapper">
 
-    <div class="container">
-        <div class="intro-section">
-            <div class="intro-card">
-                <p class="intro-text">
-                    We provide specialized consultation services to support small-scale entrepreneurs in establishing
-                    and
-                    operating successful biofertilizer production units. Our services are designed to empower
-                    individuals and
-                    businesses to enter the sustainable agriculture sector with confidence, technical clarity, and
-                    regulatory
-                    readiness.
-                </p>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-pulse"></span>
+                100% Organic & Certified
             </div>
-
-            <div class="intro-card">
-                <p class="intro-text">
-                    Our consultation covers the complete biofertilizer production lifecycle, including selection of
-                    suitable
-                    microbial strains, raw material sourcing, production methods (solid and liquid biofertilizers),
-                    fermentation
-                    processes, quality control protocols, and shelf-life enhancement. We guide clients in setting up
-                    cost-effective
-                    production units, recommending appropriate equipment, layout planning, and operational workflows
-                    tailored to
-                    small and medium production capacities.
-                </p>
-            </div>
-
-            <div class="intro-card">
-                <p class="intro-text">
-                    We also offer expert support on regulatory compliance, licensing, and certification requirements,
-                    ensuring
-                    products meet national agricultural and environmental standards. Entrepreneurs receive guidance on
-                    packaging, labeling, storage, and transportation to maintain product efficacy and market acceptance.
-                </p>
-            </div>
-
-            <div class="intro-card">
-                <p class="intro-text">
-                    In addition to technical training, we provide business-oriented advisory services such as cost
-                    estimation,
-                    pricing strategies, production scaling, and market entry planning. Our goal is not only to enable
-                    production, but also to help clients build commercially viable and sustainable biofertilizer
-                    enterprises.
-                </p>
-            </div>
-
-            <div class="intro-card highlight-card">
-                <p class="intro-text">
-                    By promoting eco-friendly alternatives to chemical fertilizers, our services contribute to soil
-                    health
-                    improvement, increased crop productivity, and reduced environmental impact. Whether you are starting
-                    a new venture or upgrading an existing operation, our biofertilizer consultation services offer
-                    practical
-                    solutions, hands-on guidance, and ongoing technical support to help you succeed in the growing green
-                    agriculture market.
-                </p>
-            </div>
-        </div>
-
-        <div class="features-section">
-            <h2 class="section-title">
-                <i class="bi bi-stars"></i>
-                Key Service Areas
+            <h2 class="hero-title">
+                Premium Biofertilizers for
+                <span class="gradient-text">Sustainable Farming</span>
             </h2>
+            <p class="hero-description">
+                Discover our range of eco-friendly biofertilizers designed to enhance soil health,
+                boost crop yields, and promote sustainable agriculture practices.
+            </p>
 
-            <div class="features-grid">
-                <div *ngFor="let feature of keyFeatures; let i = index" class="feature-card"
-                    [class.hovered]="hoveredIndex === i" (mouseenter)="onFeatureHover(i)"
-                    (mouseleave)="onFeatureLeave()" [style.animation-delay]="feature.delay">
-                    <div class="icon-wrapper">
-                        <i [class]="'bi ' + feature.icon"></i>
-                    </div>
-                    <h3 class="feature-title">{{ feature.title }}</h3>
-                    <p class="feature-description">{{ feature.description }}</p>
-                    <div class="card-shine"></div>
+            <!-- Stats -->
+            <div class="stats-row">
+                <div class="stat-item">
+                    <div class="stat-number">8+</div>
+                    <div class="stat-label">Products</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Organic</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">2L</div>
+                    <div class="stat-label">Dosage/Acre</div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="cta-section">
-            <div class="cta-content">
-                <h3 class="cta-title">Ready to Start Your Biofertilizer Venture?</h3>
-                <p class="cta-subtitle">Let's build a sustainable future together</p>
-                <button class="cta-button">
-                    <i class="bi bi-arrow-right-circle-fill"></i>
-                    Get Started Today
-                </button>
+    <!-- Filter Tabs -->
+    <section class="filter-section">
+        <div class="filter-container">
+            <button class="filter-tab" [class.filter-tab-active]="activeTab === 'all'" (click)="filterProducts('all')">
+                <span class="tab-icon">🌍</span>
+                All Products
+            </button>
+            <button class="filter-tab" [class.filter-tab-active]="activeTab === 'nitrogen'"
+                (click)="filterProducts('nitrogen')">
+                <span class="tab-icon">🌱</span>
+                Nitrogen Fixers
+            </button>
+            <button class="filter-tab" [class.filter-tab-active]="activeTab === 'nutrients'"
+                (click)="filterProducts('nutrients')">
+                <span class="tab-icon">💎</span>
+                Nutrient Solubilizers
+            </button>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="products-section">
+        <div class="products-container">
+            <div class="products-grid">
+                <div *ngFor="let product of filteredProducts; let i = index" class="product-card"
+                    [style.animation-delay]="(i * 0.1) + 's'" (click)="openProductDetails(product)">
+
+                    <div class="product-card-header">
+                        <div class="product-icon" [style.background]="product.color">
+                            {{ product.icon }}
+                        </div>
+                        <!-- <button class="favorite-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+                            </svg>
+                        </button> -->
+                    </div>
+
+                    <div class="product-card-body">
+                        <h3 class="product-title">{{ product.name }}</h3>
+                        <p class="product-description">{{ product.content.substring(0, 120) }}...</p>
+
+                        <div class="product-meta">
+                            <div class="meta-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z" />
+                                    <path
+                                        d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319z" />
+                                </svg>
+                                <span>{{ product.dosage }}</span>
+                            </div>
+                        </div>
+
+                        <div class="product-tags">
+                            <span class="tag" *ngFor="let method of product.applicationMethods.slice(0, 2)">
+                                {{ method }}
+                            </span>
+                            <span class="tag tag-more" *ngIf="product.applicationMethods.length > 2">
+                                +{{ product.applicationMethods.length - 2 }} more
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="product-card-footer">
+                        <button class="btn-view-details"
+                            (click)="openProductDetails(product); $event.stopPropagation()">
+                            View Details
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for Product Details -->
+    <div class="modal-overlay" *ngIf="showModal" (click)="closeModal()">
+        <div class="modal-container" (click)="$event.stopPropagation()">
+            <button class="modal-close-btn" (click)="closeModal()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                    <path
+                        d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+                </svg>
+            </button>
+
+            <div class="modal-content" *ngIf="selectedProduct">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <div class="modal-icon" [style.background]="selectedProduct.color">
+                        {{ selectedProduct.icon }}
+                    </div>
+                    <div>
+                        <h2 class="modal-title">{{ selectedProduct.name }}</h2>
+                        <p class="modal-subtitle">Premium Biofertilizer Solution</p>
+                    </div>
+                </div>
+
+                <!-- Product Image Section -->
+                <!-- Product Image Gallery Section -->
+                <div class="modal-image-section" *ngIf="selectedProduct && selectedProduct.images.length > 0">
+                    <div class="image-gallery">
+                        <!-- Main Image Display -->
+                        <div class="main-image-container"
+                            (click)="openImageModal(selectedProduct.images[currentImageIndex])">
+                            <img [src]="selectedProduct.images[currentImageIndex]" [alt]="selectedProduct.name"
+                                class="modal-product-image" (error)="$event.target.src='assets/placeholder.jpg'">
+                            <div class="image-zoom-hint">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                    viewBox="0 0 16 16">
+                                    <path
+                                        d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" />
+                                    <path
+                                        d="M10.344 11.742c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1 6.538 6.538 0 0 1-1.398 1.4z" />
+                                    <path fill-rule="evenodd"
+                                        d="M6.5 3a.5.5 0 0 1 .5.5V6h2.5a.5.5 0 0 1 0 1H7v2.5a.5.5 0 0 1-1 0V7H3.5a.5.5 0 0 1 0-1H6V3.5a.5.5 0 0 1 .5-.5z" />
+                                </svg>
+                                Click to enlarge ({{currentImageIndex + 1}}/{{selectedProduct.images.length}})
+                            </div>
+                        </div>
+
+                        <!-- Navigation Arrows (if more than 1 image) -->
+                        <div class="image-navigation" *ngIf="selectedProduct.images.length > 1">
+                            <button class="nav-arrow nav-prev" (click)="previousImage(); $event.stopPropagation()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                    viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+                                </svg>
+                            </button>
+                            <button class="nav-arrow nav-next" (click)="nextImage(); $event.stopPropagation()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                    viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Thumbnail Strip -->
+                        <div class="thumbnail-strip" *ngIf="selectedProduct.images.length > 1">
+                            <div *ngFor="let image of selectedProduct.images; let i = index" class="thumbnail-item"
+                                [class.active]="i === currentImageIndex"
+                                (click)="currentImageIndex = i; $event.stopPropagation()">
+                                <img [src]="image" [alt]="selectedProduct.name + ' - Image ' + (i + 1)"
+                                    (error)="$event.target.src='assets/placeholder.jpg'">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal Body -->
+                <div class="modal-body">
+                    <!-- Description -->
+                    <div class="modal-section">
+                        <h3 class="section-heading">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                <path
+                                    d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                            </svg>
+                            Description
+                        </h3>
+                        <p class="section-text">{{ selectedProduct.content }}</p>
+                    </div>
+
+                    <!-- Dosage -->
+                    <div class="modal-section highlight-section">
+                        <h3 class="section-heading">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
+                            </svg>
+                            Dosage Information
+                        </h3>
+                        <div class="dosage-box">
+                            <span class="dosage-text">{{ selectedProduct.dosage }}</span>
+                        </div>
+                    </div>
+
+                    <!-- Ingredients (if available) -->
+                    <div class="modal-section" *ngIf="selectedProduct.ingredients">
+                        <h3 class="section-heading">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z" />
+                            </svg>
+                            Ingredients
+                        </h3>
+                        <p class="section-text">{{ selectedProduct.ingredients }}</p>
+                    </div>
+
+                    <!-- Target Crops -->
+                    <div class="modal-section">
+                        <h3 class="section-heading">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
+                            </svg>
+                            Target Crops
+                        </h3>
+                        <p class="section-text">{{ selectedProduct.targetCrops }}</p>
+                    </div>
+
+                    <!-- Application Methods -->
+                    <div class="modal-section">
+                        <h3 class="section-heading">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z" />
+                                <path
+                                    d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319z" />
+                            </svg>
+                            Application Methods
+                        </h3>
+                        <div class="methods-grid">
+                            <div class="method-chip" *ngFor="let method of selectedProduct.applicationMethods">
+                                {{ method }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Caution -->
+                    <div class="modal-section warning-section">
+                        <h3 class="section-heading warning-heading">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                            </svg>
+                            Caution & Storage
+                        </h3>
+                        <p class="section-text">{{ selectedProduct.caution }}</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
+    <!-- Image Modal -->
+    <div class="image-modal-overlay" *ngIf="showImageModal" (click)="closeImageModal()">
+        <div class="image-modal-content" (click)="$event.stopPropagation()">
+            <button class="image-modal-close" (click)="closeImageModal()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 16 16">
+                    <path
+                        d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+                </svg>
+            </button>
+            <img [src]="currentImageSrc" alt="Product Image" class="image-modal-img">
+        </div>
+    </div>
+
 </div>

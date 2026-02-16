@@ -33,48 +33,6 @@ interface ChemicalProduct {
   imports: [CommonModule],
   templateUrl: './agro.html',
   styleUrl: './agro.css'
-  // animations: [
-  //   trigger('fadeInUp', [
-  //     transition(':enter', [
-  //       style({ opacity: 0, transform: 'translateY(30px)' }),
-  //       animate('0.6s ease-out', style({ opacity: 1, transform: 'translateY(0)' }))
-  //     ])
-  //   ]),
-  //   trigger('staggerFadeIn', [
-  //     transition('* => *', [
-  //       query(':enter', [
-  //         style({ opacity: 0, transform: 'translateY(30px)' }),
-  //         stagger(100, [
-  //           animate('0.5s ease-out', style({ opacity: 1, transform: 'translateY(0)' }))
-  //         ])
-  //       ], { optional: true })
-  //     ])
-  //   ]),
-  //   trigger('scaleIn', [
-  //     transition(':enter', [
-  //       style({ opacity: 0, transform: 'scale(0.8)' }),
-  //       animate('0.5s cubic-bezier(0.4, 0, 0.2, 1)', style({ opacity: 1, transform: 'scale(1)' }))
-  //     ])
-  //   ]),
-  //   trigger('fadeIn', [
-  //     transition(':enter', [
-  //       style({ opacity: 0 }),
-  //       animate('0.3s ease-out', style({ opacity: 1 }))
-  //     ]),
-  //     transition(':leave', [
-  //       animate('0.3s ease-out', style({ opacity: 0 }))
-  //     ])
-  //   ]),
-  //   trigger('slideUp', [
-  //     transition(':enter', [
-  //       style({ opacity: 0, transform: 'translateY(50px) scale(0.9)' }),
-  //       animate('0.4s cubic-bezier(0.4, 0, 0.2, 1)', style({ opacity: 1, transform: 'translateY(0) scale(1)' }))
-  //     ]),
-  //     transition(':leave', [
-  //       animate('0.3s ease-out', style({ opacity: 0, transform: 'translateY(30px) scale(0.95)' }))
-  //     ])
-  //   ])
-  // ]
 })
 export class Agro {
   selectedCategory: Category | null = null;
@@ -96,7 +54,7 @@ export class Agro {
           description: 'Nitrogen-fixing bacteria for cereal and millet crops',
           icon: 'bi-droplet-fill',
           color: '#2d5016',
-          image: 'assets/images/biofertilizer/azospirillum.jpg',
+          image: 'assets/spl_products/ARAN - N Azospirillum Front 5 L.jpeg',
           targetCrops: 'Cereals, Millets, Grasses',
           keyFeatures: ['Fixes atmospheric nitrogen', 'Promotes root growth', 'Enhances nutrient uptake'],
           applicationMethod: 'Seed treatment, Soil application, Root dipping',
@@ -108,7 +66,7 @@ export class Agro {
           description: 'Nitrogen-fixing bacteria for legume crops',
           icon: 'bi-moisture',
           color: '#3d6b1f',
-          image: 'assets/images/biofertilizer/rhizobium.jpg',
+          image: 'assets/spl_products/ARAN - N Rhizobium Front 5 L.jpeg',
           targetCrops: 'Pulses, Legumes (Peas, Beans, Groundnut)',
           keyFeatures: ['Forms root nodules', 'Fixes atmospheric nitrogen', 'Reduces fertilizer cost'],
           applicationMethod: 'Seed treatment, Seedling root dip',
@@ -120,7 +78,7 @@ export class Agro {
           description: 'Nitrogen-fixing bacteria for sugarcane and other crops',
           icon: 'bi-water',
           color: '#4d8629',
-          image: 'assets/images/biofertilizer/acetobacter.jpg',
+          image: 'assets/spl_products/ARAN - N Acetobacter Front 5 L.jpeg',
           targetCrops: 'Sugarcane, Rice, Cotton',
           keyFeatures: ['Fixes nitrogen in soil', 'Improves soil health', 'Increases sugar content'],
           applicationMethod: 'Soil application, Root dipping',
@@ -132,7 +90,7 @@ export class Agro {
           description: 'Free-living nitrogen-fixing bacteria',
           icon: 'bi-cloud-drizzle',
           color: '#5ea332',
-          image: 'assets/images/biofertilizer/azotobacter.jpg',
+          image: 'assets/spl_products/ARAN - N Azotobactor Front 5 L.jpeg',
           targetCrops: 'All crops including vegetables, fruits',
           keyFeatures: ['Free-living N-fixer', 'Produces growth hormones', 'Improves germination'],
           applicationMethod: 'Seed treatment, Soil application',
@@ -144,7 +102,7 @@ export class Agro {
           description: 'Converts insoluble phosphate into plant-available form',
           icon: 'bi-gem',
           color: '#70bf3c',
-          image: 'assets/images/biofertilizer/psb.jpg',
+          image:  'assets/spl_products/ARAN - P Phosphate Solubilizing Bacteria (PSB) Front 5 L.jpeg',
           targetCrops: 'All crops',
           keyFeatures: ['Solubilizes phosphorus', 'Enhances root development', 'Improves flowering'],
           applicationMethod: 'Seed treatment, Soil application',
@@ -156,7 +114,7 @@ export class Agro {
           description: 'Mobilizes potassium from soil reserves',
           icon: 'bi-lightning-fill',
           color: '#82d946',
-          image: 'assets/images/biofertilizer/kmb.jpg',
+          image:  'assets/spl_products/ARAN - N Potassium Solubilizing Bacteria (KSB) Front 5 L.jpeg',
           targetCrops: 'All crops',
           keyFeatures: ['Mobilizes potassium', 'Improves disease resistance', 'Enhances fruit quality'],
           applicationMethod: 'Seed treatment, Soil application',
@@ -168,7 +126,7 @@ export class Agro {
           description: 'Vesicular Arbuscular Mycorrhiza for nutrient absorption',
           icon: 'bi-diagram-3-fill',
           color: '#94f050',
-          image: 'assets/images/biofertilizer/vam.jpg',
+          image: 'assets/spl_products/ARAN - VAM Vasicular Arbuscular Mycorrhiza (VAM) Front 5 L.jpeg',
           targetCrops: 'Fruit crops, Vegetables, Plantation crops',
           keyFeatures: ['Increases nutrient uptake', 'Enhances drought tolerance', 'Extends root system'],
           applicationMethod: 'Soil application, Seedling root dip',
@@ -180,7 +138,7 @@ export class Agro {
           description: 'Combined consortium of N, P, K microbes',
           icon: 'bi-diagram-2-fill',
           color: '#2d5016',
-          image: 'assets/images/biofertilizer/npk-consortia.jpg',
+          image: 'assets/spl_products/ARAN - NPK NPK Consortia Front 5 L.jpeg',
           targetCrops: 'All crops',
           keyFeatures: ['Complete nutrition', 'Multiple benefits', 'Cost-effective'],
           applicationMethod: 'Seed treatment, Soil application',
@@ -208,7 +166,7 @@ export class Agro {
           description: 'Solubilizes zinc from soil reserves',
           icon: 'bi-hexagon-fill',
           color: '#3d6b1f',
-          image: 'assets/images/biofertilizer/micronutrients/znsb.jpg',
+          image: 'assets/spl_products/ARAN - Zn Zinc Solubilizing Bacteria (ZnSB) Front 5 L.jpeg',
           targetCrops: 'All crops, especially rice, wheat, cotton',
           keyFeatures: ['Solubilizes zinc', 'Prevents zinc deficiency', 'Improves immunity'],
           applicationMethod: 'Seed treatment, Soil application',
@@ -232,7 +190,7 @@ export class Agro {
           description: 'Converts insoluble sulphur into available form',
           icon: 'bi-circle-fill',
           color: '#5ea332',
-          image: 'assets/images/biofertilizer/micronutrients/ssb.jpg',
+          image: 'assets/spl_products/ARAN - S Sulphur Solubilizing Bacteria (SSB) Front 5 L.jpeg',
           targetCrops: 'Oilseeds, Pulses, Vegetables',
           keyFeatures: ['Provides sulphur nutrition', 'Improves protein synthesis', 'Enhances oil content'],
           applicationMethod: 'Seed treatment, Soil application',
