@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-contact-us',
@@ -10,6 +11,11 @@ import { FormGroup, FormBuilder, Validators, FormsModule, ReactiveFormsModule } 
 })
 export class ContactUs {
   contactForm: FormGroup;
+  submitSuccess = false;
+  submitError = false;
+  isSubmitting = false;
+
+  private apiUrl = 'https://zymetreeapi-production.up.railway.app/api/users';
 
   purposes = [
     'General enquiry',
@@ -19,7 +25,7 @@ export class ContactUs {
     'Other'
   ];
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private http: HttpClient) {
     this.contactForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -39,7 +45,41 @@ export class ContactUs {
       this.contactForm.markAllAsTouched();
       return;
     }
-    console.log(this.contactForm.value);
+
+    const formValue = this.contactForm.value;
+
+    // Map form fields to match your database column names
+    const payload = {
+      firstName: formValue.name,
+      lastName: '',
+      email: formValue.email,
+      phone: formValue.phone,
+      city: formValue.city,
+      state: formValue.state,
+      pincode: formValue.zip,
+      country: formValue.country,
+      website: formValue.website,
+      purpose: formValue.purpose,
+      queries: formValue.message
+    };
+
+    this.isSubmitting = true;
+    this.submitSuccess = false;
+    this.submitError = false;
+
+    this.http.post(this.apiUrl, payload).subscribe({
+      next: (response) => {
+        console.log('Submitted successfully:', response);
+        this.isSubmitting = false;
+        this.submitSuccess = true;
+        this.contactForm.reset();
+      },
+      error: (error) => {
+        console.error('Submission failed:', error);
+        this.isSubmitting = false;
+        this.submitError = true;
+      }
+    });
   }
 
   get remainingChars(): number {
