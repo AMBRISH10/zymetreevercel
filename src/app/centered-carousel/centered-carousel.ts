@@ -16,66 +16,66 @@ interface GalleryImage {
 export class CenteredCarousel {
   row1Images: GalleryImage[] = [
     {
-      thumbnail: 'assets/products/aloevera_soap.jpeg',
-      full: 'assets/products/aloevera_soap.jpeg',
+      thumbnail: 'assets/products/Handmade soap Coco & Coffee.png',
+      full: 'assets/products/Handmade soap Coco & Coffee.png',
       alt: 'Product 1'
     },
     {
-      thumbnail: 'assets/products/Dishwashgel_all-300x260.jpg',
-      full: 'assets/products/Dishwashgel_all-300x260.jpg',
+      thumbnail: 'assets/products/Handmade soap Shea Butter Soap.png',
+      full: 'assets/products/Handmade soap Shea Butter Soap.png',
       alt: 'Product 2'
     },
     {
-      thumbnail: 'assets/products/orange_soap.jpeg',
-      full: 'assets/products/orange_soap.jpeg',
+      thumbnail: 'assets/products/Floor Cleaner on Wood.png',
+      full: 'assets/products/Floor Cleaner on Wood.png',
       alt: 'Product 3'
     },
     {
-      thumbnail: 'assets/products/Phenyl-compound_1L-225x300.jpeg',
-      full: 'assets/products/Phenyl-compound_1L-225x300.jpeg',
+      thumbnail: 'assets/products/Brighter Detergents.png',
+      full: 'assets/products/Brighter Detergents.png',
       alt: 'Product 4'
     },
     {
-      thumbnail: 'assets/products/Floor-cleaner_Neem_500mL-273x300.jpg',
-      full: 'assets/products/Floor-cleaner_Neem_500mL-273x300.jpg',
+      thumbnail: 'assets/products/Floor Cleaner on Wood.png',
+      full: 'assets/products/Floor Cleaner on Wood.png',
       alt: 'Product 5'
     },
     {
-      thumbnail: 'assets/products/coffee_soap.jpeg',
-      full: 'assets/products/coffee_soap.jpeg',
+      thumbnail: 'assets/products/Dishwash Gel Dark Background.png',
+      full: 'assets/products/Dishwash Gel Dark Background.png',
       alt: 'Product 6'
     }
   ];
 
   row2Images: GalleryImage[] = [
     {
-      thumbnail: 'assets/products/coal_soap.jpeg',
-      full: 'assets/products/coal_soap.jpeg',
+      thumbnail: 'assets/products/ARAN - S Sulphur Solubilizing Bacteria (SSB) Front 1 L.jpg',
+      full: 'assets/products/ARAN - S Sulphur Solubilizing Bacteria (SSB) Front 1 L.jpg',
       alt: 'Product 7'
     },
     {
-      thumbnail: 'assets/products/Detergent-powder-2-Kg-219x300.jpg',
-      full: 'assets/products/Detergent-powder-2-Kg-219x300.jpg',
+      thumbnail: 'assets/products/Aran Bio enriched organic compost.jpeg',
+      full: 'assets/products/Aran Bio enriched organic compost.jpeg',
       alt: 'Product 8'
     },
     {
-      thumbnail: 'assets/products/KIT-PRO-Kitchen-Oil-Grease-Remover-225x300.jpeg',
-      full: 'assets/products/KIT-PRO-Kitchen-Oil-Grease-Remover-225x300.jpeg',
+      thumbnail: 'assets/products/Bio Enriched Organic Compost 5 Kg.jpg',
+      full: 'assets/products/Bio Enriched Organic Compost 5 Kg.jpg',
       alt: 'Product 9'
     },
     {
-      thumbnail: 'assets/products/neem_soap.jpeg',
-      full: 'assets/products/neem_soap.jpeg',
+      thumbnail: 'assets/products/Boiler  ZYMETREAT PM B01 pH Modifier.jpg',
+      full: 'assets/products/Boiler  ZYMETREAT PM B01 pH Modifier.jpg',
       alt: 'Product 10'
     },
     {
-      thumbnail: 'assets/products/Room freshener_all.png',
-      full: 'assets/products/Room freshener_all.png',
+      thumbnail: 'assets/products/ETP and STP Pouches.png',
+      full: 'assets/products/ETP and STP Pouches.png',
       alt: 'Product 11'
     },
     {
-      thumbnail: 'assets/products/Floor-cleaner_Lemon_5L-229x300.jpg',
-      full: 'assets/products/Floor-cleaner_Lemon_5L-229x300.jpg',
+      thumbnail: 'assets/products/ARAN - NPK NPK Consortia Front 5 L.jpeg',
+      full: 'assets/products/ARAN - NPK NPK Consortia Front 5 L.jpeg',
       alt: 'Product 12'
     }
   ];

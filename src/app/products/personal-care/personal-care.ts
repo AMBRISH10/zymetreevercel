@@ -72,7 +72,7 @@ export class PersonalCare {
         imageUrl: 'assets/products/handmadeSoap/aloevera_soap.jpeg'
       },
       {
-        label: 'Coal Soap',
+        label: 'Activated Charcoal Soap',
         size: 'Handmade',
         containerSize: '100g',
         cardClass: 'gray-card',
@@ -118,6 +118,22 @@ export class PersonalCare {
         cardClass: 'beige-card',
         boxClass: 'beige-box',
         imageUrl: 'assets/products/handmadeSoap/sandal_soap.jpeg'
+      },
+      {
+        label: 'Cucumber & Aloe vera Soap',
+        size: 'Handmade',
+        containerSize: '100g',
+        cardClass: 'beige-card',
+        boxClass: 'beige-box',
+        imageUrl: 'assets/products/handmadeSoap/Handmade Soap Cucumber & Aloe vera.jpg'
+      },
+      {
+        label: 'Shea Butter Soap',
+        size: 'Handmade',
+        containerSize: '100g',
+        cardClass: 'beige-card',
+        boxClass: 'beige-box',
+        imageUrl: 'assets/products/handmadeSoap/Handmade Soap Shea Butter.jpg'
       }
     ],
     sanitaryNapkin: [

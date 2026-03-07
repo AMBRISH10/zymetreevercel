@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 interface Service {
   icon: string;
   title: string;
@@ -12,6 +13,9 @@ interface Service {
   styleUrl: './wastewater-treatment-consultancy.css',
 })
 export class WastewaterTreatmentConsultancy {
+
+  constructor(private router: Router) { }
+
   services: Service[] = [
     {
       icon: 'bi-diagram-3',
@@ -63,5 +67,9 @@ export class WastewaterTreatmentConsultancy {
 
   onServiceLeave(): void {
     this.hoveredIndex = null;
+  }
+
+  goToContact() {
+    this.router.navigate(['/contact-us']);
   }
 }

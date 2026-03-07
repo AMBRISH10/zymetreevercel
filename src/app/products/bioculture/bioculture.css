@@ -538,6 +538,31 @@
     box-shadow: 0 10px 20px rgba(239, 68, 68, 0.3);
 }
 
+.tab-button1 {
+    width: 30%;
+    padding: 1rem 2rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 1.125rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: white;
+    color: #000000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tab-button1:hover {
+    transform: scale(1.05);
+    background: #f3f4f6;
+}
+
+.tab-button1.active {
+    background: linear-gradient(to right, #3bff5c, #9bce2d);
+    color: rgb(255, 255, 255);
+    box-shadow: 0 10px 20px rgba(239, 68, 68, 0.3);
+}
+
 /* Content Section */
 .content-section {
     padding-bottom: 4rem;
@@ -1274,4 +1299,128 @@
     .popup-title {
         font-size: 20px;
     }
+}
+
+.zymemagic-hero-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #0f9b8e, #2f80ed);
+    color: white;
+}
+
+.zymemagic-title {
+    font-size: 42px;
+    font-weight: 700;
+}
+
+.zymemagic-title span {
+    color: #ffe066;
+}
+
+.zymemagic-subtitle {
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+.zymemagic-description {
+    margin-top: 15px;
+    line-height: 1.7;
+}
+
+.zymemagic-product-icon {
+    font-size: 120px;
+    background: white;
+    color: #2f80ed;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* FEATURES */
+
+.zymemagic-features-section {
+    padding: 80px 0;
+    background: #ffffff;
+}
+
+.zymemagic-section-title {
+    font-size: 34px;
+    font-weight: 700;
+    color: #1b2a4e;
+}
+
+.zymemagic-feature-card {
+    background: #f4f9ff;
+    padding: 30px;
+    border-radius: 15px;
+    transition: 0.3s;
+    height: 100%;
+}
+
+.zymemagic-feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+    font-size: 40px;
+    color: #2f80ed;
+    margin-bottom: 10px;
+}
+
+/* KEY FEATURES */
+
+.zymemagic-key-section {
+    padding: 80px 0;
+    background: #eef6ff;
+}
+
+.zymemagic-list {
+    list-style: none;
+    padding: 0;
+}
+
+.zymemagic-list li {
+    font-size: 18px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.zymemagic-list i {
+    color: #2ecc71;
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.zymemagic-availability-box {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.zymemagic-availability-box i {
+    font-size: 50px;
+    color: #2f80ed;
+    margin-bottom: 10px;
+}
+
+@media (max-width:768px) {
+
+    .zymemagic-title {
+        font-size: 30px;
+    }
+
+    .zymemagic-product-icon {
+        font-size: 80px;
+        width: 120px;
+        height: 120px;
+        margin-top: 30px;
+    }
+
 }

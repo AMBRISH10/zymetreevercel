@@ -51,7 +51,7 @@ export class Navbar {
     { label: 'Environment Management Consultancy', link: '/services/environment' },
     { label: 'Wastewater Treatment Consultancy', link: '/services/wastewater' },
     { label: 'Biofertilizer Production Consultancy', link: '/services/biofertilizer' },
-    { label: 'Consultancy for Essential Oil Production', link: '/services/essential-oil' }
+    // { label: 'Consultancy for Essential Oil Production', link: '/services/essential-oil' }
   ];
 
   catalogMenu: MenuItem[] = [

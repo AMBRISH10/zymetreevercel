@@ -45,42 +45,42 @@ export class Home {
         {
           id: 'prod1',
           title: 'Speciality Chemicals',
-          description: 'Advanced microbial formula for organic waste decomposition',
+          description: 'Advanced specialty chemical solutions for efficient RO systems, boiler performance, and cooling tower protection.',
           image: 'assets/chemicals.jpg',
           route: '/products/speciality-chemicals'
         },
         {
           id: 'prod2',
           title: 'BioCulture for Wastewater Treatment',
-          description: 'Microbial consortia for improved soil health',
+          description: 'High-performance bio culture solutions for efficient and eco-friendly wastewater treatment',
           image: 'assets/bioculture.webp',
           route: '/products/bioculture'
         },
         {
           id: 'prod3',
           title: 'Homecare/Housekeeping',
-          description: 'Biological solution for water treatment',
+          description: 'High-quality home care and housekeeping solutions designed for superior cleanliness, hygiene, and long-lasting freshness.',
           image: 'assets/agro.webp',
           route: '/products/home-care-products'
         },
         {
           id: 'prod3',
           title: 'Personal Care',
-          description: 'Biological solution for water treatment',
+          description: 'Advanced personal care solutions designed for effective cleansing, skin nourishment, and lasting freshness.',
           image: 'assets/personalCare.jpg',
           route: '/products/personal-care'
         },
         {
           id: 'prod3',
           title: 'AGRO',
-          description: 'Biological solution for water treatment',
+          description: 'Comprehensive agri-biological solutions including bio fertilizers, micronutrients, bio-control microbes, soil conditioners, and bio-stimulants to maximize crop health and yield.',
           image: 'assets/agro1.jpg',
           route: '/products/agro'
         },
         {
           id: 'prod3',
           title: 'Chemicals For Cleaning',
-          description: 'Biological solution for water treatment',
+          description: 'Premium-grade chemical raw materials designed for superior cleaning performance and formulation stability.',
           image: 'assets/chemicalsforclean.jpg',
           route: '/products/water-purification'
         }
@@ -97,71 +97,71 @@ export class Home {
         {
           id: 'serv1',
           title: 'Environment Management Consultancy',
-          description: 'Expert consultation for waste management systems',
+          description: 'Environmental management and consultation specialist with expertise in advising on sustainable product strategies and regulatory compliance.s',
           image: 'assets/environmental.avif',
           route: '/services/environment'
         },
         {
           id: 'serv2',
           title: 'Wastewater Treatment Consultancy',
-          description: 'On-site implementation and training services',
+          description: 'Wastewater treatment consultant specializing in process optimization, regulatory compliance, and sustainable environmental solutions',
           image: 'assets/wastewater.jpg',
           route: '/services/wastewater'
         },
         {
           id: 'serv3',
           title: 'Biofertilizer Production Consultancy',
-          description: 'Comprehensive environmental assessment services',
+          description: 'Bio-fertilizer production consultancy providing end-to-end support in plant setup, microbial formulation, and regulatory compliance',
           image: 'assets/biofertilizer.png',
           route: '/services/biofertilizer'
         },
         {
           id: 'serv3',
           title: 'Consultancy for Essential Oil Production',
-          description: 'Comprehensive environmental assessment services',
+          description: 'Specialized consultancy for essential oil manufacturing, offering expertise in distillation technology, process optimization, and regulatory approvals.',
           image: 'assets/essentialOil.jpg',
           route: '/services/essential-oil'
         }
       ]
     },
-    {
-      id: 'projects',
-      title: 'Projects',
-      subtitle: 'Sustainability in action',
-      description: 'Zymetree actively works on environmental projects focused on waste reduction, recycling, and biological reuse. Our projects demonstrate real-world impact through innovative and sustainable practices.',
-      image: '../../assets/projects.png',
-      color: 'green',
-      products: [
-        {
-          id: 'proj1',
-          title: 'Improve (Wetland Water Treatment)',
-          description: 'Large-scale industrial waste treatment project',
-          image: 'assets/wetland.jpg',
-          route: '/projects/improve'
-        },
-        {
-          id: 'proj2',
-          title: 'Electrocoagulation for Wastewater Treatment',
-          description: 'Community-based organic waste management',
-          image: 'assets/electro.webp',
-          route: '/projects/electrocoagulation'
-        },
-        {
-          id: 'proj3',
-          title: 'MBR for STP & ETP',
-          description: 'Soil improvement in agricultural regions',
-          image: 'assets/MBR.jpg',
-          route: '/projects/mbr'
-        },
-        {
-          id: 'proj3',
-          title: 'Online Water Quality Monitoring System',
-          description: 'Soil improvement in agricultural regions',
-          image: 'assets/waterQuality.jpg',
-          route: '/projects/monitoring'
-        }
-      ]
-    }
+    // {
+    //   id: 'projects',
+    //   title: 'Projects',
+    //   subtitle: 'Sustainability in action',
+    //   description: 'Zymetree actively works on environmental projects focused on waste reduction, recycling, and biological reuse. Our projects demonstrate real-world impact through innovative and sustainable practices.',
+    //   image: '../../assets/projects.png',
+    //   color: 'green',
+    //   products: [
+    //     {
+    //       id: 'proj1',
+    //       title: 'Improve (Wetland Water Treatment)',
+    //       description: 'Large-scale industrial waste treatment project',
+    //       image: 'assets/wetland.jpg',
+    //       route: '/projects/improve'
+    //     },
+    //     {
+    //       id: 'proj2',
+    //       title: 'Electrocoagulation for Wastewater Treatment',
+    //       description: 'Community-based organic waste management',
+    //       image: 'assets/electro.webp',
+    //       route: '/projects/electrocoagulation'
+    //     },
+    //     {
+    //       id: 'proj3',
+    //       title: 'MBR for STP & ETP',
+    //       description: 'Soil improvement in agricultural regions',
+    //       image: 'assets/MBR.jpg',
+    //       route: '/projects/mbr'
+    //     },
+    //     {
+    //       id: 'proj3',
+    //       title: 'Online Water Quality Monitoring System',
+    //       description: 'Soil improvement in agricultural regions',
+    //       image: 'assets/waterQuality.jpg',
+    //       route: '/projects/monitoring'
+    //     }
+    //   ]
+    // }
   ];
 
   @ViewChild('bgVideo') bgVideo!: ElementRef<HTMLVideoElement>;

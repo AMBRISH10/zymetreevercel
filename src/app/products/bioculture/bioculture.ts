@@ -34,6 +34,7 @@ interface ProductImage {
 export class Bioculture {
   activeTab: string = 'stp';
   isVisible: { [key: string]: boolean } = {};
+  showBio: boolean = true;
   private observer!: IntersectionObserver;
 
   // Fullscreen image popup properties
@@ -43,6 +44,8 @@ export class Bioculture {
   showDescription = false;
 
   @ViewChild('bgVideo') bgVideo!: ElementRef<HTMLVideoElement>;
+  showChem: boolean = false;
+  mainActiveTab: number = 1;
 
   ngAfterViewInit() {
     const video = this.bgVideo.nativeElement;
@@ -167,102 +170,102 @@ export class Bioculture {
         boxClass: 'green-box',
         imageUrl: 'assets/products/biocul/stp/Tyre-Polish_500mL.jpg.jpeg'
       },
-      {
-        label: 'Seat Polish',
-        size: '5L Container',
-        containerSize: '5L',
-        cardClass: 'blue-card',
-        boxClass: 'blue-box',
-        imageUrl: 'assets/products/biocul/stp/Seat-Polish_5L-150x150.jpg.jpeg'
-      },
-      {
-        label: 'Water Less Car Wash',
-        size: '500 mL Bottle',
-        containerSize: '500mL',
-        cardClass: 'gray-card',
-        boxClass: 'gray-box',
-        imageUrl: 'assets/products/biocul/stp/Water-Less-Car-Wash_500mL.jpeg'
-      },
-      {
-        label: 'Car Wash Shampoo',
-        size: '5L Container',
-        containerSize: '5L',
-        cardClass: 'blue-card',
-        boxClass: 'blue-box',
-        imageUrl: 'assets/products/biocul/stp/Car-Wash-Shampoo_5L-150x150.jpeg'
-      },
-      {
-        label: 'Automobile Freshener',
-        size: '250 mL Bottle',
-        containerSize: '250mL',
-        cardClass: 'blue-card',
-        boxClass: 'blue-box',
-        imageUrl: 'assets/products/biocul/stp/Automobile-Freshener_250mL-600x600.jpeg'
-      },
-      {
-        label: 'Car Tyre Polish',
-        size: '5L Container',
-        containerSize: '5L',
-        cardClass: 'gray-card',
-        boxClass: 'gray-box',
-        imageUrl: 'assets/products/biocul/stp/Car-Tyre-Polish_5L-150x150.jpeg'
-      },
-      {
-        label: 'Dashboard Polish',
-        size: '5L Container',
-        containerSize: '5L',
-        cardClass: 'green-card',
-        boxClass: 'green-box',
-        imageUrl: 'assets/products/biocul/stp/Dashboard-Polish_5L.jpg.jpeg'
-      },
-      {
-        label: 'Car Wash Shampoo',
-        size: '500 mL Bottle',
-        containerSize: '500mL',
-        cardClass: 'blue-card',
-        boxClass: 'blue-box',
-        imageUrl: 'assets/products/biocul/stp/Car-Wash-Shampoo_500mL.jpeg'
-      },
-      {
-        label: 'Tyre Polish',
-        size: '500 mL Bottle',
-        containerSize: '500mL',
-        cardClass: 'gray-card',
-        boxClass: 'gray-box',
-        imageUrl: 'assets/products/biocul/stp/Tyre-Polish_500mL.jpg.jpeg'
-      },
-      {
-        label: 'Water Less Car Wash',
-        size: '500 mL Bottle',
-        containerSize: '500mL',
-        cardClass: 'blue-card',
-        boxClass: 'blue-box',
-        imageUrl: 'assets/products/biocul/stp/Water-Less-Car-Wash_500mL.jpeg'
-      },
-      {
-        label: 'Automobile Polish',
-        size: '5L Container',
-        containerSize: '5L',
-        cardClass: 'blue-card',
-        boxClass: 'blue-box',
-        imageUrl: 'assets/products/biocul/stp/Automobile-Polish_5L.jpg.jpeg'
-      },
-      {
-        label: 'Seat Polish',
-        size: '5L Container',
-        containerSize: '5L',
-        cardClass: 'gray-card',
-        boxClass: 'gray-box',
-        imageUrl: 'assets/products/biocul/stp/Seat-Polish_5L-150x150.jpg.jpeg'
-      },
-      {
-        label: 'Automobile Freshener',
-        size: '250 mL Bottle',
-        containerSize: '250mL',
-        cardClass: 'green-card',
-        boxClass: 'green-box',
-        imageUrl: 'assets/products/biocul/stp/Automobile-Freshener_250mL-600x600.jpeg'
-      }
+      // {
+      //   label: 'Seat Polish',
+      //   size: '5L Container',
+      //   containerSize: '5L',
+      //   cardClass: 'blue-card',
+      //   boxClass: 'blue-box',
+      //   imageUrl: 'assets/products/biocul/stp/Seat-Polish_5L-150x150.jpg.jpeg'
+      // },
+      // {
+      //   label: 'Water Less Car Wash',
+      //   size: '500 mL Bottle',
+      //   containerSize: '500mL',
+      //   cardClass: 'gray-card',
+      //   boxClass: 'gray-box',
+      //   imageUrl: 'assets/products/biocul/stp/Water-Less-Car-Wash_500mL.jpeg'
+      // },
+      // {
+      //   label: 'Car Wash Shampoo',
+      //   size: '5L Container',
+      //   containerSize: '5L',
+      //   cardClass: 'blue-card',
+      //   boxClass: 'blue-box',
+      //   imageUrl: 'assets/products/biocul/stp/Car-Wash-Shampoo_5L-150x150.jpeg'
+      // },
+      // {
+      //   label: 'Automobile Freshener',
+      //   size: '250 mL Bottle',
+      //   containerSize: '250mL',
+      //   cardClass: 'blue-card',
+      //   boxClass: 'blue-box',
+      //   imageUrl: 'assets/products/biocul/stp/Automobile-Freshener_250mL-600x600.jpeg'
+      // },
+      // {
+      //   label: 'Car Tyre Polish',
+      //   size: '5L Container',
+      //   containerSize: '5L',
+      //   cardClass: 'gray-card',
+      //   boxClass: 'gray-box',
+      //   imageUrl: 'assets/products/biocul/stp/Car-Tyre-Polish_5L-150x150.jpeg'
+      // },
+      // {
+      //   label: 'Dashboard Polish',
+      //   size: '5L Container',
+      //   containerSize: '5L',
+      //   cardClass: 'green-card',
+      //   boxClass: 'green-box',
+      //   imageUrl: 'assets/products/biocul/stp/Dashboard-Polish_5L.jpg.jpeg'
+      // },
+      // {
+      //   label: 'Car Wash Shampoo',
+      //   size: '500 mL Bottle',
+      //   containerSize: '500mL',
+      //   cardClass: 'blue-card',
+      //   boxClass: 'blue-box',
+      //   imageUrl: 'assets/products/biocul/stp/Car-Wash-Shampoo_500mL.jpeg'
+      // },
+      // {
+      //   label: 'Tyre Polish',
+      //   size: '500 mL Bottle',
+      //   containerSize: '500mL',
+      //   cardClass: 'gray-card',
+      //   boxClass: 'gray-box',
+      //   imageUrl: 'assets/products/biocul/stp/Tyre-Polish_500mL.jpg.jpeg'
+      // },
+      // {
+      //   label: 'Water Less Car Wash',
+      //   size: '500 mL Bottle',
+      //   containerSize: '500mL',
+      //   cardClass: 'blue-card',
+      //   boxClass: 'blue-box',
+      //   imageUrl: 'assets/products/biocul/stp/Water-Less-Car-Wash_500mL.jpeg'
+      // },
+      // {
+      //   label: 'Automobile Polish',
+      //   size: '5L Container',
+      //   containerSize: '5L',
+      //   cardClass: 'blue-card',
+      //   boxClass: 'blue-box',
+      //   imageUrl: 'assets/products/biocul/stp/Automobile-Polish_5L.jpg.jpeg'
+      // },
+      // {
+      //   label: 'Seat Polish',
+      //   size: '5L Container',
+      //   containerSize: '5L',
+      //   cardClass: 'gray-card',
+      //   boxClass: 'gray-box',
+      //   imageUrl: 'assets/products/biocul/stp/Seat-Polish_5L-150x150.jpg.jpeg'
+      // },
+      // {
+      //   label: 'Automobile Freshener',
+      //   size: '250 mL Bottle',
+      //   containerSize: '250mL',
+      //   cardClass: 'green-card',
+      //   boxClass: 'green-box',
+      //   imageUrl: 'assets/products/biocul/stp/Automobile-Freshener_250mL-600x600.jpeg'
+      // }
     ],
     etp: [
       {
@@ -401,7 +404,7 @@ export class Bioculture {
       title: 'STP',
       subtitle: 'Efficient Sewage Treatment Plant (STP) Solutions',
       description: 'Our Sewage Treatment Plant (STP) solutions are designed to treat domestic and commercial wastewater effectively, ensuring compliance with environmental standards. Untreated sewage can lead to foul odor, health hazards, and environmental pollution.',
-      highlight: 'We provide customized STP treatment chemicals and bio-solutions that enhance treatment efficiency, reduce sludge volume, and ensure clear, odor-free discharge water suitable for reuse.',
+      highlight: 'We provide customized STP treatment chemicals and bio-cultures that enhance treatment efficiency, reduce sludge volume, and ensure clear, odor-free discharge water suitable for reuse.',
       icon: 'zap'
     },
 
@@ -475,6 +478,17 @@ export class Bioculture {
   ngOnDestroy(): void {
     if (this.observer) {
       this.observer.disconnect();
+    }
+  }
+
+  setMainActiveTab(tab: number): void {
+    this.mainActiveTab = tab;
+    if (tab === 1) {
+      this.showBio = true;
+      this.showChem = false;
+    } else {
+      this.showBio = false;
+      this.showChem = true;
     }
   }
 

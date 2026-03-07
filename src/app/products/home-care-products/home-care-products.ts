@@ -42,8 +42,8 @@ export class HomeCareProducts {
       description: 'At Zymetree, our Kitchen Care solutions are designed to meet the highest standards of hygiene, safety and economical for both domestic and commercial environments. Formulated with advanced degreasing and antimicrobial agents, our products effectively remove tough grease, food residues, spills and surface contaminants while protecting kitchen surfaces and equipment. From utensils and countertops to stoves and exhaust areas, Zymetree Kitchen Care products support streamlined cleaning operations, improved hygiene control, and long-term maintenance of kitchen environments. Trusted by households, restaurants, hotels, and industrial kitchens, we remain committed to delivering reliable cleaning solutions that enhance productivity, safety, and overall kitchen efficiency',
       icon: 'bi-cup-hot',
       products: [
-        { name: 'COCENTRATE 500ML', image: 'assets/products/Housekeeping/5f59692f-5ade-45ff-a8d2-cb63b5dd0aee.jpg' },
-        { name: 'ENTRATE  1000ML', image: 'assets/products/Housekeeping/60a4bce4-64cd-4b0d-b1d6-b49014a6f1f5.jpg' },
+        { name: 'DIAH WASH COCENTRATE 500ML', image: 'assets/products/Housekeeping/5f59692f-5ade-45ff-a8d2-cb63b5dd0aee.jpg' },
+        { name: 'DISH WASH ENTRATE 1000ML', image: 'assets/products/Housekeeping/60a4bce4-64cd-4b0d-b1d6-b49014a6f1f5.jpg' },
         { name: 'DISHWASH COCENTRATE 5L', image: 'assets/products/Housekeeping/4a65495e-2a2a-4487-af20-171e82b90eba.jpg' },
         { name: 'DISHWASH COCENTRATE 50L', image: 'assets/products/Housekeeping/7a32d22c-5474-4677-b567-ceae09b50528.jpg' },
         { name: 'KITCHEN DEGREASER 500ML', image: 'assets/products/Housekeeping/641ef68a-8a50-441b-9201-28f881ca3f36.jpg' }
@@ -147,7 +147,7 @@ export class HomeCareProducts {
         { name: 'MULTIPURPOSE CLEANER 1L', image: 'assets/products/Housekeeping/20a8679b-e20d-456e-8ebf-ccf760a06ea3.jpg' },
         { name: 'MULTIPURPOSE CLEANER 5L', image: 'assets/products/Housekeeping/28732856-cdff-4bd9-9ed3-2d4666493dfc.jpg' },
         { name: 'MULTIPURPOSE CLEANER 50L', image: 'assets/products/Housekeeping/5ea571b9-5e49-4513-8b19-c6888e1a5e9a.jpg' },
-        { name: 'SOAP OIL 1L', image: 'assets/products/Housekeeping/20a8679b-e20d-456e-8ebf-ccf760a06ea3.jpg' },
+        { name: 'SOAP OIL 1L', image: 'assets/products/Housekeeping/soapOil.jpeg' },
         { name: 'DRAIN DECLOGGER POUCH', image: 'assets/products/Housekeeping/0733bc73-2b16-4b0e-a956-d3b58ebe491c.jpg' },
         { name: 'BRASS SHINER GEL- 100ML', image: 'assets/products/Housekeeping/bd1f0483-d11a-4097-b7a5-dea1149e8d26.png' },
         { name: 'SILVER SHINER GEL- 100ML', image: 'assets/products/Housekeeping/d4613a25-66c3-480d-96b6-4dfcfd5f8410.png' },

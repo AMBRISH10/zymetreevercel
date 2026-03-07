@@ -16,8 +16,7 @@
 
 /* Container */
 .zymetree-container {
-  /* background: linear-gradient(135deg, #034f2d 0%, #95d5b2 100%); */
-  background-image: linear-gradient(45deg, rgb(194, 97, 93) 0%, rgb(194, 97, 93) 7.692%, rgb(193, 98, 94) calc(7.692% + 1px), rgb(193, 98, 94) 15.385%, rgb(189, 103, 97) calc(15.385% + 1px), rgb(189, 103, 97) 23.077%, rgb(183, 111, 102) calc(23.077% + 1px), rgb(183, 111, 102) 30.769%, rgb(174, 121, 110) calc(30.769% + 1px), rgb(174, 121, 110) 38.462%, rgb(163, 132, 120) calc(38.462% + 1px), rgb(163, 132, 120) 46.154%, rgb(151, 145, 132) calc(46.154% + 1px), rgb(151, 145, 132) 53.846%, rgb(139, 157, 144) calc(53.846% + 1px), rgb(139, 157, 144) 61.538%, rgb(127, 169, 155) calc(61.538% + 1px), rgb(127, 169, 155) 69.231%, rgb(117, 179, 166) calc(69.231% + 1px), rgb(117, 179, 166) 76.923%, rgb(108, 186, 176) calc(76.923% + 1px), rgb(108, 186, 176) 84.615%, rgb(102, 191, 184) calc(84.615% + 1px), rgb(102, 191, 184) 92.308%, rgb(98, 192, 189) calc(92.308% + 1px), rgb(98, 192, 189) 100%);
+ background-image: linear-gradient(135deg, rgb(0, 0, 50) 0%, rgb(24, 70, 100) 50%, rgb(78, 180, 144) 100%);
   min-height: 100vh;
   padding-bottom: 60px;
 }
@@ -85,7 +84,7 @@
 }
 
 .zymetree-section-title {
-  color: var(--zymetree-primary-dark);
+  color: white;
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 10px;
@@ -106,7 +105,7 @@
 }
 
 .zymetree-section-subtitle {
-  color: var(--zymetree-text-muted);
+  color: white;
   font-size: 1.1rem;
 }
 
@@ -227,7 +226,7 @@
 }
 
 .zymetree-category-card__description {
-  color: var(--zymetree-text-dark);
+  color: white;
   font-size: 1.05rem;
   line-height: 1.7;
   margin-bottom: 20px;
@@ -329,7 +328,7 @@
 .zymetree-product-card__name {
   font-size: 0.95rem;
   font-weight: 600;
-  color: var(--zymetree-primary-dark);
+  color: white;
   margin: 0;
 }
 

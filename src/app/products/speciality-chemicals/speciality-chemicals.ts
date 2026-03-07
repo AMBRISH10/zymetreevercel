@@ -24,6 +24,11 @@ interface Treatment {
   title: string;
   description: string;
   color: string;
+  title1: string;
+  subtitle: string;
+  description1: string;
+  products: Product[];
+  benefits?: string[];
 }
 
 interface ChemicalProduct {
@@ -57,26 +62,278 @@ export class SpecialityChemicals {
   selectedItemIndex: number = 0;
   isLightboxVisible: boolean = false;
 
-  selectedCategory: Category | null = null;
+  selectedCategory: Treatment | null = null;
   selectedProduct: Product | null = null;
   treatments: Treatment[] = [
     {
       icon: 'bi-droplet-fill',
       title: 'RO WATER & MEMBRANE TREATMENT',
-      description: 'Achieve exceptional water quality and optimize your reverse osmosis (RO) system performance with our comprehensive line of RO chemicals. Traditional water contains impurities like dissolved salts, minerals and organic matter. RO membranes act as a barrier, allowing only purified water to pass through,leaving contaminants behind. By using our RO chemicals, you can ensure consistent production of high-purity water, extend membrane life and minimize downtime for maintenance. You can achieve superior water quality and maximize the return on your RO system investment. However, over time, these contaminants can accumulate on the membrane surface, reducing efficiency and requiring costly replacements.',
-      color: 'primary'
+      description: 'With a commitment to innovation and sustainability ZYMETREE TECH & TRADE presents a comprehensive range of water treatment chemicals. We deliver high-performance water treatment chemicals engineered to improve water quality, protect system assets and enhance operational efficiency. Zymetreat keeps your RO membrane, Cooling Tower & Industrial Boiler running at peak performance, safely and sustainably.',
+      color: 'primary',
+      title1: 'RO Water & Membrane Treatment',
+      subtitle: 'Unlock the Power of Pure Water!',
+      description1: 'Achieve exceptional water quality and optimize your reverse osmosis (RO) system performance.',
+      products: [
+        {
+          id: 'pm-r01',
+          name: 'Zymetreat PM',
+          fullName: 'pH Modifier',
+          description: 'Maintains ideal pH range for system stability and chemical effectiveness. Available as pH Booster for acidic water and pH Reducer for alkaline water.',
+          icon: 'bi-speedometer2',
+          color: '#2d5016',
+          image: 'assets/products/splChem/Reverse Osmosis ZYMETREAT PM R01 pH Modifier.jpg'
+        },
+
+        {
+          id: 'as-r01',
+          name: 'Zymetreat AS',
+          fullName: 'Antiscalant',
+          description: 'Designed to prevent mineral scale formation, formulated for reverse osmosis, cooling tower & boiler. This advanced antiscalant controls various salts & other hard-to-treat mineral deposits. Ideal for reverse osmosis, cooling towers, boilers, and other industrial water treatment systems. Zymetreat Antiscalant helps maximize operational reliability, reduce downtime and extend equipment lifespan.',
+          icon: 'bi-shield-check',
+          color: '#3d6b1f',
+          image: 'assets/products/splChem/Reverse Osmosis ZYMETREAT AS R01 Antiscalant.jpg'
+        },
+
+        {
+          id: 'ds-r01',
+          name: 'Zymetreat DS',
+          fullName: 'Descalant',
+          description: 'High-strength descaling chemical formulated to dissolve and remove tough mineral deposits, including calcium carbonate, magnesium scale, rust and iron oxide. Designed for boilers, heat exchangers, cooling towers, RO systems, condensers and process pipelines. It restores equipment efficiency and prevents costly breakdowns caused by scale buildup. Engineered for fast reaction and safe material compatibility, Zymetreat Descalant ensures deep cleaning without damaging metal surfaces.',
+          icon: 'bi-droplet-half',
+          color: '#4d8629',
+          image: 'assets/products/splChem/Reverse Osmosis ZYMETREAT DS R01 Descalant.jpg'
+        },
+
+        {
+          id: 'mb-r01',
+          name: 'Zymetreat MB',
+          fullName: 'Microbiocide',
+          description: 'Fast-acting biocide designed to control bacteria, algae and fungal growth in cooling towers, RO pre-treatment systems and industrial water circuits. It delivers powerful disinfection, reduces biofouling and protects equipment by keeping microbial contamination under control.',
+          icon: 'bi-virus',
+          color: '#5ea332',
+          image: 'assets/products/splChem/Reverse Osmosis ZYMETREAT MB R01 MicroBiocide.jpg'
+        },
+
+        {
+          id: 'ci-r01',
+          name: 'Zymetreat CI',
+          fullName: 'Corrosion Inhibitor',
+          description: 'A high-performance chemical designed to protect metal surfaces in cooling systems, boilers, pipelines and industrial water circuits. It forms a durable protective film that prevents rust, pitting and metal degradation, helping extend equipment life, reduce maintenance costs and ensure reliable system performance.',
+          icon: 'bi-shield-fill-check',
+          color: '#82d946',
+          image: 'assets/products/splChem/Reverse Osmosis ZYMETREAT CI R01 Scale & Corrosion Inhibitor.jpg'
+        },
+
+        {
+          id: 'os-r01',
+          name: 'Zymetreat OS',
+          fullName: 'Oxygen Scavenger',
+          description: 'A high-performance chemical designed to remove dissolved oxygen from boiler feedwater and condensate systems. By eliminating oxygen, a major cause of pitting and corrosion, this treatment ensures reliable boiler operation, protects critical metal surfaces, and extends equipment life.Engineered for industrial boilers, steam generators and high-pressure systems, provides fast reaction rates, excellent stability, and long-lasting corrosion protection.',
+          icon: 'bi-wind',
+          color: '#3a6f3a',
+          image: 'assets/products/splChem/Reverse Osmosis ZYMETREAT OS R01 Oxygen Scavanger.jpg'
+        },
+
+        {
+          id: 'nsho-r01',
+          name: 'Zymetreat NSHO',
+          fullName: 'Nano Silver Hydrogen Peroxide',
+          description: 'Next-generation multi-component disinfectant formulated for superior microbial control across water treatment, sanitation, and hygiene applications. This stabilized blend of hydrogen peroxide enhanced with nano-silver ions delivers long-lasting biocidal activity, making it highly effective against bacteria, viruses, fungi, algae, and biofilm-forming microorganisms. Engineered for industrial, commercial and institutional use, Zymetreat Nano Silver Hydrogen Peroxide provides high-level disinfection without harmful residues, ensuring safe and eco-friendly performance.',
+          icon: 'bi-droplet',
+          color: '#70bf3c',
+          image: 'assets/products/splChem/Reverse Osmosis ZYMETREAT NSHO R01 Nano Silver Hydrogen Peroxide.jpg'
+        }
+      ],
+      benefits: [
+        'Consistent high-purity water production',
+        'Extended membrane life',
+        'Minimized downtime',
+        'Maximum ROI on RO systems',
+        'Tackle tough water issues with our high-performance formulas',
+        'Minimize your environmental impact '
+      ]
     },
     {
       icon: 'bi-thermometer-half',
       title: 'BOILER WATER TREATMENT',
       description: 'Ensure the safe and efficient operation of your boiler system with our proven boiler water treatment chemicals. Hard water and impurities can wreak havoc on boilers, causing corrosion, scale buildup, and foaming. These issues compromise boiler efficiency, increase maintenance costs, and pose safety risks.',
-      color: 'danger'
+      color: 'danger',
+      title1: 'Boiler Water Treatment',
+      subtitle: 'Safeguard Your Steam',
+      description1: 'Ensure the safe and efficient operation of your boiler system with proven treatment chemicals.',
+      products: [
+        {
+          id: 'pm-b01',
+          name: 'Zymetreat PM-B01',
+          fullName: 'pH Modifier',
+          description: 'Maintains optimal pH levels in boiler feedwater to improve chemical performance and prevent corrosion and scaling.',
+          icon: 'bi-speedometer2',
+          color: '#5b3a29',
+          image: 'assets/products/splChem/Boiler  ZYMETREAT PM B01 pH Modifier.jpg'
+        },
+
+        {
+          id: 'as-b01',
+          name: 'Zymetreat AS-B01',
+          fullName: 'Antiscalant',
+          description: 'Prevents scale formation caused by calcium, magnesium and silica in boilers, heat exchangers and steam systems.',
+          icon: 'bi-shield-check',
+          color: '#6d4b32',
+          image: 'assets/products/splChem/Boiler ZYMETREAT AS B01 Antiscalant.jpg'
+        },
+
+        {
+          id: 'ds-b01',
+          name: 'Zymetreat DS-B01',
+          fullName: 'Descalant',
+          description: 'High-performance descaling chemical for removing hard scale, rust and iron oxide deposits from boilers and pipelines.',
+          icon: 'bi-droplet-half',
+          color: '#7f5c3b',
+          image: 'assets/products/splChem/Boiler ZYMETREAT DS B01 Descalant.jpg'
+        },
+
+        {
+          id: 'mb-b01',
+          name: 'Zymetreat MB-B01',
+          fullName: 'Microbiocide',
+          description: 'Controls bacteria, algae and fungal growth in boiler feedwater systems, condensate lines and cooling circuits.',
+          icon: 'bi-virus',
+          color: '#8f6d45',
+          image: 'assets/products/splChem/Boiler ZYMETREAT MB B01 Oxidizing Biocide.jpg'
+        },
+
+        {
+          id: 'mb-b02',
+          name: 'Zymetreat MB-B02',
+          fullName: 'Bio-Dispersant',
+          description: 'Disperses sludge, biofilm and organic deposits, improving system cleanliness and enhancing biocide efficiency.',
+          icon: 'bi-diagram-3',
+          color: '#a07e4f',
+          image: 'assets/products/splChem/Boiler ZYMETREAT MB B02 Bio Dispersant.jpg'
+        },
+
+        {
+          id: 'ci-b01',
+          name: 'Zymetreat CI-B01',
+          fullName: 'Corrosion Inhibitor',
+          description: 'Forms a protective film on metal surfaces to prevent corrosion, pitting and metal loss in boilers and steam systems.',
+          icon: 'bi-shield-fill-check',
+          color: '#b08f59',
+          image: 'assets/products/splChem/Boiler ZYMETREAT CI B01 Scale & Corrosion Inhibitor.jpg'
+        },
+
+        {
+          id: 'sp-b01',
+          name: 'Zymetreat SP-B01',
+          fullName: 'Cleaner – Acidic',
+          description: 'Acid-based cleaner designed to remove inorganic scale and mineral deposits from boiler and heat exchanger surfaces.',
+          icon: 'bi-bucket',
+          color: '#5b3a29',
+          image: 'assets/products/splChem/Boiler ZYMETREAT SP B01 Cleaner Acidic.jpg'
+        },
+
+        {
+          id: 'sp-b02',
+          name: 'Zymetreat SP-B02',
+          fullName: 'Cleaner – Alkalic',
+          description: 'Alkaline cleaner effective in removing oil, grease, organic fouling and sludge from boiler systems.',
+          icon: 'bi-bucket-fill',
+          color: '#6d4b32',
+          image: 'assets/products/splChem/Boiler ZYMETREAT SP B02 Cleaner Alkalic.jpg'
+        },
+
+        {
+          id: 'sp-b03',
+          name: 'Zymetreat SP-B03',
+          fullName: 'Organic Cleaner',
+          description: 'Specialized cleaner formulated to eliminate stubborn organic deposits and biofouling in boiler and process equipment.',
+          icon: 'bi-droplet',
+          color: '#7f5c3b',
+          image: 'assets/products/splChem/Boiler ZYMETREAT SP B03 Organic Cleaner.jpg'
+        }
+      ],
+      benefits: [
+        'Prevents corrosion and extends equipment life',
+        'Eliminates scale and improves heat transfer',
+        'Minimizes foaming and ensures steam quality',
+        'Customized treatment programs'
+      ]
     },
     {
       icon: 'bi-wind',
       title: 'COOLING TOWER WATER TREATMENT',
       description: 'Protect your critical equipment and optimize cooling system efficiency with our comprehensive line of cooling water treatment chemicals. Untreated cooling water leads to costly problems like corrosion, scaling, and biological growth. These issues reduce heat transfer, increase downtime, and shorten equipment life. Let us help you achieve reliable cooling, reduced maintenance costs and extended equipment life. Our tailored chemical programs prevent these concerns, maximizing system performance and energy savings.',
-      color: 'info'
+      color: 'info',
+      title1: 'Cooling Tower Water Treatment',
+      subtitle: 'Ensure Peak Performance',
+      description1: 'Protect critical equipment and optimize cooling system efficiency with comprehensive treatment.',
+      products: [
+        {
+          id: 'pm-c01',
+          name: 'Zymetreat PM-C01',
+          fullName: 'pH Modifier',
+          description: 'Maintains optimal pH balance in cooling tower water to ensure effective chemical treatment and system stability.',
+          icon: 'bi-speedometer2',
+          color: '#1f4f5a',
+          image: 'assets/products/splChem/Cooling Tower ZYMETREAT PMA C01 pH Modifier.jpg'
+        },
+
+        {
+          id: 'as-c01',
+          name: 'Zymetreat AS-C01',
+          fullName: 'Antiscalant',
+          description: 'Prevents scale formation caused by calcium, magnesium and silica in cooling towers and recirculating water systems.',
+          icon: 'bi-shield-check',
+          color: '#2b6a78',
+          image: 'assets/products/splChem/Cooling Tower ZYMETREAT AS C01 Antiscalant.jpg'
+        },
+
+        {
+          id: 'ds-c01',
+          name: 'Zymetreat DS-C01',
+          fullName: 'Descalant',
+          description: 'High-strength descaling chemical formulated to remove mineral scale, rust and deposits from cooling tower systems.',
+          icon: 'bi-droplet-half',
+          color: '#378595',
+          image: 'assets/products/splChem/Cooling Tower ZYMETREAT DS C01 Descalant.jpg'
+        },
+
+        {
+          id: 'mb-c01',
+          name: 'Zymetreat MB-C01',
+          fullName: 'Microbiocide',
+          description: 'Fast-acting biocide for controlling bacteria, algae and fungi in cooling towers and open recirculating systems.',
+          icon: 'bi-virus',
+          color: '#43a0b2',
+          image: 'assets/products/splChem/Cooling Tower ZYMETREAT MB C01 MicroBiocide.jpg'
+        },
+
+        {
+          id: 'mb-c02',
+          name: 'Zymetreat MB-C02',
+          fullName: 'Bio-Dispersant',
+          description: 'Disperses biofilm, sludge and organic matter, improving heat transfer efficiency and biocide performance.',
+          icon: 'bi-diagram-3',
+          color: '#4fbac9',
+          image: 'assets/products/splChem/Cooling Tower ZYMETREAT MB C02 Bio Dispersant.jpg'
+        },
+
+        {
+          id: 'ci-c01',
+          name: 'Zymetreat CI-C01',
+          fullName: 'Corrosion Inhibitor',
+          description: 'Forms a protective layer on metal surfaces to prevent corrosion, pitting and metal loss in cooling water systems.',
+          icon: 'bi-shield-fill-check',
+          color: '#5bd4e0',
+          image: 'assets/products/splChem/Cooling Tower ZYMETREAT CI C01 Corrosion Inhibitor.jpg'
+        }
+      ],
+      benefits: [
+        'Prevents corrosion, scaling, and biological growth',
+        'Maximizes heat transfer efficiency',
+        'Reduces maintenance costs',
+        'Extends equipment lifespan'
+      ]
     }
   ];
 
@@ -421,8 +678,8 @@ export class SpecialityChemicals {
     this.initializeProductCatalog();
   }
 
-  openCategoryModal(category: Category): void {
-    this.selectedCategory = category;
+  openCategoryModal(treatment: Treatment): void {
+    this.selectedCategory = treatment;
   }
 
   openProductModal(product: Product): void {
