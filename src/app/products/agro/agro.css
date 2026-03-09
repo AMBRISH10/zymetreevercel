@@ -1,47 +1,3 @@
-.hero-section {
-    background: linear-gradient(135deg, #2d5016 0%, #3d6b1f 50%, #4d8629 100%);
-    color: white;
-    padding: 100px 0;
-    position: relative;
-    overflow: hidden;
-}
-
-.hero-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image:
-        radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
-    pointer-events: none;
-}
-
-.hero-icon {
-    font-size: 80px;
-    animation: float 3s ease-in-out infinite;
-}
-
-@keyframes float {
-
-    0%,
-    100% {
-        transform: translateY(0px);
-    }
-
-    50% {
-        transform: translateY(-20px);
-    }
-}
-
-.hero-section h1 {
-    font-size: 4rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    letter-spacing: 8px;
-}
-
 .intro-card {
     background: linear-gradient(135deg, #f8fdf4 0%, #e8f5e0 100%);
     padding: 40px;
@@ -478,6 +434,68 @@
     .benefits-showcase {
         padding: 40px 0;
     }
+}
+
+.product-carousel {
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+.product-carousel .carousel-control-prev,
+.product-carousel .carousel-control-next {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #4d8629 0%, #70bf3c 100%);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 1;
+    box-shadow: 0 3px 10px rgba(45, 80, 22, 0.3);
+    transition: all 0.3s ease;
+}
+
+.product-carousel .carousel-control-prev {
+    left: -20px;
+}
+
+.product-carousel .carousel-control-next {
+    right: -20px;
+}
+
+.product-carousel .carousel-control-prev:hover,
+.product-carousel .carousel-control-next:hover {
+    background: linear-gradient(135deg, #2d5016 0%, #4d8629 100%);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.product-carousel .carousel-control-prev-icon,
+.product-carousel .carousel-control-next-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.product-carousel .carousel-indicators {
+    bottom: -30px;
+}
+
+.product-carousel .carousel-indicators button {
+    background-color: #4d8629;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: none;
+    opacity: 0.4;
+}
+
+.product-carousel .carousel-indicators button.active {
+    opacity: 1;
+    width: 24px;
+    border-radius: 4px;
+}
+
+/* Extra bottom space for indicators */
+.product-carousel {
+    padding-bottom: 35px;
 }
 
 /* ///////////////////////////////////////////////////////////////////////////////////////////// */

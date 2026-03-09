@@ -922,11 +922,12 @@
 }
 
 .tile-thumbnail {
-    width: 100%;
+    width: auto;
     height: 250px;
     object-fit: cover;
     transition: transform 0.3s ease;
     display: block;
+    margin: auto;
 }
 
 .tile-details {

@@ -332,10 +332,43 @@
             </div>
             <div class="modal-body">
                 <!-- Product Image -->
+                <!-- Product Images Carousel -->
                 <div class="text-center mb-4">
-                    <div class="product-image-container">
-                        <img [src]="selectedProduct.image" [alt]="selectedProduct.name" class="product-image"
-                            (error)="onImageError($event)">
+                    <div id="productCarousel" class="carousel slide product-carousel" data-bs-ride="false">
+
+                        <!-- Indicators (dots) — only show if more than 1 image -->
+                        <div class="carousel-indicators" *ngIf="selectedProduct.image.length > 1">
+                            <button *ngFor="let img of selectedProduct.image; let i = index" type="button"
+                                data-bs-target="#productCarousel" [attr.data-bs-slide-to]="i" [class.active]="i === 0"
+                                [attr.aria-current]="i === 0 ? 'true' : null" [attr.aria-label]="'Image ' + (i + 1)">
+                            </button>
+                        </div>
+
+                        <!-- Slides -->
+                        <div class="carousel-inner">
+                            <div *ngFor="let img of selectedProduct.image; let i = index" class="carousel-item"
+                                [class.active]="i === 0">
+                                <div class="product-image-container">
+                                    <img [src]="img" [alt]="selectedProduct.name + ' image ' + (i + 1)"
+                                        class="product-image" (error)="onImageError($event)">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Prev/Next Controls — only show if more than 1 image -->
+                        <ng-container *ngIf="selectedProduct.image.length > 1">
+                            <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#productCarousel"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </ng-container>
+
                     </div>
                 </div>
 
@@ -371,7 +404,9 @@
                     <h6 class="detail-label">
                         <i class="bi bi-gear-fill me-2"></i>Application Method
                     </h6>
-                    <p>{{ selectedProduct.applicationMethod }}</p>
+                    <ul>
+                        <li *ngFor="let method of selectedProduct.applicationMethod">{{ method }}</li>
+                    </ul>
                 </div>
 
                 <!-- Dosage -->

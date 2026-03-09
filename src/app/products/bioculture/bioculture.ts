@@ -25,6 +25,14 @@ interface ProductImage {
   imageUrl?: string; // Optional: if you have actual images
 }
 
+
+interface chmProduct {
+  label: string;
+  size: string;
+  containerSize: string;
+  imageUrl: string;
+}
+
 @Component({
   selector: 'app-bioculture',
   imports: [CommonModule],
@@ -46,6 +54,67 @@ export class Bioculture {
   @ViewChild('bgVideo') bgVideo!: ElementRef<HTMLVideoElement>;
   showChem: boolean = false;
   mainActiveTab: number = 1;
+
+  activeProduct: chmProduct | null = null;
+  activeIndex: number = -1;
+
+  chemical: chmProduct[] = [
+    {
+      label: 'ZYMETREAT MG 01',
+      size: '5 KG Container',
+      containerSize: '5 KGs',
+      imageUrl: 'assets/products/biocul/chemical/ZYMETREAT MG 01.jpg'
+    },
+    {
+      label: 'ZYMETREAT MG 02',
+      size: '5 KG Container',
+      containerSize: '5 KGs',
+      imageUrl: 'assets/products/biocul/chemical/ZYMETREAT MG 02.jpg'
+    },
+    {
+      label: 'ZYMETREAT MG 03',
+      size: '5 KG Container',
+      containerSize: '5 KGs',
+      imageUrl: 'assets/products/biocul/chemical/ZYMETREAT MG 03.jpg'
+    },
+    {
+      label: 'ZYMETREAT MG 04',
+      size: '5 KG Container',
+      containerSize: '5 KGs',
+      imageUrl: 'assets/products/biocul/chemical/ZYMETREAT MG 04.jpg'
+    },
+    {
+      label: 'ZYMETREAT MG 05',
+      size: '5 KG Container',
+      containerSize: '5 KGs',
+      imageUrl: 'assets/products/biocul/chemical/ZYMETREAT MG 05.jpg'
+    },
+    {
+      label: 'ZYMETREAT MG 06',
+      size: '5 KG Container',
+      containerSize: '5 KGs',
+      imageUrl: 'assets/products/biocul/chemical/ZYMETREAT MG 06.jpg'
+    },
+    {
+      label: 'ZYMETREAT MG 07',
+      size: '5 KG Container',
+      containerSize: '5 KGs',
+      imageUrl: 'assets/products/biocul/chemical/ZYMETREAT MG 07.jpg'
+    },
+    {
+      label: 'ZYMETREAT MG 08',
+      size: '5 KG Container',
+      containerSize: '5 KGs',
+      imageUrl: 'assets/products/biocul/chemical/ZYMETREAT MG 08.jpg'
+    },
+    {
+      label: 'ZYMETREAT MG 09',
+      size: '5 KG Container',
+      containerSize: '5 KGs',
+      imageUrl: 'assets/products/biocul/chemical/ZYMETREAT MG 09.jpg'
+    }
+  ];
+
 
   ngAfterViewInit() {
     const video = this.bgVideo.nativeElement;
@@ -472,7 +541,7 @@ export class Bioculture {
 
 
   ngOnInit(): void {
-    this.setupIntersectionObserver();
+    this.setMainActiveTab(1);
   }
 
   ngOnDestroy(): void {
@@ -484,33 +553,12 @@ export class Bioculture {
   setMainActiveTab(tab: number): void {
     this.mainActiveTab = tab;
     if (tab === 1) {
-      this.showBio = true;
-      this.showChem = false;
-    } else {
       this.showBio = false;
       this.showChem = true;
+    } else {
+      this.showBio = true;
+      this.showChem = false;
     }
-  }
-
-  setupIntersectionObserver(): void {
-    this.observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const id = entry.target.id;
-            this.isVisible[id] = true;
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    setTimeout(() => {
-      const elements = document.querySelectorAll('.animate-on-scroll');
-      elements.forEach((el) => {
-        this.observer.observe(el);
-      });
-    }, 100);
   }
 
   setActiveTab(tab: string): void {
@@ -533,14 +581,6 @@ export class Bioculture {
     return this.activeTab === 'etp' ? 'Bio Dispersant' : 'Antiscalant';
   }
 
-  getAnimationStyle(elementId: string, delay: number = 0): any {
-    return {
-      opacity: this.isVisible[elementId] ? 1 : 0,
-      transform: this.isVisible[elementId] ? 'translateY(0)' : 'translateY(30px)',
-      transition: `all 0.8s ease-out ${delay}s`
-    };
-  }
-
   // Image popup methods
   openImagePopup(image: ProductImage): void {
     this.selectedImage = image;
@@ -552,5 +592,42 @@ export class Bioculture {
     this.isImagePopupOpen = false;
     this.selectedImage = null;
     document.body.style.overflow = ''; // Restore scrolling
+  }
+
+  openLightbox(product: chmProduct, index: number): void {
+    this.activeProduct = product;
+    this.activeIndex = index;
+    document.body.style.overflow = 'hidden';
+  }
+
+  closeLightbox(): void {
+    this.activeProduct = null;
+    this.activeIndex = -1;
+    document.body.style.overflow = '';
+  }
+
+  prev(): void {
+    if (this.activeIndex > 0) {
+      this.activeIndex--;
+      this.activeProduct = this.chemical[this.activeIndex];
+    }
+  }
+
+  next(): void {
+    if (this.activeIndex < this.chemical.length - 1) {
+      this.activeIndex++;
+      this.activeProduct = this.chemical[this.activeIndex];
+    }
+  }
+
+  goTo(index: number): void {
+    this.activeIndex = index;
+    this.activeProduct = this.chemical[index];
+  }
+
+  onBackdropClick(event: MouseEvent): void {
+    if ((event.target as HTMLElement).classList.contains('lightbox-backdrop')) {
+      this.closeLightbox();
+    }
   }
 }

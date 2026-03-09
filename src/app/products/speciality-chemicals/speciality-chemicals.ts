@@ -76,7 +76,7 @@ export class SpecialityChemicals {
       products: [
         {
           id: 'pm-r01',
-          name: 'Zymetreat PM',
+          name: 'Zymetreat PM-R01',
           fullName: 'pH Modifier',
           description: 'Maintains ideal pH range for system stability and chemical effectiveness. Available as pH Booster for acidic water and pH Reducer for alkaline water.',
           icon: 'bi-speedometer2',
@@ -86,7 +86,7 @@ export class SpecialityChemicals {
 
         {
           id: 'as-r01',
-          name: 'Zymetreat AS',
+          name: 'Zymetreat AS-R01',
           fullName: 'Antiscalant',
           description: 'Designed to prevent mineral scale formation, formulated for reverse osmosis, cooling tower & boiler. This advanced antiscalant controls various salts & other hard-to-treat mineral deposits. Ideal for reverse osmosis, cooling towers, boilers, and other industrial water treatment systems. Zymetreat Antiscalant helps maximize operational reliability, reduce downtime and extend equipment lifespan.',
           icon: 'bi-shield-check',
@@ -96,7 +96,7 @@ export class SpecialityChemicals {
 
         {
           id: 'ds-r01',
-          name: 'Zymetreat DS',
+          name: 'Zymetreat DS-R01',
           fullName: 'Descalant',
           description: 'High-strength descaling chemical formulated to dissolve and remove tough mineral deposits, including calcium carbonate, magnesium scale, rust and iron oxide. Designed for boilers, heat exchangers, cooling towers, RO systems, condensers and process pipelines. It restores equipment efficiency and prevents costly breakdowns caused by scale buildup. Engineered for fast reaction and safe material compatibility, Zymetreat Descalant ensures deep cleaning without damaging metal surfaces.',
           icon: 'bi-droplet-half',
@@ -106,7 +106,7 @@ export class SpecialityChemicals {
 
         {
           id: 'mb-r01',
-          name: 'Zymetreat MB',
+          name: 'Zymetreat MB-R02',
           fullName: 'Microbiocide',
           description: 'Fast-acting biocide designed to control bacteria, algae and fungal growth in cooling towers, RO pre-treatment systems and industrial water circuits. It delivers powerful disinfection, reduces biofouling and protects equipment by keeping microbial contamination under control.',
           icon: 'bi-virus',
@@ -116,7 +116,7 @@ export class SpecialityChemicals {
 
         {
           id: 'ci-r01',
-          name: 'Zymetreat CI',
+          name: 'Zymetreat CI-R01',
           fullName: 'Corrosion Inhibitor',
           description: 'A high-performance chemical designed to protect metal surfaces in cooling systems, boilers, pipelines and industrial water circuits. It forms a durable protective film that prevents rust, pitting and metal degradation, helping extend equipment life, reduce maintenance costs and ensure reliable system performance.',
           icon: 'bi-shield-fill-check',
@@ -126,7 +126,7 @@ export class SpecialityChemicals {
 
         {
           id: 'os-r01',
-          name: 'Zymetreat OS',
+          name: 'Zymetreat OS-R01',
           fullName: 'Oxygen Scavenger',
           description: 'A high-performance chemical designed to remove dissolved oxygen from boiler feedwater and condensate systems. By eliminating oxygen, a major cause of pitting and corrosion, this treatment ensures reliable boiler operation, protects critical metal surfaces, and extends equipment life.Engineered for industrial boilers, steam generators and high-pressure systems, provides fast reaction rates, excellent stability, and long-lasting corrosion protection.',
           icon: 'bi-wind',
@@ -136,7 +136,7 @@ export class SpecialityChemicals {
 
         {
           id: 'nsho-r01',
-          name: 'Zymetreat NSHO',
+          name: 'Zymetreat NSHO-R01',
           fullName: 'Nano Silver Hydrogen Peroxide',
           description: 'Next-generation multi-component disinfectant formulated for superior microbial control across water treatment, sanitation, and hygiene applications. This stabilized blend of hydrogen peroxide enhanced with nano-silver ions delivers long-lasting biocidal activity, making it highly effective against bacteria, viruses, fungi, algae, and biofilm-forming microorganisms. Engineered for industrial, commercial and institutional use, Zymetreat Nano Silver Hydrogen Peroxide provides high-level disinfection without harmful residues, ensuring safe and eco-friendly performance.',
           icon: 'bi-droplet',

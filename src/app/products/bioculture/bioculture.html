@@ -44,9 +44,9 @@
 
     <div class="container tabs-section">
         <div class="tabs-wrapper">
-            <button class="tab-button1" (click)="setMainActiveTab(1)" [class.active]="mainActiveTab === 1"> Biological
+            <button class="tab-button1" (click)="setMainActiveTab(1)" [class.active]="mainActiveTab === 1"> Chemical
             </button>
-            <button class="tab-button1" (click)="setMainActiveTab(2)" [class.active]="mainActiveTab === 2"> Chemical
+            <button class="tab-button1" (click)="setMainActiveTab(2)" [class.active]="mainActiveTab === 2"> Biological
             </button>
         </div>
     </div>
@@ -219,8 +219,7 @@
         <div class="container content-section">
             <div class="content-wrapper">
 
-                <div id="content-header" class="content-header animate-on-scroll"
-                    [ngStyle]="getAnimationStyle('content-header')">
+                <div id="content-header" class="content-header ">
 
                     <div class="header-top">
                         <div class="icon-wrapper">
@@ -258,8 +257,7 @@
                     </div>
                 </div>
 
-                <div id="product-images" class="product-images animate-on-scroll"
-                    [ngStyle]="getAnimationStyle('product-images', 0.4)">
+                <div id="product-images" class="product-images ">
 
                     <div class="images-grid">
                         <div *ngFor="let image of getActiveProductImages()" class="image-card {{ image.cardClass }}"
@@ -302,51 +300,70 @@
     </div>
 
     <div *ngIf="showChem">
-        <div class="container content-section">
-            <div *ngIf="getActiveTabContent().benefits" class="benefits-list">
-                <div *ngFor="let benefit of getActiveTabContent().benefits" class="benefit-item">
-                    <i class="check-icon">✓</i>
-                    <p class="benefit-text">{{ benefit }}</p>
-                </div>
-            </div>
+        <div class="gallery-wrapper">
 
-            <div id="product-images" class="product-images animate-on-scroll"
-                [ngStyle]="getAnimationStyle('product-images', 0.4)">
-
-                <div class="images-grid">
-                    <div *ngFor="let image of getActiveProductImages()" class="image-card {{ image.cardClass }}"
-                        (click)="openImagePopup(image)">
-                        <div class="image-box {{ image.boxClass }}">
-                            <img [src]="image.imageUrl" [alt]="image.label" class="product-image">
+            <!-- Product Grid -->
+            <div class="gallery-grid">
+                <div class="product-card" *ngFor="let product of chemical; let i = index"
+                    (click)="openLightbox(product, i)">
+                    <div class="card-image-wrap">
+                        <img [src]="product.imageUrl" [alt]="product.label" class="card-image" />
+                        <div class="card-overlay">
+                            <span class="overlay-icon">&#x2b;</span>
                         </div>
-                        <p class="image-label">{{ image.label }}</p>
-                        <p class="image-size">{{ image.size }}</p>
+                    </div>
+                    <div class="card-info">
+                        <span class="card-index">{{ (i + 1).toString().padStart(2, '0') }}</span>
+                        <p class="card-name">{{ product.label }}</p>
+                        <p class="card-size">{{ product.containerSize }}</p>
                     </div>
                 </div>
             </div>
+
         </div>
 
-        <!-- Fullscreen Image Popup -->
-        <div *ngIf="isImagePopupOpen" class="image-popup-overlay" (click)="closeImagePopup()">
-            <div class="image-popup-container" (click)="$event.stopPropagation()">
-                <button class="popup-close-btn" (click)="closeImagePopup()">
-                    <span>&times;</span>
-                </button>
 
-                <div class="popup-content">
-                    <div class="popup-image-wrapper">
-                        <div class="popup-image-box {{ selectedImage?.boxClass }}">
-                            <img [src]="selectedImage?.imageUrl" [alt]="selectedImage?.label"
-                                class="popup-product-image">
-                        </div>
+        <!-- Lightbox -->
+        <div class="lightbox-backdrop" *ngIf="activeProduct" (click)="onBackdropClick($event)">
+            <div class="lightbox-box">
+
+                <!-- Image Side -->
+                <div class="lightbox-image-side">
+                    <img [src]="activeProduct.imageUrl" [alt]="activeProduct.label" class="lightbox-image" />
+
+                    <button class="nav-btn nav-prev" (click)="prev()" [disabled]="activeIndex === 0">&#8592;</button>
+                    <button class="nav-btn nav-next" (click)="next()"
+                        [disabled]="activeIndex === chemical.length - 1">&#8594;</button>
+                </div>
+
+                <!-- Info Side -->
+                <div class="lightbox-info-side">
+                    <button class="close-btn" (click)="closeLightbox()">&#x2715;</button>
+
+                    <h3 class="info-name">{{ activeProduct.label }}</h3>
+
+                    <div class="info-divider"></div>
+
+                    <div class="info-row">
+                        <span class="info-key">Container</span>
+                        <span class="info-val">{{ activeProduct.containerSize }}</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-key">Packaging</span>
+                        <span class="info-val">{{ activeProduct.size }}</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-key">Index</span>
+                        <span class="info-val">{{ activeIndex + 1 }} / {{ chemical.length }}</span>
                     </div>
 
-                    <div class="popup-details">
-                        <h3 class="popup-title">{{ selectedImage?.label }}</h3>
-                        <p class="popup-size">{{ selectedImage?.size }}</p>
-                        <p class="popup-tab">Category: {{ getActiveTabContent().title }}</p>
+                    <!-- Dot Navigation -->
+                    <div class="dot-nav">
+                        <button class="dot" *ngFor="let p of chemical; let di = index"
+                            [class.dot-active]="di === activeIndex" (click)="goTo(di)"></button>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>

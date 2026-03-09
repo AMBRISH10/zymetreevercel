@@ -7,10 +7,10 @@ interface Product {
   description: string;
   icon: string;
   color: string;
-  image: string;
+  image: string[];
   targetCrops?: string;
   keyFeatures?: string[];
-  applicationMethod?: string;
+  applicationMethod?: string[];
   dosage?: string;
 }
 
@@ -54,10 +54,19 @@ export class Agro {
           description: 'Azospirillum is a free living gram-negative bacterium responsible for fixing nitrogen. This is a non-fermentative, aerobic species. It is a plant growth promotor which colonizes on the surface of roots and these dont produce root nodes. It will secrete plant hormones and helps in root branching and growth of hairy roots.',
           icon: 'bi-droplet-fill',
           color: '#2d5016',
-          image: 'assets/spl_products/ARAN - N Azospirillum Front 5 L.jpeg',
+          image: [
+            'assets/spl_products/ARAN - N Azospirillum Front 5 L.jpeg',
+            'assets/spl_products/ARAN - N Azospirillum Back 1 L.jpg',
+            'assets/spl_products/ARAN - N Azospirillum Back 5 L.jpeg',
+            'assets/spl_products/ARAN - N Azospirillum Front 1 L.jpg'
+          ],
           targetCrops: 'Rice, maize, wheat, sorghum, millets, sugarcane, Groundnut, soybean, mustard, sesame, Cotton, chilly, lime, coffee, tea, spices, herbs, banana, and coconut. All types of fruit plants and flowering plants.',
           keyFeatures: ['Fixes atmospheric nitrogen', 'Promotes root growth', 'Enhances nutrient uptake'],
-          applicationMethod: 'Seed treatment, Soil application, Root dipping',
+          applicationMethod: [
+            'Can be used in drench method',
+            'Mixed with FYM/Biocompost/Oil Cake/Soil and used Flooding irrigation',
+            'Drip irrigation'
+          ],
           dosage: '2-4 liters per acre'
         },
         {
@@ -66,10 +75,19 @@ export class Agro {
           description: 'Rhizobium is a gram-negative bacterium responsible for fixing nitrogen. Rhizobium species form an endosymbiotic nitrogen-fixing association with roots. It is a plant growth promotor which forms and lives in root nodes. It plays an important role in legume plants by fixing atmospheric nitrogen in root nodes.',
           icon: 'bi-moisture',
           color: '#3d6b1f',
-          image: 'assets/spl_products/ARAN - N Rhizobium Front 5 L.jpeg',
+          image: [
+            'assets/spl_products/ARAN - N Rhizobium Back 1 L.jpg',
+            'assets/spl_products/ARAN - N Rhizobium Back 5 L.jpeg',
+            'assets/spl_products/ARAN - N Rhizobium Front 1 L.jpg',
+            'assets/spl_products/ARAN - N Rhizobium Front 5 L.jpeg'
+          ],
           targetCrops: 'Groundnut, soybean, red-gram, green-gram, black-gram, lentil, cowpea, and chickpea. All the legume plants.',
           keyFeatures: ['Forms root nodules', 'Fixes atmospheric nitrogen', 'Reduces fertilizer cost'],
-          applicationMethod: 'Seed treatment, Seedling root dip',
+          applicationMethod: [
+            'Can be used in drench method',
+            'Mixed with FYM/Biocompost/Oil Cake/Soil and used Flooding irrigation',
+            'Drip irrigation'
+          ],
           dosage: '200-250g per 10kg seeds'
         },
         {
@@ -78,10 +96,19 @@ export class Agro {
           description: 'Acetobacter is a nitrogen-fixing bacteria used as a biofertilizer, particularly beneficial for sugarcane and other crops. It colonizes plant roots, stems, and leaves, converting atmospheric nitrogen into a usable form for the plant. This process enhances plant growth, improves soil fertility, and reduces the need for synthetic nitrogen fertilizers.',
           icon: 'bi-water',
           color: '#4d8629',
-          image: 'assets/spl_products/ARAN - N Acetobacter Front 5 L.jpeg',
+          image: [
+            'assets/spl_products/ARAN - N Acetobacter Back 1 L.jpg',
+            'assets/spl_products/ARAN - N Acetobacter Back 5 L.jpeg',
+            'assets/spl_products/ARAN - N Acetobacter Front 1 L.jpg',
+            'assets/spl_products/ARAN - N Acetobacter Front 5 L.jpeg'
+          ],
           targetCrops: 'Sugarcane, cereals (like wheat and maize), pulses (like lentils and chickpeas), oil seeds (like groundnut and mustard), and vegetables (like tomatoes and eggplants). Fruits like grapes, guava, mango, and banana. All types of flowering plants.',
           keyFeatures: ['Fixes nitrogen in soil', 'Improves soil health', 'Increases sugar content'],
-          applicationMethod: 'Soil application, Root dipping',
+          applicationMethod: [
+            'Seed Treatment: Seeds can be treated with Acetobacter solution before planting',
+            'Soil Treatment: Soil drench, flooding irrigation and also can be applied with FYM/compost/oil cakes/soil',
+            'Drip Irrigation: Acetobacter can be introduced into the irrigation system for fertigation'
+          ],
           dosage: '4 liters per acre'
         },
         {
@@ -90,10 +117,19 @@ export class Agro {
           description: 'Azotobacter is a bacteria known for its ability to fix nitrogen from the atmosphere into a usable form for plants. These free-living, aerobic bacteria are crucial in the nitrogen cycle. Azotobacter also produces growth-promoting substances and helps in disease suppression, further enhancing plant growth.',
           icon: 'bi-cloud-drizzle',
           color: '#5ea332',
-          image: 'assets/spl_products/ARAN - N Azotobactor Front 5 L.jpeg',
+          image: [
+            'assets/spl_products/ARAN - N Azotobactor Back 1 L.jpg',
+            'assets/spl_products/ARAN - N Azotobactor Back 5 L.jpeg',
+            'assets/spl_products/ARAN - N Azotobactor Front 1 L.jpg',
+            'assets/spl_products/ARAN - N Azotobactor Front 5 L.jpeg'
+          ],
           targetCrops: 'Sugarcane, cereals (like wheat and maize), pulses (like lentils and chickpeas), oil seeds (like groundnut and mustard), and vegetables (like tomatoes and eggplants). Fruits like grapes, guava, mango, and banana. All types of flowering plants.',
           keyFeatures: ['Free-living N-fixer', 'Produces growth hormones', 'Improves germination'],
-          applicationMethod: 'Seed treatment, Soil application',
+          applicationMethod: [
+            'Seed Treatment: Seeds can be treated with Azotobacter solution before planting',
+            'Soil Treatment: Soil drench, flooding irrigation and also can be applied with FYM/compost/oil cakes/soil',
+            'Drip Irrigation: Azotobacter can be introduced into the irrigation system for fertigation'
+          ],
           dosage: '2-4 liters per acre'
         },
         {
@@ -102,10 +138,19 @@ export class Agro {
           description: 'Phosphate solubilizing bacteria (PSB) are microorganisms that convert insoluble forms of phosphorus in the soil into soluble forms that plants can readily absorb. PSB release organic acids, protons, and enzymes (like phosphatases) that break down insoluble phosphates into soluble forms. PSB can also enhance the availability of other nutrients like zinc and iron.',
           icon: 'bi-gem',
           color: '#70bf3c',
-          image: 'assets/spl_products/ARAN - P Phosphate Solubilizing Bacteria (PSB) Front 5 L.jpeg',
+          image: [
+            'assets/spl_products/ARAN - P Phosphate Solubilizing Bacteria (PSB) Back 1 L.jpg',
+            'assets/spl_products/ARAN - P Phosphate Solubilizing Bacteria (PSB) Back 5 L.jpeg',
+            'assets/spl_products/ARAN - P Phosphate Solubilizing Bacteria (PSB) Front 1 L.jpg',
+            'assets/spl_products/ARAN - P Phosphate Solubilizing Bacteria (PSB) Front 5 L.jpeg'
+          ],
           targetCrops: 'All crops',
           keyFeatures: ['Solubilizes phosphorus', 'Enhances root development', 'Improves flowering'],
-          applicationMethod: 'Seed treatment, Soil application',
+          applicationMethod: [
+            'Seed Treatment: Seeds can be treated with PSB solution before planting',
+            'Soil Treatment: Soil drench, flooding irrigation and also can be applied with FYM/compost/oil cakes/soil',
+            'Drip Irrigation: PSB can be introduced into the irrigation system for fertigation'
+          ],
           dosage: '2-4 liters per acre'
         },
         {
@@ -114,10 +159,19 @@ export class Agro {
           description: 'Mobilizes potassium from soil reserves',
           icon: 'bi-lightning-fill',
           color: '#82d946',
-          image: 'assets/spl_products/ARAN - N Potassium Solubilizing Bacteria (KSB) Front 5 L.jpeg',
+          image: [
+            'assets/spl_products/ARAN - N Potassium Solubilizing Bacteria (KSB) Back 1 L.jpg',
+            'assets/spl_products/ARAN - N Potassium Solubilizing Bacteria (KSB) Back 5 L.jpeg',
+            'assets/spl_products/ARAN - N Potassium Solubilizing Bacteria (KSB) Front 1 L.jpg',
+            'assets/spl_products/ARAN - N Potassium Solubilizing Bacteria (KSB) Front 5 L.jpeg'
+          ],
           targetCrops: 'All crops',
           keyFeatures: ['Mobilizes potassium', 'Improves disease resistance', 'Enhances fruit quality'],
-          applicationMethod: 'Seed treatment, Soil application',
+          applicationMethod: [
+            'Drip Irrigation: KSB can be introduced into the irrigation system for fertigation',
+            'Seed Treatment: Seeds can be treated with KSB solution before planting',
+            'Soil Treatment: Soil drench, flooding irrigation and also can be applied with FYM/compost/oil cakes/soil'
+          ],
           dosage: '2-4 liters per acre'
         },
         {
@@ -126,10 +180,10 @@ export class Agro {
           description: 'Vesicular Arbuscular Mycorrhiza for nutrient absorption',
           icon: 'bi-diagram-3-fill',
           color: '#94f050',
-          image: 'assets/spl_products/ARAN - VAM Vasicular Arbuscular Mycorrhiza (VAM) Front 5 L.jpeg',
+          image: ['assets/spl_products/ARAN - VAM Vasicular Arbuscular Mycorrhiza (VAM) Front 5 L.jpeg'],
           targetCrops: 'Fruit crops, Vegetables, Plantation crops',
           keyFeatures: ['Increases nutrient uptake', 'Enhances drought tolerance', 'Extends root system'],
-          applicationMethod: 'Soil application, Seedling root dip',
+          applicationMethod: ['Soil application, Seedling root dip'],
           dosage: '4-5 kg per acre'
         },
         {
@@ -138,10 +192,10 @@ export class Agro {
           description: 'Combined consortium of N, P, K microbes',
           icon: 'bi-diagram-2-fill',
           color: '#2d5016',
-          image: 'assets/spl_products/ARAN - NPK NPK Consortia Front 5 L.jpeg',
+          image: ['assets/spl_products/ARAN - NPK NPK Consortia Front 5 L.jpeg'],
           targetCrops: 'All crops',
           keyFeatures: ['Complete nutrition', 'Multiple benefits', 'Cost-effective'],
-          applicationMethod: 'Seed treatment, Soil application',
+          applicationMethod: ['Seed treatment, Soil application'],
           dosage: '2-4 liters per acre'
         }
       ],
@@ -166,10 +220,19 @@ export class Agro {
           description: 'Zinc solubilizing bacteria (ZSB) biofertilizers are a type of biofertilizer that contains beneficial microorganisms that can convert insoluble zinc compounds in the soil into a form that plants can readily absorb. ZSB biofertilizers contain specific strains of bacteria, often belonging to genera like Bacillus, Pseudomonas, and Priestia, which are capable of solubilizing zinc.',
           icon: 'bi-hexagon-fill',
           color: '#3d6b1f',
-          image: 'assets/spl_products/ARAN - Zn Zinc Solubilizing Bacteria (ZnSB) Front 5 L.jpeg',
+          image: [
+            'assets/spl_products/ARAN - Zn Zinc Solubilizing Bacteria (ZnSB) Back 1 L.jpg',
+            'assets/spl_products/ARAN - Zn Zinc Solubilizing Bacteria (ZnSB) Back 5 L.jpeg',
+            'assets/spl_products/ARAN - Zn Zinc Solubilizing Bacteria (ZnSB) Front 1 L.jpg',
+            'assets/spl_products/ARAN - Zn Zinc Solubilizing Bacteria (ZnSB) Front 5 L.jpeg'
+          ],
           targetCrops: 'All crops, especially rice, wheat, cotton',
           keyFeatures: ['Solubilizes zinc', 'Prevents zinc deficiency', 'Improves immunity'],
-          applicationMethod: 'Seed treatment, Soil application',
+          applicationMethod: [
+            'Seed Treatment: Seeds can be treated with ZSB solution before planting',
+            'Soil Treatment: Soil drench, flooding irrigation and also can be applied with FYM/compost/oil cakes/soil',
+            'Drip Irrigation: ZSB can be introduced into the irrigation system for fertigation'
+          ],
           dosage: '2-3 liters per acre'
         },
         // {
@@ -190,10 +253,19 @@ export class Agro {
           description: 'Sulphur solubilizing bacteria (SSB) are a type of biofertilizer that helps plants access sulfur, an essential nutrient, more effectively. These bacteria convert insoluble forms of sulfur in the soil into soluble forms that plants can readily absorb. This process not only increases the availability of sulfur but also enhances the uptake of other nutrients like nitrogen and phosphorus, leading to improved plant growth and yield.',
           icon: 'bi-circle-fill',
           color: '#5ea332',
-          image: 'assets/spl_products/ARAN - S Sulphur Solubilizing Bacteria (SSB) Front 5 L.jpeg',
+          image: [
+            'assets/spl_products/ARAN - S Sulphur Solubilizing Bacteria (SSB) Back 1 L.jpg',
+            'assets/spl_products/ARAN - S Sulphur Solubilizing Bacteria (SSB) Back 5 L.jpeg',
+            'assets/spl_products/ARAN - S Sulphur Solubilizing Bacteria (SSB) Front 1 L.jpg',
+            'assets/spl_products/ARAN - S Sulphur Solubilizing Bacteria (SSB) Front 5 L.jpeg'
+          ],
           targetCrops: 'Oilseeds, Pulses, Vegetables',
           keyFeatures: ['Provides sulphur nutrition', 'Improves protein synthesis', 'Enhances oil content'],
-          applicationMethod: 'Seed treatment, Soil application',
+          applicationMethod: [
+            'Seed Treatment: Seeds can be treated with SSB solution before planting',
+            'Soil Treatment: Soil drench, flooding irrigation and also can be applied with FYM/compost/oil cakes/soil',
+            'Drip Irrigation: SSB can be introduced into the irrigation system for fertigation'
+          ],
           dosage: '2-3 liters per acre'
         }
       ],
@@ -265,10 +337,15 @@ export class Agro {
           description: 'NPR-I is a natural pest/insect/disease repellent solution that fights with different pets and problems that exist in root region.This solution prevents root nematodes from affecting the roots.Also, this solution gives protection from various other soil based disease causing agents',
           icon: 'bi-virus',
           color: '#5ea332',
-          image: 'assets/spl_products/Picture1.jpg',
+          image: ['assets/spl_products/Picture1.jpg'],
           targetCrops: 'All crops',
           keyFeatures: ['Controls insects naturally', 'Safe for beneficial insects', 'Long-lasting effect'],
-          applicationMethod: 'Seed Treatment, Seeding Treatment,Soil Treatment,Drip Irrigation',
+          applicationMethod: [
+            'Seed Treatment',
+            'Seeding Treatment',
+            'Soil Treatment',
+            'Drip Irrigation'
+          ],
           dosage: '4 liters per acre'
         },
         {
@@ -277,10 +354,10 @@ export class Agro {
           description: 'NPR-II is a natural pest/insect/disease repellent solution that fights with different pets and problems that exist in root Foliar part of the plant. It effectively fights with the mealy bugs, aphids, white flies, thrips, mites and all other types of parasites and sucker pests',
           icon: 'bi-virus',
           color: '#5ea332',
-          image: 'assets/spl_products/Picture2.jpg',
+          image: ['assets/spl_products/Picture2.jpg'],
           targetCrops: 'All crops',
           keyFeatures: ['Controls insects naturally', 'Safe for beneficial insects', 'Long-lasting effect'],
-          applicationMethod: 'Spray using traditional or modern drone based sprayers directly on the foliar of the plant',
+          applicationMethod: ['Spray using traditional or modern drone based sprayers directly on the foliar of the plant'],
           dosage: '2-3 liters per acre'
         }
       ],
@@ -308,9 +385,9 @@ export class Agro {
           description: 'Enriched compost with beneficial microorganisms',
           icon: 'bi-basket3-fill',
           color: '#2d5016',
-          image: 'assets/image.jpeg',
+          image: ['assets/image.jpeg'],
           keyFeatures: ['Rich in organic matter', 'Contains beneficial microbes', 'Improves soil structure', 'Slow nutrient release'],
-          applicationMethod: 'Mix with soil during planting or top dressing',
+          applicationMethod: ['Mix with soil during planting or top dressing'],
           dosage: '5-10 kg per plant or 500-1000 kg per acre'
         },
         {
@@ -319,9 +396,9 @@ export class Agro {
           description: 'Premium quality earthworm compost',
           icon: 'bi-egg-fill',
           color: '#3d6b1f',
-          image: 'assets/images/soil-conditioner/vermicompost.jpg',
+          image: ['assets/images/soil-conditioner/vermicompost.jpg'],
           keyFeatures: ['High nutrient content', 'Rich in beneficial enzymes', 'Improves water retention', 'Natural pest repellent'],
-          applicationMethod: 'Mix with soil or apply as top dressing',
+          applicationMethod: ['Mix with soil or apply as top dressing'],
           dosage: '2-5 kg per plant or 300-500 kg per acre'
         },
         {
@@ -330,9 +407,9 @@ export class Agro {
           description: 'Recycled urban organic waste compost',
           icon: 'bi-recycle',
           color: '#4d8629',
-          image: 'assets/images/soil-conditioner/city-compost.jpg',
+          image: ['assets/images/soil-conditioner/city-compost.jpg'],
           keyFeatures: ['Eco-friendly waste management', 'Improves soil fertility', 'Cost-effective', 'Reduces chemical dependency'],
-          applicationMethod: 'Mix with soil before planting',
+          applicationMethod: ['Mix with soil before planting'],
           dosage: '500-1000 kg per acre'
         },
         {
@@ -341,9 +418,9 @@ export class Agro {
           description: 'Traditional organic manure for all crops',
           icon: 'bi-tree-fill',
           color: '#5ea332',
-          image: 'assets/images/soil-conditioner/organic-manure.jpg',
+          image: ['assets/products/Aran Bio enriched organic compost.jpeg'],
           keyFeatures: ['Natural nutrition source', 'Improves soil texture', 'Long-lasting benefits', 'Environmentally safe'],
-          applicationMethod: 'Apply before planting or as top dressing',
+          applicationMethod: ['Apply before planting or as top dressing'],
           dosage: '5-10 tons per acre'
         },
         {
@@ -352,9 +429,9 @@ export class Agro {
           description: 'Enriched with rock phosphate',
           icon: 'bi-gem',
           color: '#70bf3c',
-          image: 'assets/images/soil-conditioner/prom.jpg',
+          image: ['assets/images/soil-conditioner/prom.jpg'],
           keyFeatures: ['High phosphorus content', 'Improves flowering', 'Enhances root development', 'Organic certification friendly'],
-          applicationMethod: 'Mix with soil during planting',
+          applicationMethod: ['Mix with soil during planting'],
           dosage: '200-400 kg per acre'
         }
       ],
@@ -380,7 +457,7 @@ export class Agro {
           description: 'Organic protein hydrolysate for vigorous growth',
           icon: 'bi-droplet-half',
           color: '#2d5016',
-          image: 'assets/images/biostimulants/fish-amino-acid.jpg',
+          image: ['assets/images/biostimulants/fish-amino-acid.jpg'],
           targetCrops: 'Suitable for all types of plants & crops',
           keyFeatures: [
             'Boosts vegetative growth',
@@ -390,7 +467,7 @@ export class Agro {
             'Enhances soil fertility',
             'Promotes overall plant vigor and yield'
           ],
-          applicationMethod: 'Foliar Spray: 2-5 ml per liter (early morning/evening) | Soil Drench: 5-10 ml per liter',
+          applicationMethod: ['Foliar Spray: 2-5 ml per liter (early morning/evening) | Soil Drench: 5-10 ml per liter'],
           dosage: 'Apply every 7-10 days during active growth'
         },
         {
@@ -399,7 +476,7 @@ export class Agro {
           description: 'Marine-based growth stimulant',
           icon: 'bi-water',
           color: '#3d6b1f',
-          image: 'assets/images/biostimulants/seaweed-extract.jpg',
+          image: ['assets/images/biostimulants/seaweed-extract.jpg'],
           targetCrops: 'All crops, vegetables, fruits, ornamentals',
           keyFeatures: [
             'Rich in natural hormones',
@@ -409,7 +486,7 @@ export class Agro {
             'Increases nutrient uptake',
             'Improves crop quality'
           ],
-          applicationMethod: 'Foliar Spray: 2-3 ml per liter | Soil application: 500-1000 ml per acre',
+          applicationMethod: ['Foliar Spray: 2-3 ml per liter | Soil application: 500-1000 ml per acre'],
           dosage: 'Apply every 10-15 days'
         }
       ],
