@@ -56,9 +56,9 @@ export class Agro {
           color: '#2d5016',
           image: [
             'assets/spl_products/ARAN - N Azospirillum Front 5 L.jpeg',
-            'assets/spl_products/ARAN - N Azospirillum Back 1 L.jpg',
             'assets/spl_products/ARAN - N Azospirillum Back 5 L.jpeg',
-            'assets/spl_products/ARAN - N Azospirillum Front 1 L.jpg'
+            'assets/spl_products/ARAN - N Azospirillum Front 1 L.jpg',
+            'assets/spl_products/ARAN - N Azospirillum Back 1 L.jpg'
           ],
           targetCrops: 'Rice, maize, wheat, sorghum, millets, sugarcane, Groundnut, soybean, mustard, sesame, Cotton, chilly, lime, coffee, tea, spices, herbs, banana, and coconut. All types of fruit plants and flowering plants.',
           keyFeatures: ['Fixes atmospheric nitrogen', 'Promotes root growth', 'Enhances nutrient uptake'],
@@ -76,10 +76,10 @@ export class Agro {
           icon: 'bi-moisture',
           color: '#3d6b1f',
           image: [
-            'assets/spl_products/ARAN - N Rhizobium Back 1 L.jpg',
-            'assets/spl_products/ARAN - N Rhizobium Back 5 L.jpeg',
             'assets/spl_products/ARAN - N Rhizobium Front 1 L.jpg',
-            'assets/spl_products/ARAN - N Rhizobium Front 5 L.jpeg'
+            'assets/spl_products/ARAN - N Rhizobium Back 1 L.jpg',
+            'assets/spl_products/ARAN - N Rhizobium Front 5 L.jpeg',
+            'assets/spl_products/ARAN - N Rhizobium Back 5 L.jpeg'
           ],
           targetCrops: 'Groundnut, soybean, red-gram, green-gram, black-gram, lentil, cowpea, and chickpea. All the legume plants.',
           keyFeatures: ['Forms root nodules', 'Fixes atmospheric nitrogen', 'Reduces fertilizer cost'],
@@ -97,10 +97,10 @@ export class Agro {
           icon: 'bi-water',
           color: '#4d8629',
           image: [
-            'assets/spl_products/ARAN - N Acetobacter Back 1 L.jpg',
-            'assets/spl_products/ARAN - N Acetobacter Back 5 L.jpeg',
             'assets/spl_products/ARAN - N Acetobacter Front 1 L.jpg',
-            'assets/spl_products/ARAN - N Acetobacter Front 5 L.jpeg'
+            'assets/spl_products/ARAN - N Acetobacter Back 1 L.jpg',
+            'assets/spl_products/ARAN - N Acetobacter Front 5 L.jpeg',
+            'assets/spl_products/ARAN - N Acetobacter Back 5 L.jpeg'
           ],
           targetCrops: 'Sugarcane, cereals (like wheat and maize), pulses (like lentils and chickpeas), oil seeds (like groundnut and mustard), and vegetables (like tomatoes and eggplants). Fruits like grapes, guava, mango, and banana. All types of flowering plants.',
           keyFeatures: ['Fixes nitrogen in soil', 'Improves soil health', 'Increases sugar content'],
@@ -118,10 +118,10 @@ export class Agro {
           icon: 'bi-cloud-drizzle',
           color: '#5ea332',
           image: [
-            'assets/spl_products/ARAN - N Azotobactor Back 1 L.jpg',
-            'assets/spl_products/ARAN - N Azotobactor Back 5 L.jpeg',
             'assets/spl_products/ARAN - N Azotobactor Front 1 L.jpg',
-            'assets/spl_products/ARAN - N Azotobactor Front 5 L.jpeg'
+            'assets/spl_products/ARAN - N Azotobactor Back 1 L.jpg',
+            'assets/spl_products/ARAN - N Azotobactor Front 5 L.jpeg',
+            'assets/spl_products/ARAN - N Azotobactor Back 5 L.jpeg'
           ],
           targetCrops: 'Sugarcane, cereals (like wheat and maize), pulses (like lentils and chickpeas), oil seeds (like groundnut and mustard), and vegetables (like tomatoes and eggplants). Fruits like grapes, guava, mango, and banana. All types of flowering plants.',
           keyFeatures: ['Free-living N-fixer', 'Produces growth hormones', 'Improves germination'],
@@ -134,15 +134,15 @@ export class Agro {
         },
         {
           id: 'psb',
-          name: 'Phosphorous Solubilizing Bacteria (PSB)',
+          name: 'Phosphate  Solubilizing Bacteria (PSB)',
           description: 'Phosphate solubilizing bacteria (PSB) are microorganisms that convert insoluble forms of phosphorus in the soil into soluble forms that plants can readily absorb. PSB release organic acids, protons, and enzymes (like phosphatases) that break down insoluble phosphates into soluble forms. PSB can also enhance the availability of other nutrients like zinc and iron.',
           icon: 'bi-gem',
           color: '#70bf3c',
           image: [
-            'assets/spl_products/ARAN - P Phosphate Solubilizing Bacteria (PSB) Back 1 L.jpg',
-            'assets/spl_products/ARAN - P Phosphate Solubilizing Bacteria (PSB) Back 5 L.jpeg',
             'assets/spl_products/ARAN - P Phosphate Solubilizing Bacteria (PSB) Front 1 L.jpg',
-            'assets/spl_products/ARAN - P Phosphate Solubilizing Bacteria (PSB) Front 5 L.jpeg'
+            'assets/spl_products/ARAN - P Phosphate Solubilizing Bacteria (PSB) Back 1 L.jpg',
+            'assets/spl_products/ARAN - P Phosphate Solubilizing Bacteria (PSB) Front 5 L.jpeg',
+            'assets/spl_products/ARAN - P Phosphate Solubilizing Bacteria (PSB) Back 5 L.jpeg'
           ],
           targetCrops: 'All crops',
           keyFeatures: ['Solubilizes phosphorus', 'Enhances root development', 'Improves flowering'],
@@ -160,10 +160,10 @@ export class Agro {
           icon: 'bi-lightning-fill',
           color: '#82d946',
           image: [
-            'assets/spl_products/ARAN - N Potassium Solubilizing Bacteria (KSB) Back 1 L.jpg',
-            'assets/spl_products/ARAN - N Potassium Solubilizing Bacteria (KSB) Back 5 L.jpeg',
             'assets/spl_products/ARAN - N Potassium Solubilizing Bacteria (KSB) Front 1 L.jpg',
-            'assets/spl_products/ARAN - N Potassium Solubilizing Bacteria (KSB) Front 5 L.jpeg'
+            'assets/spl_products/ARAN - N Potassium Solubilizing Bacteria (KSB) Back 1 L.jpg',
+            'assets/spl_products/ARAN - N Potassium Solubilizing Bacteria (KSB) Front 5 L.jpeg',
+            'assets/spl_products/ARAN - N Potassium Solubilizing Bacteria (KSB) Back 5 L.jpeg',
           ],
           targetCrops: 'All crops',
           keyFeatures: ['Mobilizes potassium', 'Improves disease resistance', 'Enhances fruit quality'],
@@ -192,12 +192,36 @@ export class Agro {
           description: 'Combined consortium of N, P, K microbes',
           icon: 'bi-diagram-2-fill',
           color: '#2d5016',
-          image: ['assets/spl_products/ARAN - NPK NPK Consortia Front 5 L.jpeg'],
+          image: [
+            'assets/spl_products/ARAN - NPK NPK Consortia Front 5 L.jpeg',
+            'assets/spl_products/ARAN - NPK NPK Consortia Back 5 L.jpeg'
+          ],
           targetCrops: 'All crops',
           keyFeatures: ['Complete nutrition', 'Multiple benefits', 'Cost-effective'],
           applicationMethod: ['Seed treatment, Soil application'],
           dosage: '2-4 liters per acre'
-        }
+        },
+        {
+          id: 'ksb',
+          name: 'Potassium Solubilizing Bacteria (KSB)',
+          description: 'KSB, or Potassium Solubilizing Bacteria, is a type of biofertilizer that enhances the availability of potassium in the soil for plant uptake. It contains beneficial bacteria that convert insoluble potassium compounds into soluble forms that plants can readily absorb.',
+          icon: 'bi-gem',
+          color: '#70bf3c',
+          image: [
+            'assets/spl_products/ARAN - N Potassium Solubilizing Bacteria (KSB) Front 5 L.jpeg',
+            'assets/spl_products/ARAN - N Potassium Solubilizing Bacteria (KSB) Back 5 L.jpeg',
+            'assets/spl_products/ARAN - N Potassium Solubilizing Bacteria (KSB) Front 1 L.jpg',
+            'assets/spl_products/ARAN - N Potassium Solubilizing Bacteria (KSB) Back 1 L.jpg'
+          ],
+          targetCrops: 'All crops',
+          keyFeatures: ['Solubilizes phosphorus', 'Enhances root development', 'Improves flowering'],
+          applicationMethod: [
+            'Seed Treatment: Seeds can be treated with PSB solution before planting',
+            'Soil Treatment: Soil drench, flooding irrigation and also can be applied with FYM/compost/oil cakes/soil',
+            'Drip Irrigation: PSB can be introduced into the irrigation system for fertigation'
+          ],
+          dosage: '2-4 liters per acre'
+        },
       ],
       benefits: [
         'Eco-friendly alternative to chemical fertilizers',
@@ -221,10 +245,10 @@ export class Agro {
           icon: 'bi-hexagon-fill',
           color: '#3d6b1f',
           image: [
-            'assets/spl_products/ARAN - Zn Zinc Solubilizing Bacteria (ZnSB) Back 1 L.jpg',
-            'assets/spl_products/ARAN - Zn Zinc Solubilizing Bacteria (ZnSB) Back 5 L.jpeg',
             'assets/spl_products/ARAN - Zn Zinc Solubilizing Bacteria (ZnSB) Front 1 L.jpg',
-            'assets/spl_products/ARAN - Zn Zinc Solubilizing Bacteria (ZnSB) Front 5 L.jpeg'
+            'assets/spl_products/ARAN - Zn Zinc Solubilizing Bacteria (ZnSB) Back 1 L.jpg',
+            'assets/spl_products/ARAN - Zn Zinc Solubilizing Bacteria (ZnSB) Front 5 L.jpeg',
+            'assets/spl_products/ARAN - Zn Zinc Solubilizing Bacteria (ZnSB) Back 5 L.jpeg',
           ],
           targetCrops: 'All crops, especially rice, wheat, cotton',
           keyFeatures: ['Solubilizes zinc', 'Prevents zinc deficiency', 'Improves immunity'],
@@ -254,10 +278,10 @@ export class Agro {
           icon: 'bi-circle-fill',
           color: '#5ea332',
           image: [
-            'assets/spl_products/ARAN - S Sulphur Solubilizing Bacteria (SSB) Back 1 L.jpg',
-            'assets/spl_products/ARAN - S Sulphur Solubilizing Bacteria (SSB) Back 5 L.jpeg',
             'assets/spl_products/ARAN - S Sulphur Solubilizing Bacteria (SSB) Front 1 L.jpg',
-            'assets/spl_products/ARAN - S Sulphur Solubilizing Bacteria (SSB) Front 5 L.jpeg'
+            'assets/spl_products/ARAN - S Sulphur Solubilizing Bacteria (SSB) Back 1 L.jpg',
+            'assets/spl_products/ARAN - S Sulphur Solubilizing Bacteria (SSB) Front 5 L.jpeg',
+            'assets/spl_products/ARAN - S Sulphur Solubilizing Bacteria (SSB) Back 5 L.jpeg'
           ],
           targetCrops: 'Oilseeds, Pulses, Vegetables',
           keyFeatures: ['Provides sulphur nutrition', 'Improves protein synthesis', 'Enhances oil content'],
@@ -337,7 +361,9 @@ export class Agro {
           description: 'NPR-I is a natural pest/insect/disease repellent solution that fights with different pets and problems that exist in root region.This solution prevents root nematodes from affecting the roots.Also, this solution gives protection from various other soil based disease causing agents',
           icon: 'bi-virus',
           color: '#5ea332',
-          image: ['assets/spl_products/Picture1.jpg'],
+          image: ['assets/spl_products/NPR 1 F.jpeg',
+            'assets/spl_products/NPR 1 B.jpeg'
+          ],
           targetCrops: 'All crops',
           keyFeatures: ['Controls insects naturally', 'Safe for beneficial insects', 'Long-lasting effect'],
           applicationMethod: [
@@ -354,7 +380,9 @@ export class Agro {
           description: 'NPR-II is a natural pest/insect/disease repellent solution that fights with different pets and problems that exist in root Foliar part of the plant. It effectively fights with the mealy bugs, aphids, white flies, thrips, mites and all other types of parasites and sucker pests',
           icon: 'bi-virus',
           color: '#5ea332',
-          image: ['assets/spl_products/Picture2.jpg'],
+          image: ['assets/spl_products/NPR 2 F.jpeg',
+            'assets/spl_products/NPR 2 B.jpeg'
+          ],
           targetCrops: 'All crops',
           keyFeatures: ['Controls insects naturally', 'Safe for beneficial insects', 'Long-lasting effect'],
           applicationMethod: ['Spray using traditional or modern drone based sprayers directly on the foliar of the plant'],
@@ -500,6 +528,7 @@ export class Agro {
       ]
     }
   ];
+  lightboxImage: string | null = null;
 
   ngOnInit() {
     this.initializeProductCatalog();
@@ -559,6 +588,12 @@ export class Agro {
     document.body.style.overflow = 'hidden';
   }
 
+  openLightboxViewer1(itemIndex: number): void {
+    this.selectedItemIndex = itemIndex;
+    this.isLightboxVisible = true;
+    document.body.style.overflow = 'hidden';
+  }
+
   closeLightboxViewer(): void {
     this.isLightboxVisible = false;
     document.body.style.overflow = 'auto';
@@ -597,5 +632,15 @@ export class Agro {
 
   preventEventBubbling(event: Event): void {
     event.stopPropagation();
+  }
+
+  openLightbox(img: string): void {
+    this.lightboxImage = img;
+    document.body.style.overflow = 'hidden';
+  }
+
+  closeLightbox(): void {
+    this.lightboxImage = null;
+    document.body.style.overflow = '';
   }
 }
