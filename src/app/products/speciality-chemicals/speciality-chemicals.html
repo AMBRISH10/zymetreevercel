@@ -156,7 +156,7 @@
                 <div class="text-center mb-4">
                     <div class="product-image-container">
                         <img [src]="selectedProduct.image" [alt]="selectedProduct.fullName" class="product-image"
-                            (error)="onImageError($event)">
+                            (error)="onImageError($event)" (click)="openLightbox(selectedProduct.image)">
                     </div>
                 </div>
                 <h5 class="mb-2">{{ selectedProduct.fullName }}</h5>
@@ -220,4 +220,11 @@
     <button class="navigation-control next-control" (click)="navigateToAdjacentItem(1); $event.stopPropagation()">
         &#10095;
     </button>
+</div>
+
+<div class="prd-lightbox-overlay" *ngIf="lightboxImage" (click)="closeLightbox()">
+    <button class="prd-lightbox-close" (click)="closeLightbox()" aria-label="Close">
+        &#x2715;
+    </button>
+    <img [src]="lightboxImage" class="prd-lightbox-image" (click)="$event.stopPropagation()" alt="Fullscreen view" />
 </div>

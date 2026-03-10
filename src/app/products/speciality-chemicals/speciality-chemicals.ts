@@ -673,6 +673,7 @@ export class SpecialityChemicals {
       ]
     }
   ];
+  lightboxImage: string | null = null;
 
   ngOnInit() {
     this.initializeProductCatalog();
@@ -802,5 +803,15 @@ export class SpecialityChemicals {
 
   preventEventBubbling(event: Event): void {
     event.stopPropagation();
+  }
+
+  openLightbox(img: string): void {
+    this.lightboxImage = img;
+    document.body.style.overflow = 'hidden';
+  }
+
+  closeLightbox(): void {
+    this.lightboxImage = null;
+    document.body.style.overflow = '';
   }
 }
