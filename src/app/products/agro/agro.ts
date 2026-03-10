@@ -180,7 +180,9 @@ export class Agro {
           description: 'Vesicular Arbuscular Mycorrhiza for nutrient absorption',
           icon: 'bi-diagram-3-fill',
           color: '#94f050',
-          image: ['assets/spl_products/ARAN - VAM Vasicular Arbuscular Mycorrhiza (VAM) Front 5 L.jpeg'],
+          image: ['assets/spl_products/ARAN - VAM Vasicular Arbuscular Mycorrhiza (VAM) Front 5 L.jpeg',
+            'assets/spl_products/ARAN - VAM Vasicular Arbuscular Mycorrhiza (VAM) Back 5 L.jpeg'
+          ],
           targetCrops: 'Fruit crops, Vegetables, Plantation crops',
           keyFeatures: ['Increases nutrient uptake', 'Enhances drought tolerance', 'Extends root system'],
           applicationMethod: ['Soil application, Seedling root dip'],
