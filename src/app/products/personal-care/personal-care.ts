@@ -67,24 +67,24 @@ export class PersonalCare {
         label: 'Aloevera Soap',
         size: 'Handmade',
         containerSize: '100g',
-        cardClass: 'green-card',
-        boxClass: 'green-box',
+        cardClass: 'gray-card',
+        boxClass: 'gray-box',
         imageUrl: 'assets/products/handmadeSoap/aloevera_soap.jpeg'
       },
       {
         label: 'Activated Charcoal Soap',
         size: 'Handmade',
         containerSize: '100g',
-        cardClass: 'gray-card',
-        boxClass: 'gray-box',
+        cardClass: 'green-card',
+        boxClass: 'green-box',
         imageUrl: 'assets/products/handmadeSoap/coal_soap.jpeg'
       },
       {
         label: 'Coffee Soap',
         size: 'Handmade',
         containerSize: '100g',
-        cardClass: 'brown-card',
-        boxClass: 'brown-box',
+        cardClass: 'gray-card',
+        boxClass: 'gray-box',
         imageUrl: 'assets/products/handmadeSoap/coffee_soap.jpeg'
       },
       {
@@ -99,40 +99,40 @@ export class PersonalCare {
         label: 'Orange Soap',
         size: 'Handmade',
         containerSize: '100g',
-        cardClass: 'orange-card',
-        boxClass: 'orange-box',
+        cardClass: 'gray-card',
+        boxClass: 'gray-box',
         imageUrl: 'assets/products/handmadeSoap/orange_soap.jpeg'
       },
       {
         label: 'Rose Soap',
         size: 'Handmade',
         containerSize: '100g',
-        cardClass: 'pink-card',
-        boxClass: 'pink-box',
+        cardClass: 'green-card',
+        boxClass: 'green-box',
         imageUrl: 'assets/products/handmadeSoap/rose_soap.jpeg'
       },
       {
         label: 'Sandal Soap',
         size: 'Handmade',
         containerSize: '100g',
-        cardClass: 'beige-card',
-        boxClass: 'beige-box',
+        cardClass: 'gray-card',
+        boxClass: 'gray-box',
         imageUrl: 'assets/products/handmadeSoap/sandal_soap.jpeg'
       },
       {
         label: 'Cucumber & Aloe vera Soap',
         size: 'Handmade',
         containerSize: '100g',
-        cardClass: 'beige-card',
-        boxClass: 'beige-box',
+        cardClass: 'green-card',
+        boxClass: 'green-box',
         imageUrl: 'assets/products/handmadeSoap/Handmade Soap Cucumber & Aloe vera.jpg'
       },
       {
         label: 'Shea Butter Soap',
         size: 'Handmade',
         containerSize: '100g',
-        cardClass: 'beige-card',
-        boxClass: 'beige-box',
+        cardClass: 'gray-card',
+        boxClass: 'gray-box',
         imageUrl: 'assets/products/handmadeSoap/Handmade Soap Shea Butter.jpg'
       }
     ],

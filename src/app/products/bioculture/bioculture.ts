@@ -192,77 +192,115 @@ export class Bioculture {
   productImages: { [key: string]: ProductImage[] } = {
     stp: [
       {
-        label: 'Car Wash Shampoo',
-        size: '500 mL Bottle',
-        containerSize: '500mL',
+        label: 'STP',
+        size: '1 Kg Container',
+        containerSize: '1 Kg',
         cardClass: 'blue-card',
         boxClass: 'blue-box',
-        imageUrl: 'assets/products/biocul/stp/Car-Wash-Shampoo_500mL.jpeg'
+        imageUrl: 'assets/products/biocul/stp/STP 1 Kg.png'
       },
       {
-        label: 'Car Wash Shampoo',
-        size: '5L Container',
-        containerSize: '5L',
+        label: 'STP',
+        size: '5 Kg Container',
+        containerSize: '5 Kg',
         cardClass: 'gray-card',
         boxClass: 'gray-box',
-        imageUrl: 'assets/products/biocul/stp/Car-Wash-Shampoo_5L.jpeg'
+        imageUrl: 'assets/products/biocul/stp/STP 5 Kg.png'
       },
       {
-        label: 'Dashboard Polish',
-        size: '5L Container',
-        containerSize: '5L',
+        label: 'STP',
+        size: '50 Kg Container',
+        containerSize: '50 Kg',
         cardClass: 'blue-card',
         boxClass: 'blue-box',
-        imageUrl: 'assets/products/biocul/stp/Dashboard-Polish_5L.jpg.jpeg'
-      },
+        imageUrl: 'assets/products/biocul/stp/STP 50 Kg.png'
+      }
+    ],
+    etp: [
       {
-        label: 'Car Tyre Polish',
-        size: '5L Container',
-        containerSize: '5L',
+        label: 'ETP',
+        size: '1 Kg Container',
+        containerSize: '1 Kg',
         cardClass: 'blue-card',
         boxClass: 'blue-box',
-        imageUrl: 'assets/products/biocul/stp/Car-Tyre-Polish_5L.jpeg'
+        imageUrl: 'assets/products/biocul/etp/ETP 1 Kg.png'
       },
       {
-        label: 'Automobile Polish',
-        size: '5L Container',
-        containerSize: '5L',
+        label: 'ETP',
+        size: '5 Kg Container',
+        containerSize: '5 Kg',
         cardClass: 'gray-card',
         boxClass: 'gray-box',
-        imageUrl: 'assets/products/biocul/stp/Automobile-Polish_5L.jpg.jpeg'
+        imageUrl: 'assets/products/biocul/etp/ETP 5 Kg.png'
       },
       {
-        label: 'Tyre Polish',
-        size: '500 mL Bottle',
-        containerSize: '500mL',
+        label: 'ETP',
+        size: '50 Kg Container',
+        containerSize: '50 Kg',
         cardClass: 'green-card',
         boxClass: 'green-box',
-        imageUrl: 'assets/products/biocul/stp/Tyre-Polish_500mL.jpg.jpeg'
+        imageUrl: 'assets/products/biocul/etp/ETP 50 Kg.png'
+      }
+    ],
+    speticTank: [
+      {
+        label: 'Septic Tank-Bioseptic',
+        size: '5 Kg Container',
+        containerSize: '5 Kg',
+        cardClass: 'blue-card',
+        boxClass: 'blue-box',
+        imageUrl: 'assets/products/biocul/septic/Septic Tank-Bioseptic.jpg'
       },
-      // {
-      //   label: 'Seat Polish',
-      //   size: '5L Container',
-      //   containerSize: '5L',
-      //   cardClass: 'blue-card',
-      //   boxClass: 'blue-box',
-      //   imageUrl: 'assets/products/biocul/stp/Seat-Polish_5L-150x150.jpg.jpeg'
-      // },
-      // {
-      //   label: 'Water Less Car Wash',
-      //   size: '500 mL Bottle',
-      //   containerSize: '500mL',
-      //   cardClass: 'gray-card',
-      //   boxClass: 'gray-box',
-      //   imageUrl: 'assets/products/biocul/stp/Water-Less-Car-Wash_500mL.jpeg'
-      // },
-      // {
-      //   label: 'Car Wash Shampoo',
-      //   size: '5L Container',
-      //   containerSize: '5L',
-      //   cardClass: 'blue-card',
-      //   boxClass: 'blue-box',
-      //   imageUrl: 'assets/products/biocul/stp/Car-Wash-Shampoo_5L-150x150.jpeg'
-      // },
+      {
+        label: 'Septic tank bioculture',
+        size: '',
+        containerSize: '',
+        cardClass: 'gray-card',
+        boxClass: 'gray-box',
+        imageUrl: 'assets/products/biocul/septic/Septic tank bioculture.png'
+      },
+      {
+        label: 'Septic Tank-Bioseptic50',
+        size: '50 Kg Container',
+        containerSize: '50 Kg',
+        cardClass: 'blue-card',
+        boxClass: 'blue-box',
+        imageUrl: 'assets/products/biocul/septic/Septic Tank-Bioseptic50.jpg'
+      },
+      {
+        label: 'Septic Tank-EMH',
+        size: '5 Kg Container',
+        containerSize: '5 Kg',
+        cardClass: 'blue-card',
+        boxClass: 'blue-box',
+        imageUrl: 'assets/products/biocul/septic/Septic Tank-EMH.jpg'
+      },
+      {
+        label: 'Septic Tank-EMH50',
+        size: '50 Kg Container',
+        containerSize: '50 Kg',
+        cardClass: 'gray-card',
+        boxClass: 'gray-box',
+        imageUrl: 'assets/products/biocul/septic/Septic Tank-EMH50.jpg'
+      },
+      {
+        label: 'Septic Tank-Pipe',
+        size: '5 Kg Container',
+        containerSize: '5 Kg',
+        cardClass: 'blue-card',
+        boxClass: 'blue-box',
+        imageUrl: 'assets/products/biocul/septic/Septic Tank-Pipe.jpg'
+      },
+      {
+        label: 'Septic Tank-Pipe50',
+        size: '50 Kg Container',
+        containerSize: '50 Kg',
+        cardClass: 'blue-card',
+        boxClass: 'blue-box',
+        imageUrl: 'assets/products/biocul/septic/Septic Tank-Pipe50.jpg'
+      }
+    ],
+    pond: [
       // {
       //   label: 'Automobile Freshener',
       //   size: '250 mL Bottle',
@@ -286,7 +324,9 @@ export class Bioculture {
       //   cardClass: 'green-card',
       //   boxClass: 'green-box',
       //   imageUrl: 'assets/products/biocul/stp/Dashboard-Polish_5L.jpg.jpeg'
-      // },
+      // }
+    ],
+    deOdour: [
       // {
       //   label: 'Car Wash Shampoo',
       //   size: '500 mL Bottle',
@@ -310,160 +350,32 @@ export class Bioculture {
       //   cardClass: 'blue-card',
       //   boxClass: 'blue-box',
       //   imageUrl: 'assets/products/biocul/stp/Water-Less-Car-Wash_500mL.jpeg'
-      // },
-      // {
-      //   label: 'Automobile Polish',
-      //   size: '5L Container',
-      //   containerSize: '5L',
-      //   cardClass: 'blue-card',
-      //   boxClass: 'blue-box',
-      //   imageUrl: 'assets/products/biocul/stp/Automobile-Polish_5L.jpg.jpeg'
-      // },
-      // {
-      //   label: 'Seat Polish',
-      //   size: '5L Container',
-      //   containerSize: '5L',
-      //   cardClass: 'gray-card',
-      //   boxClass: 'gray-box',
-      //   imageUrl: 'assets/products/biocul/stp/Seat-Polish_5L-150x150.jpg.jpeg'
-      // },
-      // {
-      //   label: 'Automobile Freshener',
-      //   size: '250 mL Bottle',
-      //   containerSize: '250mL',
-      //   cardClass: 'green-card',
-      //   boxClass: 'green-box',
-      //   imageUrl: 'assets/products/biocul/stp/Automobile-Freshener_250mL-600x600.jpeg'
       // }
-    ],
-    etp: [
-      {
-        label: 'Car Tyre Polish',
-        size: '5L Container',
-        containerSize: '5L',
-        cardClass: 'blue-card',
-        boxClass: 'blue-box',
-        imageUrl: 'assets/products/biocul/stp/Car-Tyre-Polish_5L.jpeg'
-      },
-      {
-        label: 'Automobile Polish',
-        size: '5L Container',
-        containerSize: '5L',
-        cardClass: 'gray-card',
-        boxClass: 'gray-box',
-        imageUrl: 'assets/products/biocul/stp/Automobile-Polish_5L.jpg.jpeg'
-      },
-      {
-        label: 'Tyre Polish',
-        size: '500 mL Bottle',
-        containerSize: '500mL',
-        cardClass: 'green-card',
-        boxClass: 'green-box',
-        imageUrl: 'assets/products/biocul/stp/Tyre-Polish_500mL.jpg.jpeg'
-      }
-    ],
-    speticTank: [
-      {
-        label: 'Seat Polish',
-        size: '5L Container',
-        containerSize: '5L',
-        cardClass: 'blue-card',
-        boxClass: 'blue-box',
-        imageUrl: 'assets/products/biocul/stp/Seat-Polish_5L-150x150.jpg.jpeg'
-      },
-      {
-        label: 'Water Less Car Wash',
-        size: '500 mL Bottle',
-        containerSize: '500mL',
-        cardClass: 'gray-card',
-        boxClass: 'gray-box',
-        imageUrl: 'assets/products/biocul/stp/Water-Less-Car-Wash_500mL.jpeg'
-      },
-      {
-        label: 'Car Wash Shampoo',
-        size: '5L Container',
-        containerSize: '5L',
-        cardClass: 'blue-card',
-        boxClass: 'blue-box',
-        imageUrl: 'assets/products/biocul/stp/Car-Wash-Shampoo_5L-150x150.jpeg'
-      }
-    ],
-    pond: [
-      {
-        label: 'Automobile Freshener',
-        size: '250 mL Bottle',
-        containerSize: '250mL',
-        cardClass: 'blue-card',
-        boxClass: 'blue-box',
-        imageUrl: 'assets/products/biocul/stp/Automobile-Freshener_250mL-600x600.jpeg'
-      },
-      {
-        label: 'Car Tyre Polish',
-        size: '5L Container',
-        containerSize: '5L',
-        cardClass: 'gray-card',
-        boxClass: 'gray-box',
-        imageUrl: 'assets/products/biocul/stp/Car-Tyre-Polish_5L-150x150.jpeg'
-      },
-      {
-        label: 'Dashboard Polish',
-        size: '5L Container',
-        containerSize: '5L',
-        cardClass: 'green-card',
-        boxClass: 'green-box',
-        imageUrl: 'assets/products/biocul/stp/Dashboard-Polish_5L.jpg.jpeg'
-      }
-    ],
-    deOdour: [
-      {
-        label: 'Car Wash Shampoo',
-        size: '500 mL Bottle',
-        containerSize: '500mL',
-        cardClass: 'blue-card',
-        boxClass: 'blue-box',
-        imageUrl: 'assets/products/biocul/stp/Car-Wash-Shampoo_500mL.jpeg'
-      },
-      {
-        label: 'Tyre Polish',
-        size: '500 mL Bottle',
-        containerSize: '500mL',
-        cardClass: 'gray-card',
-        boxClass: 'gray-box',
-        imageUrl: 'assets/products/biocul/stp/Tyre-Polish_500mL.jpg.jpeg'
-      },
-      {
-        label: 'Water Less Car Wash',
-        size: '500 mL Bottle',
-        containerSize: '500mL',
-        cardClass: 'blue-card',
-        boxClass: 'blue-box',
-        imageUrl: 'assets/products/biocul/stp/Water-Less-Car-Wash_500mL.jpeg'
-      }
     ],
     bioNutrient: [
       {
-        label: 'Automobile Polish',
-        size: '5L Container',
-        containerSize: '5L',
+        label: 'Bionutrient',
+        size: '5 Kg Container',
+        containerSize: '5 Kg',
         cardClass: 'blue-card',
         boxClass: 'blue-box',
-        imageUrl: 'assets/products/biocul/stp/Automobile-Polish_5L.jpg.jpeg'
+        imageUrl: 'assets/products/biocul/Bionutrient/Bionutrient.jpg'
       },
       {
-        label: 'Seat Polish',
-        size: '5L Container',
-        containerSize: '5L',
+        label: 'Bionutrient',
+        size: '5 Kg Container',
+        containerSize: '5 Kg',
         cardClass: 'gray-card',
         boxClass: 'gray-box',
-        imageUrl: 'assets/products/biocul/stp/Seat-Polish_5L-150x150.jpg.jpeg'
+        imageUrl: 'assets/products/biocul/Bionutrient/Bionutrient_5Kg.jpeg'
       },
       {
-        label: 'Automobile Freshener',
-        size: '250 mL Bottle',
-        containerSize: '250mL',
+        label: 'Bionutrient',
+        size: '50 Kg Container',
+        containerSize: '50 Kg',
         cardClass: 'green-card',
         boxClass: 'green-box',
-        imageUrl: 'assets/products/biocul/stp/Automobile-Freshener_250mL-600x600.jpeg'
+        imageUrl: 'assets/products/biocul/Bionutrient/Bionutrient50.jpg'
       }
     ]
   };
