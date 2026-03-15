@@ -1,6 +1,6 @@
 import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
-import { Component, HostListener } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 interface Product {
   id: string;
   name: string;
@@ -35,6 +35,8 @@ interface ChemicalProduct {
   styleUrl: './agro.css'
 })
 export class Agro {
+
+  @ViewChild('bgVideo') bgVideo!: ElementRef<HTMLVideoElement>;
   selectedCategory: Category | null = null;
   selectedProduct: Product | null = null;
   chemicalInventory: ChemicalProduct[] = [];
@@ -534,6 +536,18 @@ export class Agro {
 
   ngOnInit() {
     this.initializeProductCatalog();
+  }
+
+  ngAfterViewInit() {
+    const video = this.bgVideo.nativeElement;
+    video.muted = true;
+
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        console.warn('Autoplay blocked');
+      });
+    }
   }
 
   openCategoryModal(category: Category): void {
