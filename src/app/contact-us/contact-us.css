@@ -1,24 +1,10 @@
 .zc-contact-page {
-    background: linear-gradient(135deg, #0f7c5f 0%, #1a9b7f 25%, #2ab896 50%, #1a9b7f 75%, #0f7c5f 100%);
-    background-size: 400% 400%;
-    animation: gradientShift 15s ease infinite;
     color: #ffffff;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     min-height: 100vh;
     position: relative;
-    /* overflow-x: hidden; */
-}
-
-@keyframes gradientShift {
-
-    0%,
-    100% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
+    background: url('../../assets/bckImg.png');
+    background-size: cover;
+    background-position: center;
 }
 
 /* Decorative elements */

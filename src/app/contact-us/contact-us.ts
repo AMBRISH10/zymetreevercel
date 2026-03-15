@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-contact-us',
@@ -39,7 +40,27 @@ export class ContactUs {
       this.contactForm.markAllAsTouched();
       return;
     }
-    console.log(this.contactForm.value);
+
+    const formData = this.contactForm.value;
+
+    // Get existing data
+    let contactList = JSON.parse(localStorage.getItem('contactDetails') || '[]');
+
+    // Add new data
+    contactList.push(formData);
+
+    // Save back to localStorage
+    localStorage.setItem('contactDetails', JSON.stringify(contactList));
+
+    // alert('✅ Your message has been submitted successfully!');
+    Swal.fire({
+      icon: 'success',
+      title: 'Submitted!',
+      text: 'Your enquiry has been sent successfully.',
+      confirmButtonColor: '#28a745'
+    });
+
+    this.contactForm.reset();
   }
 
   get remainingChars(): number {
