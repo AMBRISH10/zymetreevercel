@@ -55,16 +55,16 @@ export class Navbar {
   ];
 
   catalogMenu: MenuItem[] = [
-    {
-      label: 'Product Catalog',
-      link: 'assets/Docs/CREST-Brochure.pdf'
-    },
+    // {
+    //   label: 'Product Catalog',
+    //   link: 'assets/Docs/CREST-Brochure.pdf'
+    // },
     {
       label: 'Cold Processed Handmade soap',
       link: 'assets/Docs/ARAM_PURE_SOAP_CATALOGUE.pdf'
     },
     {
-      label: 'Bio-Culture',
+      label: 'Biofertilizers',
       link: 'assets/Docs/ARAN_Biofertilizers_Biocontrol.pdf'
     },
     {
@@ -111,13 +111,13 @@ export class Navbar {
       link: '/projects/improve'
     },
     {
-      image: 'assets/electro.webp',
+      image: 'assets/projects_coming.png',
       title: '',
       subtitle: '',
       link: ''
     },
     {
-      image: 'assets/MBR.jpg',
+      image: 'assets/projects_coming.png',
       title: '',
       subtitle: '',
       link: ''

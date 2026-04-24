@@ -44,6 +44,16 @@ export class CenteredCarousel {
       thumbnail: 'assets/products/Dishwash Gel Dark Background.png',
       full: 'assets/products/Dishwash Gel Dark Background.png',
       alt: 'Product 6'
+    },
+    {
+      thumbnail: 'assets/products/car items.jpg',
+      full: 'assets/products/car items.jpg',
+      alt: 'Product 7'
+    },
+    {
+      thumbnail: 'assets/products/Housekeeping/c2b8fc11-96e3-4ad0-a7c8-ac30976741cb.jpg',
+      full: 'assets/products/Housekeeping/c2b8fc11-96e3-4ad0-a7c8-ac30976741cb.jpg',
+      alt: 'Product 8'
     }
   ];
 
@@ -77,6 +87,11 @@ export class CenteredCarousel {
       thumbnail: 'assets/products/ARAN - NPK NPK Consortia Front 5 L.jpeg',
       full: 'assets/products/ARAN - NPK NPK Consortia Front 5 L.jpeg',
       alt: 'Product 12'
+    },
+    {
+      thumbnail: 'assets/products/Raw material/Slurry.jpg',
+      full: 'assets/products/Raw material/Slurry.jpg',
+      alt: 'Product 13'
     }
   ];
 

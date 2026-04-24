@@ -183,7 +183,9 @@ export class Agro {
           icon: 'bi-diagram-3-fill',
           color: '#94f050',
           image: ['assets/spl_products/ARAN - VAM Vasicular Arbuscular Mycorrhiza (VAM) Front 5 L.jpeg',
-            'assets/spl_products/ARAN - VAM Vasicular Arbuscular Mycorrhiza (VAM) Back 5 L.jpeg'
+            'assets/spl_products/ARAN - VAM Vasicular Arbuscular Mycorrhiza (VAM) Back 5 L.jpeg',
+            'assets/spl_products/ARAN - VAM Vasicular Arbuscular Mycorrhiza (VAM) Front 1 L.jpg',
+            'assets/spl_products/ARAN - VAM Vasicular Arbuscular Mycorrhiza (VAM) Back 1 L.jpg'
           ],
           targetCrops: 'Fruit crops, Vegetables, Plantation crops',
           keyFeatures: ['Increases nutrient uptake', 'Enhances drought tolerance', 'Extends root system'],
@@ -198,7 +200,9 @@ export class Agro {
           color: '#2d5016',
           image: [
             'assets/spl_products/ARAN - NPK NPK Consortia Front 5 L.jpeg',
-            'assets/spl_products/ARAN - NPK NPK Consortia Back 5 L.jpeg'
+            'assets/spl_products/ARAN - NPK NPK Consortia Back 5 L.jpeg',
+            'assets/spl_products/ARAN - NPK NPK Consortia Front 1 L.jpg',
+            'assets/spl_products/ARAN - NPK NPK Consortia Back 1 L.jpg'
           ],
           targetCrops: 'All crops',
           keyFeatures: ['Complete nutrition', 'Multiple benefits', 'Cost-effective'],
@@ -366,7 +370,9 @@ export class Agro {
           icon: 'bi-virus',
           color: '#5ea332',
           image: ['assets/spl_products/NPR 1 F.jpeg',
-            'assets/spl_products/NPR 1 B.jpeg'
+            'assets/spl_products/NPR 1 B.jpeg',
+            'assets/spl_products/ARAN - NPR I (Root) Front 1 L.jpg',
+            'assets/spl_products/ARAN - NPR I (Root) Back 1 L.jpg'
           ],
           targetCrops: 'All crops',
           keyFeatures: ['Controls insects naturally', 'Safe for beneficial insects', 'Long-lasting effect'],
@@ -385,7 +391,9 @@ export class Agro {
           icon: 'bi-virus',
           color: '#5ea332',
           image: ['assets/spl_products/NPR 2 F.jpeg',
-            'assets/spl_products/NPR 2 B.jpeg'
+            'assets/spl_products/NPR 2 B.jpeg',
+            'assets/spl_products/ARAN - NPR II (Foliar Spray) Front 1 L.jpg',
+            'assets/spl_products/ARAN - NPR II (Foliar Spray) Back 1 L.jpg'
           ],
           targetCrops: 'All crops',
           keyFeatures: ['Controls insects naturally', 'Safe for beneficial insects', 'Long-lasting effect'],
@@ -417,7 +425,11 @@ export class Agro {
           description: 'Enriched compost with beneficial microorganisms',
           icon: 'bi-basket3-fill',
           color: '#2d5016',
-          image: ['assets/image.jpeg'],
+          image: [
+            'assets/image.jpeg',
+            'assets/products/Aran Bio enriched organic compost.jpeg',
+            'assets/products/Bio Enriched Organic Compost 5 Kg.jpg'
+          ],
           keyFeatures: ['Rich in organic matter', 'Contains beneficial microbes', 'Improves soil structure', 'Slow nutrient release'],
           applicationMethod: ['Mix with soil during planting or top dressing'],
           dosage: '5-10 kg per plant or 500-1000 kg per acre'
@@ -450,7 +462,7 @@ export class Agro {
           description: 'Traditional organic manure for all crops',
           icon: 'bi-tree-fill',
           color: '#5ea332',
-          image: ['assets/products/Aran Bio enriched organic compost.jpeg'],
+          image: ['assets/products/Aran Organic Manure.jpeg'],
           keyFeatures: ['Natural nutrition source', 'Improves soil texture', 'Long-lasting benefits', 'Environmentally safe'],
           applicationMethod: ['Apply before planting or as top dressing'],
           dosage: '5-10 tons per acre'

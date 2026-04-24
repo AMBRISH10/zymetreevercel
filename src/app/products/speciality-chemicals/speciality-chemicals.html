@@ -26,7 +26,7 @@
                             <i class="{{treatment.icon}} text-white"></i>
                         </div>
                         <h5 class="card-title fw-bold mb-3" style="color: white;">{{treatment.title}}</h5>
-                        <p class="card-text text-muted" style="color: white;">{{treatment.description}}</p>
+                        <p class="card-text" style="color: white;">{{treatment.description}}</p>
                         <div class="button_slide slide_right">Read More.. </div>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                     <i [class]="'bi ' + product.icon"></i>
                 </div>
                 <h5 class="product-title">Zymetreat {{ product.name }}</h5>
-                <p class="product-subtitle text-muted">{{ product.fullName }}</p>
+                <p class="product-subtitle">{{ product.fullName }}</p>
                 <p class="product-description">{{ product.description }}</p>
                 <span class="view-details">
                     View Details <i class="bi bi-arrow-right ms-1"></i>
@@ -94,7 +94,7 @@
                     <h4 class="modal-title">
                         <i class="bi bi-water me-2"></i>{{ selectedCategory.title }}
                     </h4>
-                    <p class="text-muted mb-0">{{ selectedCategory.subtitle }}</p>
+                    <p class="mb-0">{{ selectedCategory.subtitle }}</p>
                 </div>
                 <button type="button" class="btn-close" (click)="closeCategoryModal()"></button>
             </div>
@@ -123,7 +123,7 @@
                                 <i [class]="'bi ' + product.icon"></i>
                             </div>
                             <h6 class="mb-1">{{ product.name }}</h6>
-                            <p class="small text-muted mb-2">{{ product.fullName }}</p>
+                            <p class="small mb-2">{{ product.fullName }}</p>
                             <p class="small mb-0">{{ product.description }}</p>
                         </div>
                     </div>

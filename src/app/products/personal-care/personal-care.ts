@@ -44,11 +44,11 @@ export class PersonalCare {
     handmadeSoap: [
       { name: 'Aloevera Soap', desc: 'Soothing & Moisturizing' },
       { name: 'Coal Soap', desc: 'Deep Cleansing & Detox' },
-      { name: 'Coffee Soap', desc: 'Exfoliating & Energizing' },
+      { name: 'Coco & Coffee', desc: 'Exfoliating & Energizing' },
       { name: 'Neem Soap', desc: 'Antibacterial & Purifying' },
-      { name: 'Orange Soap', desc: 'Brightening & Refreshing' },
+      { name: 'Cane Sugar and Orange Peel', desc: 'Brightening & Refreshing' },
       { name: 'Rose Soap', desc: 'Gentle & Aromatic' },
-      { name: 'Sandal Soap', desc: 'Calming & Nourishing' }
+      { name: 'Sandalwood', desc: 'Calming & Nourishing' }
     ],
     sanitaryNapkin: [
       { name: '100% Cotton Pads', desc: 'Regular Flow' },
@@ -64,7 +64,7 @@ export class PersonalCare {
   productImages: { [key: string]: ProductImage[] } = {
     handmadeSoap: [
       {
-        label: 'Aloevera Soap',
+        label: 'Aloevera',
         size: 'Handmade',
         containerSize: '100g',
         cardClass: 'gray-card',
@@ -72,7 +72,7 @@ export class PersonalCare {
         imageUrl: 'assets/products/handmadeSoap/aloevera_soap.jpeg'
       },
       {
-        label: 'Activated Charcoal Soap',
+        label: 'Activated Charcoal',
         size: 'Handmade',
         containerSize: '100g',
         cardClass: 'green-card',
@@ -80,7 +80,7 @@ export class PersonalCare {
         imageUrl: 'assets/products/handmadeSoap/coal_soap.jpeg'
       },
       {
-        label: 'Coffee Soap',
+        label: 'Coco & Coffee',
         size: 'Handmade',
         containerSize: '100g',
         cardClass: 'gray-card',
@@ -88,7 +88,7 @@ export class PersonalCare {
         imageUrl: 'assets/products/handmadeSoap/coffee_soap.jpeg'
       },
       {
-        label: 'Neem Soap',
+        label: 'Neem',
         size: 'Handmade',
         containerSize: '100g',
         cardClass: 'green-card',
@@ -96,7 +96,7 @@ export class PersonalCare {
         imageUrl: 'assets/products/handmadeSoap/neem_soap.jpeg'
       },
       {
-        label: 'Orange Soap',
+        label: 'Cane Sugar and Orange Peel',
         size: 'Handmade',
         containerSize: '100g',
         cardClass: 'gray-card',
@@ -104,7 +104,7 @@ export class PersonalCare {
         imageUrl: 'assets/products/handmadeSoap/orange_soap.jpeg'
       },
       {
-        label: 'Rose Soap',
+        label: 'Rose',
         size: 'Handmade',
         containerSize: '100g',
         cardClass: 'green-card',
@@ -112,7 +112,7 @@ export class PersonalCare {
         imageUrl: 'assets/products/handmadeSoap/rose_soap.jpeg'
       },
       {
-        label: 'Sandal Soap',
+        label: 'Sandalwood',
         size: 'Handmade',
         containerSize: '100g',
         cardClass: 'gray-card',
@@ -120,7 +120,7 @@ export class PersonalCare {
         imageUrl: 'assets/products/handmadeSoap/sandal_soap.jpeg'
       },
       {
-        label: 'Cucumber & Aloe vera Soap',
+        label: 'Cucumber & Aloe vera',
         size: 'Handmade',
         containerSize: '100g',
         cardClass: 'green-card',
@@ -128,7 +128,7 @@ export class PersonalCare {
         imageUrl: 'assets/products/handmadeSoap/Handmade Soap Cucumber & Aloe vera.jpg'
       },
       {
-        label: 'Shea Butter Soap',
+        label: 'Shea Butter',
         size: 'Handmade',
         containerSize: '100g',
         cardClass: 'gray-card',

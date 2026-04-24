@@ -37,7 +37,7 @@ export class Home {
     {
       id: 'products',
       title: 'Products',
-      subtitle: 'Eco-friendly microbial solutions',
+      subtitle: '',
       description: 'Our products are developed using advanced microbial consortia designed to improve waste treatment, soil health, and environmental sustainability. Safe, effective, and designed for industrial and domestic applications.',
       image: '../../assets/products.png',
       color: 'blue',
@@ -53,14 +53,14 @@ export class Home {
           id: 'prod2',
           title: 'BioCulture for Wastewater Treatment',
           description: 'High-performance bio culture solutions for efficient and eco-friendly wastewater treatment',
-          image: 'assets/bioculture.webp',
+          image: 'assets/products/bioculturewastewater.jpg',
           route: '/products/bioculture'
         },
         {
           id: 'prod3',
           title: 'Homecare/Housekeeping',
           description: 'High-quality home care and housekeeping solutions designed for superior cleanliness, hygiene, and long-lasting freshness.',
-          image: 'assets/agro.webp',
+          image: 'assets/products/honmecare.jpg',
           route: '/products/home-care-products'
         },
         {

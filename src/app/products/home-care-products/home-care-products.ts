@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { trigger, transition, style, animate } from '@angular/animations';
 interface Product {
   name: string;
@@ -31,6 +31,8 @@ interface ProductCategory {
   ]
 })
 export class HomeCareProducts {
+
+  @ViewChild('bgVideo') bgVideo!: ElementRef<HTMLVideoElement>;
   selectedImage: string = '';
   showModal: boolean = false;
   activeCategory: string = '';
@@ -156,6 +158,18 @@ export class HomeCareProducts {
       ]
     }
   ];
+
+  ngAfterViewInit() {
+    const video = this.bgVideo.nativeElement;
+    video.muted = true;
+
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        console.warn('Autoplay blocked');
+      });
+    }
+  }
 
   openImageModal(imagePath: string): void {
     this.selectedImage = imagePath;

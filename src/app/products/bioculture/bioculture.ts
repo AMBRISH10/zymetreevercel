@@ -60,55 +60,55 @@ export class Bioculture {
 
   chemical: chmProduct[] = [
     {
-      label: 'ZYMETREAT MG 01',
+      label: 'ZYMETREAT MG 01 pH Booster',
       size: '5 KG Container',
       containerSize: '5 KGs',
       imageUrl: 'assets/products/biocul/chemical/ZYMETREAT MG 01.jpg'
     },
     {
-      label: 'ZYMETREAT MG 02',
+      label: 'ZYMETREAT MG 02 Disinfectant',
       size: '5 KG Container',
       containerSize: '5 KGs',
       imageUrl: 'assets/products/biocul/chemical/ZYMETREAT MG 02.jpg'
     },
     {
-      label: 'ZYMETREAT MG 03',
+      label: 'ZYMETREAT MG 03 Polyelectrolyte',
       size: '5 KG Container',
       containerSize: '5 KGs',
       imageUrl: 'assets/products/biocul/chemical/ZYMETREAT MG 03.jpg'
     },
     {
-      label: 'ZYMETREAT MG 04',
+      label: 'ZYMETREAT MG 04 Flocculants',
       size: '5 KG Container',
       containerSize: '5 KGs',
       imageUrl: 'assets/products/biocul/chemical/ZYMETREAT MG 04.jpg'
     },
     {
-      label: 'ZYMETREAT MG 05',
+      label: 'ZYMETREAT MG 05 Coagulants',
       size: '5 KG Container',
       containerSize: '5 KGs',
       imageUrl: 'assets/products/biocul/chemical/ZYMETREAT MG 05.jpg'
     },
     {
-      label: 'ZYMETREAT MG 06',
+      label: 'ZYMETREAT MG 06 Defoaming Agents',
       size: '5 KG Container',
       containerSize: '5 KGs',
       imageUrl: 'assets/products/biocul/chemical/ZYMETREAT MG 06.jpg'
     },
     {
-      label: 'ZYMETREAT MG 07',
+      label: 'ZYMETREAT MG 07 Filteration Aids',
       size: '5 KG Container',
       containerSize: '5 KGs',
       imageUrl: 'assets/products/biocul/chemical/ZYMETREAT MG 07.jpg'
     },
     {
-      label: 'ZYMETREAT MG 08',
+      label: 'ZYMETREAT MG 08 Deodorant Agents',
       size: '5 KG Container',
       containerSize: '5 KGs',
       imageUrl: 'assets/products/biocul/chemical/ZYMETREAT MG 08.jpg'
     },
     {
-      label: 'ZYMETREAT MG 09',
+      label: 'ZYMETREAT MG 09 Decolourants',
       size: '5 KG Container',
       containerSize: '5 KGs',
       imageUrl: 'assets/products/biocul/chemical/ZYMETREAT MG 09.jpg'

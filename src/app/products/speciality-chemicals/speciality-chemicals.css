@@ -396,7 +396,7 @@
 
 /* Animated Text Entry */
 .hero-title {
-    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-size: 6rem;
     font-weight: bold;
     margin-bottom: 1.5rem;
     color: white;
@@ -404,6 +404,7 @@
     line-height: 1.2;
     opacity: 0;
     transform: translateY(30px);
+    border-bottom: 3px solid blue;
 }
 
 .carousel-item.active .hero-title {
